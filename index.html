@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootcamp: Crea tu página web con Inteligencia Artificial | Female Club</title>
+<meta name="description" content="Bootcamp gratuito del Female Club: aprende a crear y publicar tu propia página web usando inteligencia artificial, paso a paso y sin experiencia previa.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
+<meta property="og:title" content="Bootcamp: Crea tu página web con Inteligencia Artificial">
+<meta property="og:description" content="Aprende, paso a paso, a diseñar y publicar tu sitio web usando herramientas de IA. Sin costo, sin experiencia previa.">
+<meta property="og:image" content="/assets/favicon-512.png">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --rose-50:#fdf3f6;
+    --rose-100:#fbe4ec;
+    --rose-300:#f2b9d1;
+    --rose-500:#e17ba6;
+    --rose-600:#c85c8a;
+    --plum-700:#5b3358;
+    --plum-900:#2f1b34;
+    --lav-100:#f1ecf9;
+    --lav-300:#d9c9ee;
+    --gold-500:#cf9f4f;
+    --cream:#fffaf6;
+    --ink:#382338;
+    --ink-soft:#6b5468;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:Georgia,'Times New Roman',serif;
+    margin:0;
+    color:var(--plum-900);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,var(--plum-900) 0%,var(--plum-700) 45%,var(--rose-600) 100%);
+    color:#fff;
+    padding:64px 24px 88px;
+    text-align:center;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-120px; right:-120px;
+    width:340px; height:340px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(242,185,209,0.35), transparent 70%);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-160px; left:-100px;
+    width:380px; height:380px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(207,159,79,0.25), transparent 70%);
+  }
+  .eyebrow{
+    position:relative;
+    display:inline-block;
+    font-size:13px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.35);
+    padding:8px 18px;
+    border-radius:999px;
+    margin-bottom:26px;
+  }
+  .hero h1{
+    position:relative;
+    color:#fff;
+    font-size:clamp(30px,5vw,48px);
+    line-height:1.2;
+    max-width:760px;
+    margin:0 auto 20px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold-500);
+  }
+  .hero p.sub{
+    position:relative;
+    max-width:600px;
+    margin:0 auto;
+    font-size:18px;
+    color:var(--rose-100);
+  }
+  .hero .signature{
+    position:relative;
+    margin-top:34px;
+    font-size:15px;
+    color:rgba(255,255,255,0.8);
+    letter-spacing:0.5px;
+  }
+
+  /* SECTION GENERIC */
+  section{
+    padding:56px 24px;
+  }
+  .section-title{
+    text-align:center;
+    font-size:clamp(24px,3.4vw,32px);
+    margin-bottom:10px;
+  }
+  .section-lead{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 40px;
+    color:var(--ink-soft);
+    font-size:16px;
+  }
+
+  /* INTRO CARD */
+  .intro-card{
+    max-width:820px;
+    margin:-56px auto 0;
+    background:#fff;
+    border-radius:20px;
+    padding:38px 40px;
+    box-shadow:0 18px 40px rgba(91,51,88,0.14);
+    position:relative;
+    z-index:2;
+    text-align:center;
+  }
+  .intro-card p{
+    font-size:17px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .intro-card p + p{margin-top:14px;}
+
+  /* GALLERY */
+  .gallery-section{background:var(--lav-100);}
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+  }
+  .card{
+    background:#fff;
+    border-radius:16px;
+    padding:26px;
+    box-shadow:0 8px 22px rgba(91,51,88,0.08);
+    border:1px solid var(--lav-300);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(91,51,88,0.16);
+  }
+  .card .tag{
+    display:inline-block;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--rose-600);
+    background:var(--rose-50);
+    border:1px solid var(--rose-300);
+    padding:4px 10px;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+  .card h3{
+    font-size:19px;
+    margin-bottom:8px;
+  }
+  .card p{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin:0 0 16px;
+  }
+  .card a.link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--rose-600);
+    text-decoration:none;
+    border-bottom:1px solid var(--rose-300);
+    padding-bottom:2px;
+  }
+  .card a.link:hover{color:var(--plum-900);border-color:var(--plum-900);}
+
+  /* REQUISITOS */
+  .req-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+  }
+  .req-item{
+    background:#fff;
+    border-radius:16px;
+    padding:26px 22px;
+    text-align:center;
+    border:1px solid var(--rose-100);
+    box-shadow:0 6px 18px rgba(91,51,88,0.06);
+  }
+  .req-item .icon{
+    width:52px;height:52px;
+    margin:0 auto 14px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--rose-300),var(--rose-600));
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+  }
+  .req-item h3{font-size:16px;margin-bottom:6px;}
+  .req-item p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+
+  .note-box{
+    max-width:720px;
+    margin:34px auto 0;
+    background:var(--rose-50);
+    border:1px dashed var(--rose-300);
+    border-radius:14px;
+    padding:20px 24px;
+    text-align:center;
+    font-size:14.5px;
+    color:var(--plum-700);
+  }
+
+  /* DETAILS */
+  .details-section{
+    background:linear-gradient(135deg,var(--plum-900),var(--plum-700));
+    color:#fff;
+  }
+  .details-section .section-title,.details-section .section-lead{color:#fff;}
+  .details-section .section-lead{color:var(--lav-300);}
+  .details-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    max-width:900px;
+    margin:0 auto;
+  }
+  .detail-item{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:16px;
+    padding:24px 20px;
+    text-align:center;
+  }
+  .detail-item .icon{font-size:26px;margin-bottom:10px;}
+  .detail-item h3{color:#fff;font-size:15px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;}
+  .detail-item p{color:var(--lav-300);font-size:14.5px;margin:0;}
+
+  /* CTA */
+  .cta-section{
+    text-align:center;
+    padding:70px 24px;
+  }
+  .cta-section h2{font-size:clamp(24px,3.2vw,30px);margin-bottom:14px;}
+  .cta-section p{color:var(--ink-soft);max-width:520px;margin:0 auto 28px;}
+  .btn{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--rose-500),var(--rose-600));
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:16px;
+    padding:16px 38px;
+    border-radius:999px;
+    box-shadow:0 12px 26px rgba(200,92,138,0.35);
+    transition:transform .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+
+  footer{
+    text-align:center;
+    padding:30px 24px 46px;
+    color:var(--ink-soft);
+    font-size:13px;
+  }
+  footer .heart{color:var(--rose-600);}
+
+  @media (max-width:600px){
+    .intro-card{padding:28px 22px;margin:-40px 12px 0;}
+    section{padding:44px 18px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <span class="eyebrow">Female Club · Bootcamp</span>
+    <h1>Crea tu propia página web con <em>Inteligencia Artificial</em></h1>
+    <p class="sub">Aprende, paso a paso, a diseñar y publicar tu sitio web usando herramientas de IA — sin que se note que es IA.</p>
+    <p class="signature">Dictado por Carolina</p>
+  </div>
+
+  <div class="wrap">
+    <div class="intro-card">
+      <p>Este bootcamp está dictado por mí y pensado para las mujeres del Female Club que quieren tener su propia página web, pero no saben por dónde empezar.</p>
+      <p>Te voy a mostrar en vivo todo lo que se puede lograr hoy con inteligencia artificial: te voy a compartir ejemplos reales de sitios creados con estas herramientas, para que veas el resultado antes de animarte a crear el tuyo.</p>
+    </div>
+  </div>
+
+  <section class="gallery-section">
+    <div class="wrap">
+      <h2 class="section-title">Mira lo que puedes lograr con IA</h2>
+      <p class="section-lead">Estos son algunos sitios reales construidos con inteligencia artificial. Míralos con calma: este es el tipo de resultado al que puedes llegar en el bootcamp.</p>
+
+      <div class="gallery">
+
+        <div class="card">
+          <span class="tag">Arte y bienestar</span>
+          <h3>Josefina Fainé Arte</h3>
+          <p>Sitio de una artista y arte-terapeuta: talleres de acuarela y experiencias de bienestar creativo. Diseño cálido, minimalista y con foco en imágenes.</p>
+          <a class="link" href="https://www.josefinafainearte.cl/" target="_blank" rel="noopener">Ver sitio →</a>
+        </div>
+
+        <div class="card">
+          <span class="tag">Viajes con IA</span>
+          <h3>Tripsy</h3>
+          <p>Plataforma de viajes potenciada por inteligencia artificial, para viajeros y para agencias. Diseño limpio y moderno, enfocado en simplicidad.</p>
+          <a class="link" href="https://tripsy-app.com/es" target="_blank" rel="noopener">Ver sitio →</a>
+        </div>
+
+        <div class="card">
+          <span class="tag">Educación en IA</span>
+          <h3>Savia</h3>
+          <p>Plataforma de capacitación en inteligencia artificial para equipos profesionales de seguros, legal, salud y finanzas. Diseño sobrio y elegante.</p>
+          <a class="link" href="https://www.saviapp.cl/" target="_blank" rel="noopener">Ver sitio →</a>
+        </div>
+
+        <div class="card">
+          <span class="tag">Herramienta para negocios</span>
+          <h3>Tripsy para Agencias</h3>
+          <p>Convierte cotizaciones de viaje en propuestas profesionales con IA. Diseño minimalista con acentos de color y estructura muy clara.</p>
+          <a class="link" href="https://www.tripsyapp.cl/" target="_blank" rel="noopener">Ver sitio →</a>
+        </div>
+
+        <div class="card">
+          <span class="tag">Asistente de IA</span>
+          <h3>Iris by Tripsy</h3>
+          <p>Asistente de inteligencia artificial que arma itinerarios de viaje personalizados a partir de tus gustos y presupuesto. Estética moderna en tonos turquesa.</p>
+          <a class="link" href="https://www.irisbytripsy.com/" target="_blank" rel="noopener">Ver sitio →</a>
+        </div>
+
+        <div class="card">
+          <span class="tag">Landing de conversión</span>
+          <h3>Iris · Empezar</h3>
+          <p>Página donde la persona usuaria comienza a armar su viaje ideal en minutos. Un buen ejemplo de landing enfocada en la acción.</p>
+          <a class="link" href="https://www.irisbytripsy.com/empezar" target="_blank" rel="noopener">Ver sitio →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">Requisitos para participar</h2>
+      <p class="section-lead">Antes del bootcamp, necesitas tener listo lo siguiente:</p>
+
+      <div class="req-grid">
+        <div class="req-item">
+          <div class="icon">🐙</div>
+          <h3>Cuenta de GitHub</h3>
+          <p>Gratuita, en github.com</p>
+        </div>
+        <div class="req-item">
+          <div class="icon">▲</div>
+          <h3>Cuenta de Vercel</h3>
+          <p>Gratuita, en vercel.com</p>
+        </div>
+        <div class="req-item">
+          <div class="icon">✨</div>
+          <h3>Codex o Claude Code</h3>
+          <p>Alguna de las dos herramientas de IA instalada</p>
+        </div>
+        <div class="req-item">
+          <div class="icon">💻</div>
+          <h3>Visual Studio Code</h3>
+          <p>Descargado en tu computador</p>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>¿No requiere experiencia previa?</strong><br>
+        No necesitas saber programar ni diseñar. Solo es importante conocer o haberte familiarizado antes con herramientas de inteligencia artificial (por ejemplo, ChatGPT o Claude).
+      </div>
+    </div>
+  </section>
+
+  <section class="details-section">
+    <div class="wrap">
+      <h2 class="section-title">Detalles del bootcamp</h2>
+      <p class="section-lead">Todo lo que necesitas saber para inscribirte</p>
+
+      <div class="details-grid">
+        <div class="detail-item">
+          <div class="icon">📍</div>
+          <h3>Lugar</h3>
+          <p>Normalmente se realiza en la casa de Carolina. La dirección exacta se confirma a quienes se inscriban.</p>
+        </div>
+        <div class="detail-item">
+          <div class="icon">🗓️</div>
+          <h3>Fecha</h3>
+          <p>Por confirmar. Se avisará a todas las inscritas con anticipación.</p>
+        </div>
+        <div class="detail-item">
+          <div class="icon">💰</div>
+          <h3>Costo</h3>
+          <p>Sin costo. Solo debes inscribirte.</p>
+        </div>
+        <div class="detail-item">
+          <div class="icon">🎤</div>
+          <h3>Dictado por</h3>
+          <p>Carolina</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <h2>¿Lista para crear tu propia página web?</h2>
+      <p>Inscríbete sin costo y asegura tu cupo. Apenas se confirme la fecha, te avisaremos por este mismo medio.</p>
+      <a class="btn" href="mailto:carolina@tripsy-app.com?subject=Quiero%20inscribirme%20al%20Bootcamp%20de%20p%C3%A1ginas%20web%20con%20IA&body=Hola%20Carolina%2C%20quiero%20inscribirme%20al%20bootcamp%20de%20p%C3%A1ginas%20web%20con%20IA." target="_blank" rel="noopener">Quiero inscribirme</a>
+    </div>
+  </section>
+
+  <footer>
+    Female Club <span class="heart">♥</span> Bootcamp de páginas web con Inteligencia Artificial
+  </footer>
+
+</body>
+</html>
