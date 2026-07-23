@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bootcamp: Crea tu página web con Inteligencia Artificial | Female Club</title>
 <meta name="description" content="Bootcamp gratuito del Female Club: aprende a crear y publicar tu propia página web usando inteligencia artificial, paso a paso y sin experiencia previa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
@@ -29,423 +32,735 @@
     --cream:#fffaf6;
     --ink:#382338;
     --ink-soft:#6b5468;
+    --white-soft:rgba(255,255,255,0.82);
+    --shadow-soft:0 20px 45px rgba(91,51,88,0.14);
   }
+
   *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   html,body{margin:0;padding:0;}
   body{
-    font-family:'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    background:var(--cream);
+    font-family:"Space Grotesk",sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(217,201,238,0.35), transparent 28%),
+      linear-gradient(180deg, #fffdfb 0%, var(--cream) 100%);
     color:var(--ink);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{
-    font-family:Georgia,'Times New Roman',serif;
     margin:0;
     color:var(--plum-900);
+    font-family:"Fraunces",serif;
+    font-weight:600;
+    line-height:1.1;
   }
+  p{margin:0;}
   a{color:inherit;}
   img{max-width:100%;display:block;}
 
-  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+  .wrap{
+    width:min(1120px, calc(100% - 40px));
+    margin:0 auto;
+  }
 
-  /* HERO */
+  .eyebrow,
+  .tag,
+  .micro-label{
+    font-family:"JetBrains Mono",monospace;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+  }
+
   .hero{
     position:relative;
     overflow:hidden;
-    background:linear-gradient(135deg,var(--plum-900) 0%,var(--plum-700) 45%,var(--rose-600) 100%);
+    background:
+      radial-gradient(circle at 18% 18%, rgba(217,201,238,0.28), transparent 18%),
+      radial-gradient(circle at 82% 22%, rgba(207,159,79,0.22), transparent 16%),
+      linear-gradient(135deg, var(--plum-900) 0%, var(--plum-700) 52%, var(--rose-600) 100%);
     color:#fff;
-    padding:64px 24px 88px;
-    text-align:center;
+    padding:28px 0 88px;
   }
-  .hero::before{
-    content:"";
-    position:absolute;
-    top:-120px; right:-120px;
-    width:340px; height:340px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(242,185,209,0.35), transparent 70%);
-  }
+  .hero::before,
   .hero::after{
     content:"";
     position:absolute;
-    bottom:-160px; left:-100px;
-    width:380px; height:380px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(207,159,79,0.25), transparent 70%);
-  }
-  .eyebrow{
-    position:relative;
-    display:inline-block;
-    font-size:13px;
-    letter-spacing:2.5px;
-    text-transform:uppercase;
-    background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.35);
-    padding:8px 18px;
     border-radius:999px;
-    margin-bottom:26px;
+    pointer-events:none;
+  }
+  .hero::before{
+    inset:auto auto -110px -60px;
+    width:300px;
+    height:300px;
+    background:linear-gradient(135deg, rgba(217,201,238,0.18), rgba(242,185,209,0.02));
+    filter:blur(8px);
+  }
+  .hero::after{
+    inset:42px -120px auto auto;
+    width:340px;
+    height:340px;
+    border:1px solid rgba(255,255,255,0.12);
+    background:radial-gradient(circle, rgba(255,255,255,0.08), transparent 66%);
+  }
+  .hero-inner{
+    position:relative;
+    z-index:1;
+  }
+  .hero-logo{
+    width:min(250px, 52vw);
+    margin-bottom:24px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:minmax(0, 1.3fr) minmax(280px, 0.85fr);
+    gap:28px;
+    align-items:end;
+  }
+  .hero-copy,
+  .hero-panel{
+    animation:rise .75s ease both;
+  }
+  .hero-panel{animation-delay:.08s;}
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 16px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.08);
+    color:var(--white-soft);
+    font-size:11px;
+    margin-bottom:20px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--lav-300), var(--gold-500));
+    box-shadow:0 0 18px rgba(207,159,79,0.45);
   }
   .hero h1{
-    position:relative;
+    max-width:12ch;
     color:#fff;
-    font-size:clamp(30px,5vw,48px);
-    line-height:1.2;
-    max-width:760px;
-    margin:0 auto 20px;
+    font-size:clamp(2.7rem, 8vw, 5rem);
+    margin-bottom:18px;
   }
   .hero h1 em{
-    font-style:normal;
+    font-style:italic;
     color:var(--gold-500);
   }
-  .hero p.sub{
-    position:relative;
-    max-width:600px;
-    margin:0 auto;
-    font-size:18px;
+  .hero .sub{
+    max-width:58ch;
+    font-size:1.08rem;
     color:var(--rose-100);
   }
-  .hero .signature{
+  .hero-note{
+    margin-top:22px;
+    color:var(--white-soft);
+    font-size:0.98rem;
+  }
+  .hero-note strong{color:#fff;}
+  .hero-panel{
     position:relative;
-    margin-top:34px;
-    font-size:15px;
-    color:rgba(255,255,255,0.8);
-    letter-spacing:0.5px;
+    padding:28px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.09);
+    border:1px solid rgba(255,255,255,0.16);
+    box-shadow:0 20px 50px rgba(31,16,36,0.24);
+    backdrop-filter:blur(14px);
+  }
+  .hero-panel::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:inherit;
+    padding:1px;
+    background:linear-gradient(135deg, rgba(217,201,238,0.75), rgba(242,185,209,0.45), rgba(207,159,79,0.9));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+            mask-composite:exclude;
+    pointer-events:none;
+  }
+  .panel-kicker{
+    color:var(--lav-300);
+    font-size:11px;
+    margin-bottom:14px;
+  }
+  .panel-title{
+    color:#fff;
+    font-size:1.75rem;
+    margin-bottom:20px;
+  }
+  .panel-list{
+    display:grid;
+    gap:12px;
+    margin-bottom:22px;
+  }
+  .panel-item{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px;
+    align-items:start;
+  }
+  .panel-item strong{
+    color:#fff;
+    font-size:0.98rem;
+  }
+  .panel-item span{
+    display:block;
+    color:var(--white-soft);
+    font-size:0.92rem;
+  }
+  .panel-num{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:rgba(255,255,255,0.08);
+    color:var(--gold-500);
+    font-family:"JetBrains Mono",monospace;
+    font-size:0.78rem;
+  }
+  .hero-chip-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .hero-chip{
+    padding:9px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.1);
+    color:#fff;
+    font-size:0.76rem;
   }
 
-  /* SECTION GENERIC */
-  section{
-    padding:56px 24px;
-  }
-  .section-title{
-    text-align:center;
-    font-size:clamp(24px,3.4vw,32px);
-    margin-bottom:10px;
-  }
-  .section-lead{
-    text-align:center;
-    max-width:640px;
-    margin:0 auto 40px;
-    color:var(--ink-soft);
-    font-size:16px;
-  }
-
-  /* INTRO CARD */
-  .intro-card{
-    max-width:820px;
-    margin:-56px auto 0;
-    background:#fff;
-    border-radius:20px;
-    padding:38px 40px;
-    box-shadow:0 18px 40px rgba(91,51,88,0.14);
+  .intro-shell{
+    margin-top:-42px;
     position:relative;
     z-index:2;
-    text-align:center;
   }
-  .intro-card p{
-    font-size:17px;
+  .intro-card{
+    display:grid;
+    grid-template-columns:minmax(0, 1.15fr) minmax(220px, 0.7fr);
+    gap:22px;
+    align-items:start;
+    background:rgba(255,255,255,0.94);
+    border:1px solid rgba(217,201,238,0.7);
+    border-radius:28px;
+    padding:30px;
+    box-shadow:var(--shadow-soft);
+  }
+  .intro-copy{
     color:var(--ink-soft);
-    margin:0;
+    font-size:1rem;
   }
-  .intro-card p + p{margin-top:14px;}
+  .intro-copy p + p{margin-top:14px;}
+  .pull-quote{
+    border-radius:22px;
+    padding:22px;
+    background:linear-gradient(180deg, var(--rose-50), rgba(241,236,249,0.9));
+    border:1px solid var(--lav-300);
+  }
+  .pull-quote .micro-label{
+    color:var(--plum-700);
+    font-size:11px;
+    margin-bottom:10px;
+  }
+  .pull-quote p{
+    font-family:"Fraunces",serif;
+    font-size:1.3rem;
+    line-height:1.25;
+    color:var(--plum-900);
+  }
+  .pull-quote p em{
+    font-style:italic;
+    color:var(--rose-600);
+  }
 
-  /* GALLERY */
-  .gallery-section{background:var(--lav-100);}
+  section{
+    padding:78px 0;
+  }
+  .section-head{
+    display:grid;
+    gap:12px;
+    margin-bottom:34px;
+  }
+  .section-head.center{text-align:center;justify-items:center;}
+  .section-head .eyebrow{
+    margin:0;
+    color:var(--plum-700);
+    background:var(--rose-50);
+    border-color:var(--rose-100);
+  }
+  .section-head .eyebrow::before{box-shadow:none;}
+  .section-title{
+    font-size:clamp(2rem, 4vw, 3rem);
+  }
+  .section-lead{
+    max-width:56ch;
+    color:var(--ink-soft);
+    font-size:1rem;
+  }
+
+  .gallery-section{
+    background:
+      radial-gradient(circle at top right, rgba(217,201,238,0.5), transparent 24%),
+      var(--lav-100);
+  }
   .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
     gap:22px;
   }
   .card{
-    background:#fff;
-    border-radius:16px;
-    padding:26px;
-    box-shadow:0 8px 22px rgba(91,51,88,0.08);
-    border:1px solid var(--lav-300);
-    transition:transform .2s ease, box-shadow .2s ease;
+    display:grid;
+    gap:14px;
+    padding:24px;
+    border-radius:24px;
+    background:rgba(255,255,255,0.96);
+    border:1px solid rgba(217,201,238,0.82);
+    box-shadow:0 12px 30px rgba(91,51,88,0.08);
+    transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
   }
   .card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 30px rgba(91,51,88,0.16);
+    transform:translateY(-5px);
+    box-shadow:0 18px 38px rgba(91,51,88,0.14);
+    border-color:rgba(200,92,138,0.4);
   }
-  .card .tag{
-    display:inline-block;
-    font-size:11px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:var(--rose-600);
-    background:var(--rose-50);
-    border:1px solid var(--rose-300);
-    padding:4px 10px;
+  .tag{
+    display:inline-flex;
+    justify-self:start;
+    padding:6px 10px;
     border-radius:999px;
-    margin-bottom:14px;
+    background:var(--rose-50);
+    color:var(--rose-600);
+    border:1px solid var(--rose-100);
+    font-size:11px;
   }
-  .card h3{
-    font-size:19px;
-    margin-bottom:8px;
-  }
+  .card h3{font-size:1.38rem;}
   .card p{
-    font-size:14.5px;
     color:var(--ink-soft);
-    margin:0 0 16px;
+    font-size:0.96rem;
   }
   .card a.link{
     display:inline-flex;
     align-items:center;
-    gap:6px;
-    font-size:14px;
-    font-weight:600;
-    color:var(--rose-600);
+    gap:8px;
+    font-weight:700;
+    color:var(--plum-700);
     text-decoration:none;
-    border-bottom:1px solid var(--rose-300);
-    padding-bottom:2px;
   }
-  .card a.link:hover{color:var(--plum-900);border-color:var(--plum-900);}
+  .card a.link::after{
+    content:"↗";
+    color:var(--rose-600);
+  }
 
-  /* REQUISITOS */
-  .req-grid{
+  .requirements-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+    gap:18px;
   }
-  .req-item{
+  .requirement{
+    padding:24px;
+    border-radius:24px;
     background:#fff;
-    border-radius:16px;
-    padding:26px 22px;
-    text-align:center;
     border:1px solid var(--rose-100);
-    box-shadow:0 6px 18px rgba(91,51,88,0.06);
+    box-shadow:0 10px 26px rgba(91,51,88,0.06);
   }
-  .req-item .icon{
-    width:52px;height:52px;
-    margin:0 auto 14px;
-    border-radius:50%;
-    background:linear-gradient(135deg,var(--rose-300),var(--rose-600));
-    display:flex;align-items:center;justify-content:center;
-    font-size:22px;
+  .requirement .micro-label{
+    display:inline-block;
+    color:var(--rose-600);
+    font-size:11px;
+    margin-bottom:12px;
   }
-  .req-item h3{font-size:16px;margin-bottom:6px;}
-  .req-item p{font-size:13.5px;color:var(--ink-soft);margin:0;}
-
+  .requirement h3{
+    font-size:1.2rem;
+    margin-bottom:8px;
+  }
+  .requirement p{
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
   .note-box{
-    max-width:720px;
-    margin:34px auto 0;
+    margin-top:24px;
+    padding:22px 24px;
+    border-radius:22px;
     background:var(--rose-50);
-    border:1px dashed var(--rose-300);
-    border-radius:14px;
-    padding:20px 24px;
-    text-align:center;
-    font-size:14.5px;
+    border:1px dashed rgba(200,92,138,0.45);
     color:var(--plum-700);
   }
+  .note-box strong{
+    display:block;
+    margin-bottom:6px;
+    color:var(--plum-900);
+    font-family:"Fraunces",serif;
+    font-size:1.16rem;
+  }
 
-  /* DETAILS */
   .details-section{
-    background:linear-gradient(135deg,var(--plum-900),var(--plum-700));
+    background:
+      radial-gradient(circle at top left, rgba(217,201,238,0.12), transparent 24%),
+      linear-gradient(135deg, var(--plum-900) 0%, var(--plum-700) 100%);
     color:#fff;
   }
-  .details-section .section-title,.details-section .section-lead{color:#fff;}
+  .details-section .section-title,
+  .details-section .section-lead{color:#fff;}
   .details-section .section-lead{color:var(--lav-300);}
   .details-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    max-width:900px;
-    margin:0 auto;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:18px;
   }
   .detail-item{
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.18);
-    border-radius:16px;
-    padding:24px 20px;
-    text-align:center;
+    padding:24px;
+    border-radius:24px;
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.12);
   }
-  .detail-item .icon{font-size:26px;margin-bottom:10px;}
-  .detail-item h3{color:#fff;font-size:15px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;}
-  .detail-item p{color:var(--lav-300);font-size:14.5px;margin:0;}
+  .detail-item .micro-label{
+    display:block;
+    color:var(--gold-500);
+    font-size:11px;
+    margin-bottom:12px;
+  }
+  .detail-item h3{
+    color:#fff;
+    font-size:1.28rem;
+    margin-bottom:8px;
+  }
+  .detail-item p{
+    color:var(--lav-300);
+    font-size:0.95rem;
+  }
 
-  /* CTA */
-  .cta-section{
+  .cta-section{padding:84px 0 48px;}
+  .cta-card{
+    position:relative;
+    overflow:hidden;
+    padding:36px;
+    border-radius:32px;
+    background:
+      radial-gradient(circle at top right, rgba(207,159,79,0.16), transparent 24%),
+      linear-gradient(180deg, #fff 0%, var(--rose-50) 100%);
+    border:1px solid rgba(217,201,238,0.9);
+    box-shadow:var(--shadow-soft);
     text-align:center;
-    padding:70px 24px;
   }
-  .cta-section h2{font-size:clamp(24px,3.2vw,30px);margin-bottom:14px;}
-  .cta-section p{color:var(--ink-soft);max-width:520px;margin:0 auto 28px;}
+  .cta-card .micro-label{
+    color:var(--rose-600);
+    font-size:11px;
+    margin-bottom:12px;
+  }
+  .cta-card h2{
+    font-size:clamp(2rem, 4vw, 3rem);
+    margin-bottom:14px;
+  }
+  .cta-card p{
+    max-width:34ch;
+    margin:0 auto 24px;
+    color:var(--ink-soft);
+  }
   .btn{
-    display:inline-block;
-    background:linear-gradient(135deg,var(--rose-500),var(--rose-600));
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:58px;
+    padding:0 34px;
+    border-radius:999px;
+    background:linear-gradient(135deg, var(--rose-500), var(--rose-600));
     color:#fff;
     text-decoration:none;
-    font-weight:600;
-    font-size:16px;
-    padding:16px 38px;
-    border-radius:999px;
-    box-shadow:0 12px 26px rgba(200,92,138,0.35);
-    transition:transform .2s ease;
+    font-size:1rem;
+    font-weight:700;
+    box-shadow:0 16px 28px rgba(200,92,138,0.26);
+    transition:transform .2s ease, box-shadow .2s ease;
   }
-  .btn:hover{transform:translateY(-2px);}
-  .cta-fallback{font-size:13px;color:var(--ink-soft);margin:18px auto 0;}
-  .cta-fallback a{color:var(--rose-600);}
+  .btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 20px 34px rgba(200,92,138,0.34);
+  }
+  .cta-fallback{
+    margin-top:18px;
+    color:var(--ink-soft);
+    font-size:0.92rem;
+  }
+  .cta-fallback a{
+    color:var(--plum-700);
+    font-weight:700;
+  }
 
   footer{
-    text-align:center;
-    padding:30px 24px 46px;
-    color:var(--ink-soft);
-    font-size:13px;
+    padding:0 0 46px;
   }
-  footer .heart{color:var(--rose-600);}
+  .footer-shell{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding-top:22px;
+    border-top:1px solid rgba(91,51,88,0.12);
+  }
+  .footer-logo{width:min(250px, 54vw);}
+  .footer-copy{
+    color:var(--ink-soft);
+    font-size:0.9rem;
+    text-align:right;
+  }
 
-  @media (max-width:600px){
-    .intro-card{padding:28px 22px;margin:-40px 12px 0;}
-    section{padding:44px 18px;}
+  @keyframes rise{
+    from{
+      opacity:0;
+      transform:translateY(16px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  @media (max-width:900px){
+    .hero-grid,
+    .intro-card{
+      grid-template-columns:1fr;
+    }
+    .hero h1{max-width:unset;}
+    .hero-panel{max-width:560px;}
+  }
+
+  @media (max-width:640px){
+    .wrap{width:min(100% - 28px, 1120px);}
+    .hero{padding:24px 0 72px;}
+    .hero-logo{
+      width:min(220px, 56vw);
+      margin-bottom:20px;
+    }
+    .hero-panel,
+    .intro-card,
+    .cta-card{padding:24px;}
+    section{padding:64px 0;}
+    .footer-shell{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .footer-copy{text-align:left;}
   }
 </style>
 </head>
 <body>
 
-  <div class="hero">
-    <span class="eyebrow">Female Club · Bootcamp</span>
-    <h1>Crea tu propia página web con <em>Inteligencia Artificial</em></h1>
-    <p class="sub">Aprende, paso a paso, a diseñar y publicar tu sitio web usando herramientas de IA — sin que se note que es IA.</p>
-    <p class="signature">Dictado por Carolina</p>
-  </div>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <img class="hero-logo" src="assets/brand/logo-negativo.svg" alt="Female Club">
 
-  <div class="wrap">
-    <div class="intro-card">
-      <p>Este bootcamp está dictado por mí y pensado para las mujeres del Female Club que quieren tener su propia página web, pero no saben por dónde empezar.</p>
-      <p>Te voy a mostrar en vivo todo lo que se puede lograr hoy con inteligencia artificial: te voy a compartir ejemplos reales de sitios creados con estas herramientas, para que veas el resultado antes de animarte a crear el tuyo.</p>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Female Club · Bootcamp presencial</span>
+          <h1>Crea tu propia página web con <em>Inteligencia Artificial</em></h1>
+          <p class="sub">Aprende, paso a paso, a diseñar y publicar tu sitio web usando herramientas de IA. En un día ves el proceso completo y sales con un resultado real.</p>
+          <p class="hero-note"><strong>Dictado por Carolina.</strong> Cercano, claro y sin tecnicismos innecesarios.</p>
+        </div>
+
+        <aside class="hero-panel" aria-label="Resumen del bootcamp">
+          <div class="panel-kicker micro-label">Resultado concreto</div>
+          <h2 class="panel-title">Tu web publicada, aunque hoy partas de cero.</h2>
+          <div class="panel-list">
+            <div class="panel-item">
+              <div class="panel-num">01</div>
+              <div>
+                <strong>Lo ves en vivo</strong>
+                <span>Revisamos ejemplos reales y el proceso completo de creación con IA.</span>
+              </div>
+            </div>
+            <div class="panel-item">
+              <div class="panel-num">02</div>
+              <div>
+                <strong>Paso a paso</strong>
+                <span>Sin jerga rara: entenderás qué hacer, por qué hacerlo y cómo publicarlo.</span>
+              </div>
+            </div>
+            <div class="panel-item">
+              <div class="panel-num">03</div>
+              <div>
+                <strong>Con foco en tu proyecto</strong>
+                <span>La idea es que salgas lista para construir tu propia página web.</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-chip-row">
+            <span class="hero-chip micro-label">1 día</span>
+            <span class="hero-chip micro-label">Sin costo</span>
+            <span class="hero-chip micro-label">Grupo reducido</span>
+          </div>
+        </aside>
+      </div>
     </div>
+  </header>
+
+  <div class="wrap intro-shell">
+    <section class="intro-card" aria-label="Introducción">
+      <div class="intro-copy">
+        <p>Este bootcamp está pensado para las mujeres del Female Club que quieren tener su propia página web, pero todavía no saben por dónde empezar.</p>
+        <p>Te voy a mostrar en vivo todo lo que hoy se puede lograr con inteligencia artificial y te voy a compartir ejemplos reales de sitios creados con estas herramientas, para que veas el resultado antes de animarte a crear el tuyo.</p>
+      </div>
+      <aside class="pull-quote">
+        <div class="micro-label">Promesa de marca</div>
+        <p>Aprende a crear tu sitio <em>sin que se note que es IA</em>.</p>
+      </aside>
+    </section>
   </div>
 
   <section class="gallery-section">
     <div class="wrap">
-      <h2 class="section-title">Mira lo que puedes lograr con IA</h2>
-      <p class="section-lead">Estos son algunos sitios reales construidos con inteligencia artificial. Míralos con calma: este es el tipo de resultado al que puedes llegar en el bootcamp.</p>
+      <div class="section-head center">
+        <span class="eyebrow">Aplicaciones · Sitios reales</span>
+        <h2 class="section-title">Mira lo que puedes lograr con IA</h2>
+        <p class="section-lead">Estos son algunos sitios construidos con inteligencia artificial. Este es el tipo de resultado al que puedes llegar en el bootcamp.</p>
+      </div>
 
       <div class="gallery">
-
-        <div class="card">
+        <article class="card">
           <span class="tag">Arte y bienestar</span>
           <h3>Josefina Fainé Arte</h3>
           <p>Sitio de una artista y arte-terapeuta: talleres de acuarela y experiencias de bienestar creativo. Diseño cálido, minimalista y con foco en imágenes.</p>
-          <a class="link" href="https://www.josefinafainearte.cl/" target="_blank" rel="noopener">Ver sitio →</a>
-        </div>
+          <a class="link" href="https://www.josefinafainearte.cl/" target="_blank" rel="noopener">Ver sitio</a>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <span class="tag">Viajes con IA</span>
           <h3>Tripsy</h3>
-          <p>Plataforma de viajes potenciada por inteligencia artificial, para viajeros y para agencias. Diseño limpio y moderno, enfocado en simplicidad.</p>
-          <a class="link" href="https://tripsy-app.com/es" target="_blank" rel="noopener">Ver sitio →</a>
-        </div>
+          <p>Plataforma de viajes potenciada por inteligencia artificial, para viajeros y agencias. Diseño limpio y moderno, enfocado en simplicidad.</p>
+          <a class="link" href="https://tripsy-app.com/es" target="_blank" rel="noopener">Ver sitio</a>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <span class="tag">Educación en IA</span>
           <h3>Savia</h3>
           <p>Plataforma de capacitación en inteligencia artificial para equipos profesionales de seguros, legal, salud y finanzas. Diseño sobrio y elegante.</p>
-          <a class="link" href="https://www.saviapp.cl/" target="_blank" rel="noopener">Ver sitio →</a>
-        </div>
+          <a class="link" href="https://www.saviapp.cl/" target="_blank" rel="noopener">Ver sitio</a>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <span class="tag">Herramienta para negocios</span>
           <h3>Tripsy para Agencias</h3>
           <p>Convierte cotizaciones de viaje en propuestas profesionales con IA. Diseño minimalista con acentos de color y estructura muy clara.</p>
-          <a class="link" href="https://www.tripsyapp.cl/" target="_blank" rel="noopener">Ver sitio →</a>
-        </div>
+          <a class="link" href="https://www.tripsyapp.cl/" target="_blank" rel="noopener">Ver sitio</a>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <span class="tag">Asistente de IA</span>
           <h3>Iris by Tripsy</h3>
-          <p>Asistente de inteligencia artificial que arma itinerarios de viaje personalizados a partir de tus gustos y presupuesto. Estética moderna en tonos turquesa.</p>
-          <a class="link" href="https://www.irisbytripsy.com/" target="_blank" rel="noopener">Ver sitio →</a>
-        </div>
+          <p>Asistente de inteligencia artificial que arma itinerarios de viaje personalizados a partir de tus gustos y presupuesto. Estética moderna con foco en experiencia.</p>
+          <a class="link" href="https://www.irisbytripsy.com/" target="_blank" rel="noopener">Ver sitio</a>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <span class="tag">Landing de conversión</span>
           <h3>Iris · Empezar</h3>
-          <p>Página donde la persona usuaria comienza a armar su viaje ideal en minutos. Un buen ejemplo de landing enfocada en la acción.</p>
-          <a class="link" href="https://www.irisbytripsy.com/empezar" target="_blank" rel="noopener">Ver sitio →</a>
-        </div>
-
+          <p>Página donde una persona comienza a armar su viaje ideal en minutos. Un buen ejemplo de landing enfocada en la acción.</p>
+          <a class="link" href="https://www.irisbytripsy.com/empezar" target="_blank" rel="noopener">Ver sitio</a>
+        </article>
       </div>
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <h2 class="section-title">Requisitos para participar</h2>
-      <p class="section-lead">Antes del bootcamp, necesitas tener listo lo siguiente:</p>
+      <div class="section-head">
+        <span class="eyebrow">Checklist · Antes de venir</span>
+        <h2 class="section-title">Requisitos para participar</h2>
+        <p class="section-lead">Antes del bootcamp, necesitas tener listo lo siguiente para que aprovechemos la jornada desde el primer minuto.</p>
+      </div>
 
-      <div class="req-grid">
-        <div class="req-item">
-          <div class="icon">🐙</div>
-          <h3>Cuenta de GitHub</h3>
-          <p>Gratuita, en github.com</p>
-        </div>
-        <div class="req-item">
-          <div class="icon">▲</div>
-          <h3>Cuenta de Vercel</h3>
-          <p>Gratuita, en vercel.com</p>
-        </div>
-        <div class="req-item">
-          <div class="icon">✨</div>
+      <div class="requirements-grid">
+        <article class="requirement">
+          <span class="micro-label">01 · Cuenta</span>
+          <h3>GitHub</h3>
+          <p>Una cuenta gratuita en <a href="https://github.com/" target="_blank" rel="noopener">github.com</a>.</p>
+        </article>
+
+        <article class="requirement">
+          <span class="micro-label">02 · Publicación</span>
+          <h3>Vercel</h3>
+          <p>Una cuenta gratuita en <a href="https://vercel.com/" target="_blank" rel="noopener">vercel.com</a> para publicar tu sitio.</p>
+        </article>
+
+        <article class="requirement">
+          <span class="micro-label">03 · IA</span>
           <h3>Codex o Claude Code</h3>
-          <p>Alguna de las dos herramientas de IA instalada</p>
-        </div>
-        <div class="req-item">
-          <div class="icon">💻</div>
+          <p>Alguna de las dos herramientas de IA instalada y lista para usar.</p>
+        </article>
+
+        <article class="requirement">
+          <span class="micro-label">04 · Editor</span>
           <h3>Visual Studio Code</h3>
-          <p>Descargado en tu computador</p>
-        </div>
+          <p>Descargado en tu computador para editar, revisar y publicar tu página.</p>
+        </article>
       </div>
 
       <div class="note-box">
-        <strong>¿No requiere experiencia previa?</strong><br>
-        No necesitas saber programar ni diseñar. Solo es importante conocer o haberte familiarizado antes con herramientas de inteligencia artificial (por ejemplo, ChatGPT o Claude).
+        <strong>¿Sin experiencia previa?</strong>
+        No necesitas saber programar ni diseñar. Solo es importante que ya te hayas familiarizado con herramientas de inteligencia artificial, como ChatGPT o Claude.
       </div>
     </div>
   </section>
 
   <section class="details-section">
     <div class="wrap">
-      <h2 class="section-title">Detalles del bootcamp</h2>
-      <p class="section-lead">Todo lo que necesitas saber para inscribirte</p>
+      <div class="section-head">
+        <span class="eyebrow">Inscripción · Datos clave</span>
+        <h2 class="section-title">Detalles del bootcamp</h2>
+        <p class="section-lead">Todo lo que necesitas saber para asegurar tu cupo y llegar preparada el domingo 26 de julio de 2026 a las 15:00 hs.</p>
+      </div>
 
       <div class="details-grid">
-        <div class="detail-item">
-          <div class="icon">📍</div>
-          <h3>Lugar</h3>
+        <article class="detail-item">
+          <span class="micro-label">Ubicación</span>
+          <h3>Presencial</h3>
           <p>Normalmente se realiza en la casa de Carolina. La dirección exacta se confirma a quienes se inscriban.</p>
-        </div>
-        <div class="detail-item">
-          <div class="icon">🗓️</div>
-          <h3>Fecha</h3>
-          <p>Domingo 26 de julio, 15:00 hs.</p>
-        </div>
-        <div class="detail-item">
-          <div class="icon">💰</div>
-          <h3>Costo</h3>
-          <p>Sin costo. Solo debes inscribirte.</p>
-        </div>
-        <div class="detail-item">
-          <div class="icon">🎤</div>
-          <h3>Dictado por</h3>
-          <p>Carolina</p>
-        </div>
+        </article>
+
+        <article class="detail-item">
+          <span class="micro-label">Fecha</span>
+          <h3>Domingo 26 de julio</h3>
+          <p>Comenzamos a las 15:00 hs. y avanzamos juntas durante toda la sesión.</p>
+        </article>
+
+        <article class="detail-item">
+          <span class="micro-label">Costo</span>
+          <h3>Sin costo</h3>
+          <p>Solo necesitas inscribirte con tiempo para asegurar tu lugar en el grupo.</p>
+        </article>
+
+        <article class="detail-item">
+          <span class="micro-label">Facilitadora</span>
+          <h3>Carolina</h3>
+          <p>Con acompañamiento cercano, ejemplos reales y foco en que veas un resultado concreto.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <section class="cta-section">
     <div class="wrap">
-      <h2>¿Lista para crear tu propia página web?</h2>
-      <p>Inscríbete sin costo y asegura tu cupo para el domingo 26 de julio a las 15:00 hs.</p>
-      <a class="btn" href="https://wa.me/56983765019?text=Hola%20Carolina%2C%20quiero%20inscribirme%20al%20bootcamp%20de%20p%C3%A1ginas%20web%20con%20IA." target="_blank" rel="noopener">Quiero inscribirme</a>
-      <p class="cta-fallback">¿Prefieres correo? Escríbenos a <a href="mailto:carolina@tripsy-app.com?subject=Quiero%20inscribirme%20al%20Bootcamp%20de%20p%C3%A1ginas%20web%20con%20IA">carolina@tripsy-app.com</a></p>
+      <div class="cta-card">
+        <div class="micro-label">Cupos limitados</div>
+        <h2>¿Lista para crear tu propia página web?</h2>
+        <p>Inscríbete sin costo y asegura tu cupo para el domingo 26 de julio de 2026 a las 15:00 hs.</p>
+        <a class="btn" href="https://wa.me/56983765019?text=Hola%20Carolina%2C%20quiero%20inscribirme%20al%20bootcamp%20de%20p%C3%A1ginas%20web%20con%20IA." target="_blank" rel="noopener">Quiero inscribirme</a>
+        <p class="cta-fallback">¿Prefieres correo? Escríbenos a <a href="mailto:carolina@tripsy-app.com?subject=Quiero%20inscribirme%20al%20Bootcamp%20de%20p%C3%A1ginas%20web%20con%20IA">carolina@tripsy-app.com</a></p>
+      </div>
     </div>
   </section>
 
   <footer>
-    Female Club <span class="heart">♥</span> Bootcamp de páginas web con Inteligencia Artificial
+    <div class="wrap footer-shell">
+      <img class="footer-logo" src="assets/brand/logo-horizontal.svg" alt="Female Club">
+      <p class="footer-copy">Bootcamp de páginas web con Inteligencia Artificial. Un día, tu web publicada.</p>
+    </div>
   </footer>
 
 </body>
