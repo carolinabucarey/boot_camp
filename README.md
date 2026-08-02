@@ -1,23 +1,24 @@
-# Bootcamp: Crea tu página web con IA
+# [NOMBRE] · Mujeres creando futuro con tecnología
 
-Invitación al bootcamp del Female Club, dictado por Carolina.
+Sitio institucional estático para una iniciativa de acceso a tecnología dirigida a mujeres.
 
-**En vivo:** https://bootcamp-female-club.vercel.app
+## Contenido editable
 
-## Contenido
+Todo el contenido que cambiará con frecuencia vive en `config.js`:
 
-- `index.html` — la página completa (HTML + CSS en un solo archivo, sin build)
-- `favicon.ico` — ícono CBG en 16/32/48 px
-- `assets/` — el ícono en PNG (16, 32, 180 para iOS, 512 para compartir en redes)
+- `brand`: nombre temporal, descriptor, correo, URL pública y enlaces principales;
+- `programs`: programas, requisitos, estados, fechas y contenido del detalle;
+- `events`: encuentros (si la lista está vacía, se muestra el estado sin fechas);
+- `people`: profesoras y mentoras;
+- `impactIndicators`: indicadores de impacto verificados o pendientes.
 
-## Cómo editar
+## Páginas y estilos
 
-Abre `index.html` en el navegador para ver los cambios. No hay que instalar ni compilar nada.
+- `index.html`: página institucional completa;
+- `programa-web-ia.html`: detalle del programa de páginas web;
+- `privacidad.html` y `terminos.html`: bases legales que deben revisarse al formalizar la iniciativa;
+- `styles.css`: sistema visual responsive;
+- `script.js` y `program.js`: contenido dinámico, menú y validación de formularios;
+- `assets/images`: fotografías optimizadas y previsualización social.
 
-## Cómo se publica
-
-Cada push a `main` despliega solo en Vercel (proyecto `bootcamp-female-club`).
-
-Si cambias el dominio, acuérdate de actualizar las etiquetas `og:url` y `og:image`
-en el `<head>` — son las que arman la previsualización al compartir el link por
-WhatsApp o redes.
+No hay proceso de compilación: basta abrir `index.html` o servir la carpeta con un servidor estático.
