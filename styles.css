@@ -148,7 +148,7 @@ p { margin: 0; }
 .hero .lead { max-width: 650px; margin-top: 25px; }
 .hero-visual { position: relative; min-height: 630px; }
 .hero-main-image { width: 88%; height: 560px; margin-left: auto; object-fit: cover; border-radius: 220px 220px 40px 40px; box-shadow: var(--shadow); }
-.hero-small-image { position: absolute; left: 0; bottom: 10px; width: 46%; aspect-ratio: 4/5; object-fit: cover; border: 10px solid var(--cream); border-radius: 110px 110px 30px 30px; box-shadow: var(--shadow-small); }
+.hero-small-image { position: absolute; left: 0; bottom: 10px; width: 46%; height: auto; aspect-ratio: 4/5; object-fit: cover; border: 10px solid var(--cream); border-radius: 110px 110px 30px 30px; box-shadow: var(--shadow-small); }
 .hero-stamp { position: absolute; right: -8px; bottom: 56px; display: grid; width: 145px; aspect-ratio: 1; place-items: center; padding: 22px; border-radius: 50%; color: var(--cream); background: var(--plum-900); text-align: center; font-family: var(--serif); font-size: 1rem; line-height: 1.2; box-shadow: var(--shadow); transform: rotate(5deg); }
 .hero-stamp::after { content: ""; position: absolute; inset: 7px; border: 1px solid rgba(255,255,255,.35); border-radius: inherit; }
 .attributes { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 58px; border-top: 1px solid var(--line); }
