@@ -165,7 +165,7 @@ window.SITE_CONTENT = {
       imageAlt: "Retrato de Carolina Bucarey",
       role: "Fundadora y facilitadora",
       specialty: "Estrategia, productos digitales e inteligencia artificial aplicada",
-      bio: "**Ingeniera civil industrial** de la Universidad de Santiago y **MBA del IE Business School**, con **quince años** liderando estrategia, operaciones y productos digitales en América Latina. Fundadora y CEO de **Savia**, que ayuda a profesionales y organizaciones a llevar la inteligencia artificial a su trabajo diario, y cofundadora de **Tripsy**. Su trayectoria pasa por **McKinsey, Mercado Libre, DiDi y Groupon**. Impulsa esta iniciativa para abrir más espacio a las mujeres que quieran construir y liderar en tecnología.",
+      bio: "**Ingeniera civil industrial** de la Universidad de Santiago y **MBA del IE Business School**, con **quince años** liderando estrategia, operaciones y productos digitales en América Latina. Fundadora y CEO de **Savia**, que ayuda a profesionales y organizaciones a llevar la inteligencia artificial a su trabajo diario, y cofundadora de **Tripsy**. Su trayectoria pasa por **McKinsey, DiDi y Groupon**. Impulsa esta iniciativa para abrir más espacio a las mujeres que quieran construir y liderar en tecnología.",
       programs: ["Crea tu primer agente con IA", "Crea tu primera página web con IA"],
       links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/carolinabucarey/" }]
     },
