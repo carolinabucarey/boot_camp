@@ -159,25 +159,25 @@ window.SITE_CONTENT = {
 
   people: [
     {
-      name: "Carolina",
+      name: "Carolina Bucarey",
       initials: "C",
       image: "",
       imageAlt: "",
       role: "Fundadora y facilitadora",
-      specialty: "Tecnología aplicada, productos digitales e inteligencia artificial",
-      bio: "Impulsa esta iniciativa y facilita experiencias para que más mujeres puedan convertir la tecnología en proyectos y resultados propios.",
+      specialty: "Estrategia, productos digitales e inteligencia artificial aplicada",
+      bio: "Ingeniera civil industrial de la Universidad de Santiago y MBA del IE Business School, con quince años liderando estrategia, operaciones y productos digitales en América Latina. Fundadora y CEO de Savia, que ayuda a profesionales y organizaciones a llevar la inteligencia artificial a su trabajo diario, y cofundadora de Tripsy. Su trayectoria pasa por McKinsey, Mercado Libre, DiDi y Groupon. Impulsa esta iniciativa para abrir más espacio a las mujeres que quieran construir y liderar en tecnología.",
       programs: ["Crea tu primer agente con IA", "Crea tu primera página web con IA"],
-      links: []
+      links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/carolinabucarey/" }]
     },
     {
       name: "Jackeline Advincula",
       initials: "JA",
       image: "assets/images/jackeline-advincula.jpg",
       imageAlt: "Retrato de Jackeline Advincula",
-      role: "Facilitadora",
+      role: "Fundadora y facilitadora",
       specialty: "Inteligencia artificial aplicada, innovación y desarrollo de negocios",
       bio: "Ingeniera y fundadora de KUIDDA, empresa peruana que desarrolla agentes de inteligencia artificial para seguridad urbana. Formula proyectos de innovación que han ganado fondos públicos y enseña en aulas universitarias y técnicas. En los talleres acompaña a las participantes a construir su propio proyecto, con la experiencia de quien construye agentes todos los días.",
-      programs: ["Crea tu primer agente con IA", "Crea tu primera página web con IA"],
+      programs: ["Crea tu primer agente con IA"],
       links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/jackelineadvincula/" }]
     },
     {
