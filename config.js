@@ -45,8 +45,10 @@ window.SITE_CONTENT = {
         "Traer un computador portátil y su cargador.",
         "Contar con un correo electrónico al que puedas acceder.",
         "Llegar con tu negocio, tu idea o las ganas de explorar una: es el material de trabajo del taller.",
+        "Tener una cuenta de pago en Claude o en ChatGPT: el agente se construye ahí y la versión gratuita no permite crearlo.",
         "No necesitas experiencia previa en tecnología ni en programación."
       ],
+      city: "Santiago",
       nextDate: "Convocatoria abierta · próxima fecha por confirmar",
       price: {
         earlyBird: "$65.000",
@@ -68,12 +70,14 @@ window.SITE_CONTENT = {
         "Ideas concretas de cómo usarlo para vender."
       ],
       methodology: "Grupos pequeños, acompañamiento cercano y trabajo sobre tu propio negocio de principio a fin. Se avanza haciendo: preguntas todo lo que necesites, el error es parte del proceso y nadie se queda atrás.",
-      teachers: ["Carolina · Fundadora y facilitadora"],
+      teachers: ["Carolina Bucarey · Fundadora y facilitadora", "Jackeline Advincula · Fundadora y facilitadora"],
       faqs: [
         { question: "¿Qué es exactamente un agente de IA?", answer: "Un asistente de inteligencia artificial que configuras con la información de tu negocio: quién eres, qué vendes, a quién le hablas y cómo te comunicas. Una vez creado, puedes pedirle que redacte publicaciones, responda consultas de clientes, prepare propuestas o te ayude a ordenar tus ideas, siempre con el tono y el criterio de tu marca." },
+        { question: "¿Necesito una cuenta de pago en Claude o ChatGPT?", answer: "Sí, y conviene tenerla lista antes de llegar. El agente se construye sobre una de esas dos herramientas y la versión gratuita no permite crearlo ni conservarlo. Cualquiera de las dos sirve: si no sabes cuál contratar, escríbenos y te orientamos." },
         { question: "¿Necesito saber programar?", answer: "No. El taller está diseñado para comenzar desde cero. Todo el trabajo se hace con lenguaje común, escribiendo lo que ya sabes de tu negocio." },
         { question: "¿Debo tener un negocio funcionando?", answer: "No. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa, una idea que quieres explorar o solo con ganas de aprender. El taller empieza justamente por descubrir de qué se trata lo tuyo." },
         { question: "¿Con qué me voy del taller?", answer: "Con tu primer agente creado, probado y funcionando, y con tu negocio ordenado por escrito para que puedas seguir trabajándolo por tu cuenta." },
+        { question: "¿Dónde y cuándo es?", answer: "En Santiago. Estamos cerrando la fecha y el lugar exacto: déjanos tus datos y te escribimos apenas los confirmemos." },
         { question: "¿El taller es presencial?", answer: "Sí. La experiencia prioriza el trabajo práctico, el acompañamiento cercano y el intercambio entre participantes." },
         { question: "¿Cuánto cuesta?", answer: "El valor early bird es de $65.000 y el general, de $80.000 (pesos chilenos). El early bird está disponible durante la primera etapa de inscripción: si dejas tus datos ahora, te escribimos con el valor que te corresponde y la forma de pago antes de confirmar tu cupo." }
       ]
@@ -145,7 +149,7 @@ window.SITE_CONTENT = {
   /* Aviso que se muestra en "Próximos encuentros" cuando no hay fechas publicadas. */
   eventsFallback: {
     title: "La convocatoria de «Crea tu primer agente con IA» está abierta",
-    description: "Estamos cerrando la fecha, la ciudad y el lugar de nuestro primer taller. Déjanos tus datos y serás de las primeras en saberlo cuando abramos los cupos.",
+    description: "Será en Santiago y estamos cerrando la fecha y el lugar. Déjanos tus datos y serás de las primeras en saberlo cuando abramos los cupos.",
     action: "Quiero recibir la fecha del taller",
     href: "index.html#contacto"
   },
