@@ -28,36 +28,13 @@
   <header class="site-header">
     <div class="container nav-shell">
       <a class="wordmark" href="index.html" aria-label="[NOMBRE], ir al inicio" data-brand>[NOMBRE]<span>.</span></a>
-      <nav class="desktop-nav" aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
-        <a href="#proposito">Nuestro propósito</a>
-        <a href="#programas">Programas</a>
-        <a href="#encuentros">Encuentros</a>
-        <a href="organizaciones.html">Organizaciones</a>
-        <a href="#impacto">Impacto</a>
-        <a href="#comunidad">Comunidad</a>
-        <a href="#red">Profesoras y mentoras</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <nav class="desktop-nav" aria-label="Navegación principal"><a href="#programas">Programas</a><a href="#encuentros">Encuentros</a><a href="#proposito">Nosotras</a></nav>
       <div class="nav-actions">
         <a class="btn btn-primary" href="#contacto">Quiero participar</a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Abrir menú"><span></span></button>
       </div>
     </div>
-    <nav class="mobile-nav" id="mobile-navigation" aria-label="Navegación móvil">
-      <a href="#inicio">Inicio</a>
-      <a href="#proposito">Nuestro propósito</a>
-      <a href="#programas">Programas</a>
-      <a href="#encuentros">Próximos encuentros</a>
-      <a href="organizaciones.html">Para organizaciones</a>
-      <a href="#impacto">Impacto</a>
-      <a href="#comunidad">Comunidad</a>
-      <a href="#red">Profesoras y mentoras</a>
-      <a href="#contacto">Contacto</a>
-      <div class="button-row">
-        <a class="btn btn-primary" href="#contacto">Quiero participar</a>
-      </div>
-    </nav>
+    <nav class="mobile-nav" id="mobile-navigation" aria-label="Navegación móvil"><a href="#programas">Programas</a><a href="#encuentros">Encuentros</a><a href="#proposito">Nosotras</a><a href="#contacto">Contacto</a><div class="button-row"><a class="btn btn-primary" href="#contacto">Quiero participar</a></div></nav>
   </header>
 
   <main id="contenido">
@@ -175,12 +152,38 @@
       </div>
     </section>
 
+    <section class="section" id="experiencia">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Nuestra experiencia</p>
+          <h2>Así se vivió nuestro primer taller</h2>
+          <p class="lead">En julio realizamos el primer bootcamp de creación de páginas web con inteligencia artificial: una jornada completa, en grupo pequeño, cada una trabajando sobre su propio proyecto.</p>
+        </div>
+        <div class="gallery-strip">
+          <img src="assets/images/experiencia-comunidad.jpg" alt="Participantes riendo mientras trabajan con sus computadores" width="428" height="760" loading="lazy">
+          <img src="assets/images/experiencia-trabajando.jpg" alt="Mujeres trabajando en sus proyectos durante la jornada" width="428" height="760" loading="lazy">
+          <img src="assets/images/experiencia-presentando.jpg" alt="Facilitadora presentando frente al grupo" width="428" height="760" loading="lazy">
+          <img src="assets/images/experiencia-historia.jpg" alt="Facilitadora compartiendo su propia experiencia con las participantes" width="1013" height="760" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="testimonios">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Lo que dicen</p>
+          <h2>Palabras de quienes ya pasaron por un taller</h2>
+        </div>
+        <div class="testimonial-grid" id="testimonial-list"></div>
+      </div>
+    </section>
+
     <section class="section" id="red">
       <div class="container">
         <div class="section-header">
           <p class="eyebrow">Profesoras y mentoras</p>
           <h2>Una red de mujeres que enseña desde la experiencia</h2>
-          <p class="lead">Reunimos conocimientos y trayectorias diversas para acompañar cada programa con cercanía, claridad y experiencia práctica.</p>
+          <p class="lead">Reunimos conocimientos y trayectorias diversas para acompañar cada programa con cercanía, claridad y experiencia práctica. Las dos fundadoras de esta iniciativa lideran empresas respaldadas por <strong>Start-Up Chile</strong>, en la generación <strong>BIG 11</strong>.</p>
         </div>
         <div class="people-grid" id="people-list"></div>
         <div class="network-cta"><p>¿Tienes experiencia que pueda abrir nuevas posibilidades para otras mujeres?</p><a class="btn btn-light" href="#contacto">Quiero sumarme como profesora o mentora</a></div>
@@ -197,7 +200,7 @@
             <p class="fine-print">¿Vienes de una organización? El recorrido para fundaciones, empresas, municipios e instituciones está <a href="organizaciones.html">en su propia página</a>.</p>
           </div>
           <div class="forms-grid single">
-            <form class="form-card" id="form-participantes" novalidate>
+            <form class="form-card" id="form-participantes" data-formulario="participantes" novalidate>
               <h3>Quiero participar</h3>
               <p class="form-intro">Recibe próximas fechas y novedades de los programas.</p>
               <div class="form-grid">
@@ -222,8 +225,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand"><a class="wordmark" href="index.html" data-brand>[NOMBRE]<span>.</span></a><p data-descriptor>Mujeres creando futuro con tecnología.</p></div>
-        <div><p class="footer-title">Explora</p><nav class="footer-links" aria-label="Navegación del pie"><a href="#proposito">Nuestro propósito</a><a href="#programas">Programas</a><a href="#encuentros">Encuentros</a><a href="#impacto">Impacto</a></nav></div>
-        <div><p class="footer-title">Participa</p><nav class="footer-links"><a href="#contacto">Quiero participar</a><a href="organizaciones.html">Para organizaciones</a><a href="#red">Profesoras y mentoras</a><a data-email href="mailto:contacto@nombre.cl">contacto@nombre.cl</a></nav></div>
+        <div><p class="footer-title">Explora</p><nav class="footer-links"><a href="#proposito">Nosotras</a><a href="#programas">Programas</a><a href="#encuentros">Encuentros</a><a href="#impacto">Impacto</a><a href="#comunidad">Comunidad</a></nav></div>
+        <div><p class="footer-title">Participa</p><nav class="footer-links"><a href="#contacto">Quiero participar</a><a href="#red">Profesoras y mentoras</a><a href="organizaciones.html">Para organizaciones</a><a data-email href="mailto:contacto@nombre.cl">contacto@nombre.cl</a></nav></div>
         <div><p class="footer-title">Información</p><nav class="footer-links"><a data-privacy href="privacidad.html">Política de privacidad</a><a data-terms href="terminos.html">Términos</a><span data-socials></span></nav></div>
       </div>
       <div class="footer-bottom"><span>© <span data-year></span> <span data-brand>[NOMBRE]</span>. Derechos reservados.</span><span>Creado para aprender, hacer y avanzar juntas.</span></div>

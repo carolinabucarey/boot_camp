@@ -65,7 +65,9 @@
 
     const programSelect = document.querySelector("#p-programa");
     if (programSelect) {
-      programSelect.insertAdjacentHTML("beforeend", content.programs.map((program) => `<option value="${escapeHTML(program.slug)}">${escapeHTML(program.name)}</option>`).join(""));
+      // Solo se ofrecen los programas que ya existen: los que están en preparación no aparecen.
+      const offered = content.programs.filter((program) => program.statusKey !== "preparing");
+      programSelect.insertAdjacentHTML("beforeend", offered.map((program) => `<option value="${escapeHTML(program.slug)}">${escapeHTML(program.name)}</option>`).join(""));
       programSelect.insertAdjacentHTML("beforeend", '<option value="mentora">Sumarme como profesora o mentora</option><option value="otro">Otro interés</option>');
     }
   }
@@ -96,6 +98,27 @@
       </article>`).join("");
   }
 
+  function renderTestimonials() {
+    const section = document.querySelector("#testimonios");
+    if (!section) return;
+    const list = section.querySelector("#testimonial-list");
+    const testimonials = content.testimonials || [];
+    // Sin comentarios reales, la sección no se muestra.
+    if (!testimonials.length) {
+      section.remove();
+      return;
+    }
+    list.innerHTML = testimonials.map((testimonial) => `
+      <figure class="testimonial">
+        <blockquote>${escapeHTML(testimonial.quote)}</blockquote>
+        <figcaption>
+          <strong>${escapeHTML(testimonial.author)}</strong>
+          ${testimonial.role ? `<span>${escapeHTML(testimonial.role)}</span>` : ""}
+          ${testimonial.program ? `<span class="testimonial-program">${escapeHTML(testimonial.program)}</span>` : ""}
+        </figcaption>
+      </figure>`).join("");
+  }
+
   function renderImpact() {
     const list = document.querySelector("#impact-list");
     if (!list) return;
@@ -112,12 +135,16 @@
     if (!list) return;
     list.innerHTML = content.people.map((person) => `
       <article class="person-card">
-        <div class="person-visual">${person.image ? `<img src="${escapeHTML(person.image)}" alt="${escapeHTML(person.imageAlt)}" loading="lazy">` : `<span aria-label="Perfil de ${escapeHTML(person.name)}">${escapeHTML(person.initials)}</span>`}</div>
         <div class="person-body">
-          <h3>${escapeHTML(person.name)}</h3>
-          <p class="person-role">${escapeHTML(person.role)}</p>
-          <p class="person-specialty">${escapeHTML(person.specialty)}</p>
-          <p class="person-bio">${escapeHTML(person.bio)}</p>
+          <div class="person-header">
+            <div class="person-visual">${person.image ? `<img src="${escapeHTML(person.image)}" alt="${escapeHTML(person.imageAlt)}" loading="lazy">` : `<span aria-label="Perfil de ${escapeHTML(person.name)}">${escapeHTML(person.initials)}</span>`}</div>
+            <div>
+              <h3>${escapeHTML(person.name)}</h3>
+              <p class="person-role">${escapeHTML(person.role)}</p>
+            </div>
+          </div>
+          ${person.specialty ? `<p class="person-specialty">${escapeHTML(person.specialty)}</p>` : ""}
+          ${person.bio ? `<p class="person-bio">${escapeHTML(person.bio)}</p>` : ""}
           <p class="person-programs"><strong>Programas:</strong> ${person.programs.map(escapeHTML).join(", ")}</p>
           ${person.links.length ? `<p class="person-links">${person.links.map((link) => `<a href="${escapeHTML(link.href)}">${escapeHTML(link.label)}</a>`).join(" · ")}</p>` : ""}
         </div>
@@ -170,9 +197,43 @@
     return invalidFields;
   }
 
+  // Los desplegables viajan con su texto visible: la planilla se lee sin traducir slugs.
+  function readFields(form) {
+    const campos = Object.fromEntries(new FormData(form).entries());
+    form.querySelectorAll("select").forEach((select) => {
+      const option = select.selectedOptions[0];
+      if (option && option.value) campos[select.name] = option.textContent.trim();
+    });
+    return campos;
+  }
+
+  function nuevoId() {
+    if (crypto.randomUUID) return crypto.randomUUID();
+    return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+  }
+
+  /*
+   * Primero se intenta un envío normal, que permite leer la respuesta y
+   * confirmar que el servidor recibió los datos. Si el navegador bloquea esa
+   * lectura por CORS, se reintenta en modo opaco: la petición igual llega,
+   * aunque no podamos leer la respuesta.
+   */
+  async function send(endpoint, payload) {
+    const options = { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: payload };
+    try {
+      const response = await fetch(endpoint, options);
+      if (!response.ok) throw new Error(`Respuesta ${response.status}`);
+    } catch (error) {
+      await fetch(endpoint, { ...options, mode: "no-cors" });
+    }
+  }
+
+  const GRACIAS = "Gracias. Registramos tus datos y te contactaremos cuando tengamos novedades.";
+
   function setupForms() {
+    const endpoint = content.forms?.endpoint;
     document.querySelectorAll("form").forEach((form) => {
-      form.addEventListener("submit", (event) => {
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
         const status = form.querySelector(".form-status");
         const invalidFields = validateForm(form);
@@ -182,9 +243,46 @@
           invalidFields[0].focus();
           return;
         }
-        status.textContent = "Gracias. Registramos tus datos y te contactaremos cuando tengamos novedades.";
-        status.className = "form-status success";
-        form.reset();
+
+        // Sin endpoint configurado no hay dónde guardar: se agradece y no se promete más.
+        if (!endpoint) {
+          status.textContent = GRACIAS;
+          status.className = "form-status success";
+          form.reset();
+          return;
+        }
+
+        const button = form.querySelector('button[type="submit"]');
+        const buttonLabel = button?.textContent;
+        if (button) {
+          button.disabled = true;
+          button.textContent = "Enviando…";
+        }
+        status.textContent = "";
+        status.className = "form-status";
+
+        const payload = JSON.stringify({
+          // Identifica el envío: los dos intentos comparten id y la planilla guarda uno solo.
+          id: nuevoId(),
+          formulario: form.dataset.formulario || "otros",
+          campos: readFields(form),
+          origen: location.pathname
+        });
+
+        try {
+          await send(endpoint, payload);
+          status.textContent = GRACIAS;
+          status.className = "form-status success";
+          form.reset();
+        } catch (error) {
+          status.textContent = `No pudimos enviar tus datos. Vuelve a intentarlo o escríbenos a ${content.brand.email}.`;
+          status.className = "form-status error";
+        } finally {
+          if (button) {
+            button.disabled = false;
+            button.textContent = buttonLabel;
+          }
+        }
       });
     });
   }
@@ -192,6 +290,7 @@
   applyBrand();
   renderPrograms();
   renderEvents();
+  renderTestimonials();
   renderImpact();
   renderPeople();
   setupMenu();

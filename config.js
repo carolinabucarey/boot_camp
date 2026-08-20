@@ -20,6 +20,15 @@ window.SITE_CONTENT = {
     }
   },
 
+  /*
+   * Destino de los formularios. Pega aquí la URL /exec de la aplicación web
+   * de Apps Script (ver integraciones/google-sheets.gs). Mientras esté vacía,
+   * los formularios validan y agradecen, pero no guardan los datos en ninguna parte.
+   */
+  forms: {
+    endpoint: "https://script.google.com/a/macros/tripsy-app.com/s/AKfycbzs8rqzFfOrBz2XhVPpIu_zzEvIlWYIRez1tGg9n-XwXV3Xpd_MbTRrimoFsBs8OJwoJw/exec"
+  },
+
   programs: [
     {
       slug: "crea-tu-primer-agente-con-ia",
@@ -141,17 +150,35 @@ window.SITE_CONTENT = {
     href: "index.html#contacto"
   },
 
+  /*
+   * Comentarios de quienes participaron. La sección solo aparece cuando hay
+   * comentarios reales: con la lista vacía no se muestra nada.
+   * Cada comentario admite: { quote, author, role, program }.
+   */
+  testimonials: [],
+
   people: [
     {
-      name: "Carolina",
+      name: "Carolina Bucarey",
       initials: "C",
-      image: "",
-      imageAlt: "",
+      image: "assets/images/carolina-bucarey.jpg",
+      imageAlt: "Retrato de Carolina Bucarey",
       role: "Fundadora y facilitadora",
-      specialty: "Tecnología aplicada, productos digitales e inteligencia artificial",
-      bio: "Impulsa esta iniciativa y facilita experiencias para que más mujeres puedan convertir la tecnología en proyectos y resultados propios.",
+      specialty: "Estrategia, productos digitales e inteligencia artificial aplicada",
+      bio: "Ingeniera civil industrial de la Universidad de Santiago y MBA del IE Business School, con quince años liderando estrategia, operaciones y productos digitales en América Latina. Fundadora y CEO de Savia y cofundadora de Tripsy, empresa chilena respaldada por Start-Up Chile que ha ganado fondos públicos. Su trayectoria pasa por McKinsey, DiDi y Groupon. En los talleres acompaña a las participantes a convertir una idea en un resultado propio. Impulsa esta iniciativa para abrir más espacio a las mujeres que quieran construir y liderar en tecnología.",
       programs: ["Crea tu primer agente con IA", "Crea tu primera página web con IA"],
-      links: []
+      links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/carolinabucarey/" }]
+    },
+    {
+      name: "Jackeline Advincula",
+      initials: "JA",
+      image: "assets/images/jackeline-advincula.jpg",
+      imageAlt: "Retrato de Jackeline Advincula",
+      role: "Fundadora y facilitadora",
+      specialty: "Inteligencia artificial aplicada, innovación y desarrollo de negocios",
+      bio: "Ingeniera química de la Universidad Nacional de Ingeniería, con diplomatura en gestión de proyectos en la PUCP y un MBA en curso en ESAN. Fundadora y CEO de KUIDDA, empresa peruana respaldada por Start-Up Chile que desarrolla agentes de inteligencia artificial y ha ganado fondos públicos. Enseña en aulas universitarias y técnicas. En los talleres acompaña a las participantes con la experiencia de quien construye agentes todos los días. Desde 2019 lidera un proyecto de empoderamiento con alumnas de secundaria en Huachipa.",
+      programs: ["Crea tu primer agente con IA"],
+      links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/jackelineadvincula/" }]
     },
     {
       name: "Nuevas profesoras y mentoras",
