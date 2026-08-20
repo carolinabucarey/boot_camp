@@ -8,15 +8,15 @@
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;"
   })[character]);
 
+  /*
+   * El nombre y la URL también están escritos en el HTML, no solo aquí: los
+   * rastreadores de Google y de las redes leen el HTML sin ejecutar JavaScript,
+   * así que un nombre puesto desde acá no llega ni al buscador ni a la tarjeta
+   * que se ve al compartir el sitio. Si cambia el nombre, hay que cambiarlo en
+   * los dos lados.
+   */
   function applyBrand() {
     const { brand } = content;
-    document.title = document.title.replaceAll("[NOMBRE]", brand.name);
-    document.querySelectorAll('meta[content*="[NOMBRE]"]').forEach((meta) => {
-      meta.content = meta.content.replaceAll("[NOMBRE]", brand.name);
-    });
-    document.querySelectorAll('[aria-label*="[NOMBRE]"]').forEach((element) => {
-      element.setAttribute("aria-label", element.getAttribute("aria-label").replaceAll("[NOMBRE]", brand.name));
-    });
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = `${brand.siteUrl}${location.pathname === "/" ? "/" : location.pathname}`;
     const ogUrl = document.querySelector('meta[property="og:url"]');
