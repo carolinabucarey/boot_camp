@@ -118,8 +118,8 @@
         <div class="person-body">
           <h3>${escapeHTML(person.name)}</h3>
           <p class="person-role">${escapeHTML(person.role)}</p>
-          <p class="person-specialty">${escapeHTML(person.specialty)}</p>
-          <p class="person-bio">${escapeHTML(person.bio)}</p>
+          ${person.specialty ? `<p class="person-specialty">${escapeHTML(person.specialty)}</p>` : ""}
+          ${person.bio ? `<p class="person-bio">${escapeHTML(person.bio)}</p>` : ""}
           <p class="person-programs"><strong>Programas:</strong> ${person.programs.map(escapeHTML).join(", ")}</p>
           ${person.links.length ? `<p class="person-links">${person.links.map((link) => `<a href="${escapeHTML(link.href)}">${escapeHTML(link.label)}</a>`).join(" · ")}</p>` : ""}
         </div>
