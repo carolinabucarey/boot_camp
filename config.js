@@ -39,6 +39,11 @@ window.SITE_CONTENT = {
         "No necesitas experiencia previa en tecnología ni en programación."
       ],
       nextDate: "Convocatoria abierta · próxima fecha por confirmar",
+      price: {
+        earlyBird: "$65.000",
+        general: "$80.000",
+        note: "Valores en pesos chilenos. El precio early bird aplica durante la primera etapa de inscripción."
+      },
       status: "Convocatoria abierta",
       statusKey: "open",
       action: "Quiero participar en el taller",
@@ -61,7 +66,7 @@ window.SITE_CONTENT = {
         { question: "¿Debo tener un negocio funcionando?", answer: "No. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa, una idea que quieres explorar o solo con ganas de aprender. El taller empieza justamente por descubrir de qué se trata lo tuyo." },
         { question: "¿Con qué me voy del taller?", answer: "Con tu primer agente creado, probado y funcionando, y con tu negocio ordenado por escrito para que puedas seguir trabajándolo por tu cuenta." },
         { question: "¿El taller es presencial?", answer: "Sí. La experiencia prioriza el trabajo práctico, el acompañamiento cercano y el intercambio entre participantes." },
-        { question: "¿Tiene costo?", answer: "Las condiciones de participación, cupos y costo se informan de forma clara al abrir cada convocatoria. Déjanos tus datos y te escribimos con toda la información antes de la próxima fecha." }
+        { question: "¿Cuánto cuesta?", answer: "El valor early bird es de $65.000 y el general, de $80.000 (pesos chilenos). El early bird está disponible durante la primera etapa de inscripción: si dejas tus datos ahora, te escribimos con el valor que te corresponde y la forma de pago antes de confirmar tu cupo." }
       ]
     },
     {

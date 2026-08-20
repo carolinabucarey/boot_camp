@@ -24,6 +24,11 @@
   setText("[data-promise]", program.promise);
   setText("[data-methodology]", program.methodology);
   setText("[data-next-date]", program.nextDate);
+  setText("[data-price-early]", program.price?.earlyBird);
+  setText("[data-price-general]", program.price?.general);
+  setText("[data-price-note]", program.price?.note);
+  // Sin precio publicado, el bloque de valores no se muestra.
+  if (!program.price) document.querySelector("[data-price-block]")?.remove();
   renderList("#learn-list", program.learn);
   renderList("#teacher-list", program.teachers);
   renderList("#requirement-list", program.requirements);

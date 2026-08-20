@@ -7,7 +7,7 @@ Sitio institucional estático para una iniciativa de acceso a tecnología dirigi
 Todo el contenido que cambiará con frecuencia vive en `config.js`:
 
 - `brand`: nombre temporal, descriptor, correo, URL pública y enlaces principales;
-- `programs`: programas, requisitos, estados, fechas y contenido del detalle;
+- `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle;
 - `events`: encuentros (si la lista está vacía, se muestra el aviso de `eventsFallback`);
 - `eventsFallback`: texto y botón que aparecen en «Próximos encuentros» mientras no haya fechas publicadas;
 - `people`: profesoras y mentoras;
@@ -33,7 +33,9 @@ muestra con `<body data-program="slug-del-programa">` y rellena los contenedores
 atributo (`data-audience`, `data-methodology`, `#learn-list`, `#requirement-list`,
 `#faq-list`, etc.) con los datos de ese programa en `config.js`.
 Para publicar una fecha del taller, basta editar `nextDate`, `status` y `eventsFallback`
-en `config.js`, o agregar el encuentro a la lista `events`.
+en `config.js`, o agregar el encuentro a la lista `events`. El bloque `price`
+(`earlyBird`, `general`, `note`) alimenta el recuadro de valores del panel lateral;
+si un programa no lo trae, ese recuadro no se muestra.
 
 El sitio comunica el resultado y el valor de cada programa, no su diseño interno:
 la estructura por bloques, los marcos de trabajo y la metodología detallada se
