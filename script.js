@@ -8,10 +8,6 @@
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;"
   })[character]);
 
-  // Texto con destacados: **así** se resalta una frase. Se escapa antes de convertir,
-  // así que el contenido sigue sin poder inyectar etiquetas.
-  const richText = (value = "") => escapeHTML(value).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-
   function applyBrand() {
     const { brand } = content;
     document.title = document.title.replaceAll("[NOMBRE]", brand.name);
@@ -148,7 +144,7 @@
             </div>
           </div>
           ${person.specialty ? `<p class="person-specialty">${escapeHTML(person.specialty)}</p>` : ""}
-          ${person.bio ? `<p class="person-bio">${richText(person.bio)}</p>` : ""}
+          ${person.bio ? `<p class="person-bio">${escapeHTML(person.bio)}</p>` : ""}
           <p class="person-programs"><strong>Programas:</strong> ${person.programs.map(escapeHTML).join(", ")}</p>
           ${person.links.length ? `<p class="person-links">${person.links.map((link) => `<a href="${escapeHTML(link.href)}">${escapeHTML(link.label)}</a>`).join(" · ")}</p>` : ""}
         </div>
