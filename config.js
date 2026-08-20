@@ -47,52 +47,19 @@ window.SITE_CONTENT = {
       audience: "Mujeres emprendedoras con un negocio en marcha, una idea que quieren poner de pie o un proyecto propio que necesita crecer. Cada participante trabaja sobre su propio negocio: no hay un ejercicio genérico ni se necesita experiencia técnica previa.",
       promise: "Primero descubres qué necesita tu negocio. Después construyes el agente que responde a esa necesidad.",
       learn: [
-        "Descubrir la necesidad real de tu negocio antes de buscar una herramienta.",
-        "Ordenar tu marca, tu producto y tu cliente en un Business Canvas propio.",
-        "Definir tu identidad con cuatro preguntas: para quién, qué, por qué y en qué eres distinta.",
-        "Traducir ese canvas a las instrucciones de un agente de inteligencia artificial.",
-        "Crear, probar e iterar tu propio agente durante el taller.",
-        "Conectar el agente con una estrategia de ventas: canales, posicionamiento y acciones."
+        "Claridad sobre qué necesita hoy tu negocio para crecer.",
+        "Tu marca, tu producto y tu cliente ordenados y por escrito.",
+        "Tu primer agente de inteligencia artificial, creado y funcionando.",
+        "La capacidad de seguir ajustándolo tú misma cuando tu negocio cambie.",
+        "Ideas concretas de cómo usarlo para vender."
       ],
-      blocks: [
-        {
-          label: "Bloque 1",
-          duration: "1 hora",
-          title: "Descubre lo que ya tienes",
-          description: "Estaciones gráficas del Business Canvas. Cada participante recorre sus insumos —marca, producto y cliente— y define identidad, propuesta de valor, clientes y competidores."
-        },
-        {
-          label: "Bloque 2",
-          duration: "1 hora y media",
-          title: "Bosquejo y teoría",
-          description: "Guía y herramientas teóricas para pasar del canvas al agente: las cuatro preguntas de identidad y cómo se traduce cada respuesta en instrucciones para la inteligencia artificial."
-        },
-        {
-          label: "Bloque 3",
-          duration: "2 horas",
-          title: "Construye tu agente",
-          description: "Desarrollo del agente con acompañamiento cercano. La idea no es que alguien lo haga por ti: iteras tú misma hasta que responde como tu negocio necesita."
-        },
-        {
-          label: "Cierre",
-          duration: "30 minutos",
-          title: "Muestra y define el próximo paso",
-          description: "Cada participante comparte su agente funcionando y define cómo va a seguir usándolo e iterándolo después del taller."
-        }
-      ],
-      identityQuestions: [
-        { question: "Para quién", answer: "Tu cliente: a quién le hablas.", side: "Racional" },
-        { question: "Qué", answer: "Tu producto o la solución que entregas.", side: "Racional" },
-        { question: "Por qué", answer: "Tu propósito, el lado valórico y emocional del negocio.", side: "Emocional" },
-        { question: "Soy distinta por", answer: "Tu diferenciación: qué te separa de la competencia.", side: "Emocional" }
-      ],
-      methodology: "Metodología Montessori-Tech: descubrir, hacer y recuperar la confianza. La herramienta es la misma para todas, pero cada una decide qué construir con ella según lo que su negocio necesita. El error se trabaja como información, no como falla, y el aprendizaje ocurre acompañada de otras mujeres que atraviesan lo mismo.",
+      methodology: "Grupos pequeños, acompañamiento cercano y trabajo sobre tu propio negocio de principio a fin. Se avanza haciendo: preguntas todo lo que necesites, el error es parte del proceso y nadie se queda atrás.",
       teachers: ["Carolina · Fundadora y facilitadora"],
       faqs: [
         { question: "¿Qué es exactamente un agente de IA?", answer: "Un asistente de inteligencia artificial que configuras con la información de tu negocio: quién eres, qué vendes, a quién le hablas y cómo te comunicas. Una vez creado, puedes pedirle que redacte publicaciones, responda consultas de clientes, prepare propuestas o te ayude a ordenar tus ideas, siempre con el tono y el criterio de tu marca." },
         { question: "¿Necesito saber programar?", answer: "No. El taller está diseñado para comenzar desde cero. Todo el trabajo se hace con lenguaje común, escribiendo lo que ya sabes de tu negocio." },
-        { question: "¿Debo tener un negocio funcionando?", answer: "No es indispensable. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa o una idea que quieres explorar. El primer bloque está justamente para descubrir qué necesitas." },
-        { question: "¿Con qué me voy del taller?", answer: "Con tu Business Canvas completo y tu primer agente creado, probado y funcionando, listo para que lo sigas iterando por tu cuenta." },
+        { question: "¿Debo tener un negocio funcionando?", answer: "No es indispensable. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa o una idea que quieres explorar: el taller empieza justamente por descubrir qué necesitas." },
+        { question: "¿Con qué me voy del taller?", answer: "Con tu primer agente creado, probado y funcionando, y con tu negocio ordenado por escrito para que puedas seguir trabajándolo por tu cuenta." },
         { question: "¿El taller es presencial?", answer: "Sí. La experiencia prioriza el trabajo práctico, el acompañamiento cercano y el intercambio entre participantes." },
         { question: "¿Tiene costo?", answer: "Las condiciones de participación, cupos y costo se informan de forma clara al abrir cada convocatoria. Déjanos tus datos y te escribimos con toda la información antes de la próxima fecha." }
       ]

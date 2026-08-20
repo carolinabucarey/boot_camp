@@ -29,7 +29,12 @@ No hay proceso de compilación: basta abrir `index.html` o servir la carpeta con
 
 `program.js` sirve a todas las páginas de detalle. Cada página declara qué programa
 muestra con `<body data-program="slug-del-programa">` y rellena los contenedores por
-atributo (`data-audience`, `data-methodology`, `#learn-list`, `#block-list`,
-`#identity-list`, `#faq-list`, etc.) con los datos de ese programa en `config.js`.
+atributo (`data-audience`, `data-methodology`, `#learn-list`, `#requirement-list`,
+`#faq-list`, etc.) con los datos de ese programa en `config.js`.
 Para publicar una fecha del taller, basta editar `nextDate`, `status` y `eventsFallback`
 en `config.js`, o agregar el encuentro a la lista `events`.
+
+El sitio comunica el resultado y el valor de cada programa, no su diseño interno:
+la estructura por bloques, los marcos de trabajo y la metodología detallada se
+mantienen fuera del contenido público (todo lo que vive en `config.js` se sirve
+al navegador y es visible para cualquiera).
