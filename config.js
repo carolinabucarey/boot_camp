@@ -5,7 +5,9 @@
  */
 window.SITE_CONTENT = {
   brand: {
-    name: "Maile",
+    name: "MAILE",
+    // "AI" del logotipo va en otro color; vacío deja el nombre de una sola pieza.
+    nameHighlight: "AI",
     logo: "assets/brand/maile-avatar.png",
     descriptor: "Mujeres creando futuro con tecnología.",
     email: "contacto@nombre.cl",
