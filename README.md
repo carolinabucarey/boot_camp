@@ -71,5 +71,17 @@ Cada formulario escribe en su propia hoja (`Participantes` y `Organizaciones`),
 que se crea sola la primera vez, igual que sus columnas: si mañana un formulario
 suma un campo, aparece una columna nueva sin tocar el script.
 
+Cada envío lleva un `id` propio y el script ignora un `id` ya registrado. Esto
+importa porque el navegador puede mandar el mismo formulario dos veces: primero
+con una petición normal —que permite confirmar la recepción— y, si el navegador
+bloquea leer la respuesta, otra vez en modo opaco. Sin el `id`, cada inscripción
+aparecería duplicada en la planilla.
+
+**La implementación debe tener acceso «cualquier persona».** Si queda restringida
+al dominio, el sitio no puede escribir y el envío falla en silencio. Para
+comprobarlo, abre la URL `/exec` en una ventana de incógnito: debe responder
+`{"ok":true,"mensaje":"Endpoint activo."}` y no una pantalla de inicio de sesión
+de Google.
+
 Al cambiar el script hay que volver a implementar (**Implementar → Gestionar
 implementaciones → editar → Nueva versión**); guardar no basta.

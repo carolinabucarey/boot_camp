@@ -182,6 +182,27 @@
     return campos;
   }
 
+  function nuevoId() {
+    if (crypto.randomUUID) return crypto.randomUUID();
+    return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+  }
+
+  /*
+   * Primero se intenta un envío normal, que permite leer la respuesta y
+   * confirmar que el servidor recibió los datos. Si el navegador bloquea esa
+   * lectura por CORS, se reintenta en modo opaco: la petición igual llega,
+   * aunque no podamos leer la respuesta.
+   */
+  async function send(endpoint, payload) {
+    const options = { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: payload };
+    try {
+      const response = await fetch(endpoint, options);
+      if (!response.ok) throw new Error(`Respuesta ${response.status}`);
+    } catch (error) {
+      await fetch(endpoint, { ...options, mode: "no-cors" });
+    }
+  }
+
   const GRACIAS = "Gracias. Registramos tus datos y te contactaremos cuando tengamos novedades.";
 
   function setupForms() {
@@ -215,17 +236,16 @@
         status.textContent = "";
         status.className = "form-status";
 
+        const payload = JSON.stringify({
+          // Identifica el envío: los dos intentos comparten id y la planilla guarda uno solo.
+          id: nuevoId(),
+          formulario: form.dataset.formulario || "otros",
+          campos: readFields(form),
+          origen: location.pathname
+        });
+
         try {
-          await fetch(endpoint, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "text/plain;charset=utf-8" },
-            body: JSON.stringify({
-              formulario: form.dataset.formulario || "otros",
-              campos: readFields(form),
-              origen: location.pathname
-            })
-          });
+          await send(endpoint, payload);
           status.textContent = GRACIAS;
           status.className = "form-status success";
           form.reset();
