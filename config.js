@@ -26,7 +26,7 @@ window.SITE_CONTENT = {
    * los formularios validan y agradecen, pero no guardan los datos en ninguna parte.
    */
   forms: {
-    endpoint: "https://script.google.com/a/macros/tripsy-app.com/s/AKfycbzQB6nVSOmdgibCC4dxUllb1tMYi3e6ptRuq48QGiB3c_sdogsBVSO8y1HKBUnYrkd-mg/exec"
+    endpoint: "https://script.google.com/a/macros/tripsy-app.com/s/AKfycbzs8rqzFfOrBz2XhVPpIu_zzEvIlWYIRez1tGg9n-XwXV3Xpd_MbTRrimoFsBs8OJwoJw/exec"
   },
 
   programs: [
