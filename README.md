@@ -1,4 +1,4 @@
-# [NOMBRE] · Mujeres creando futuro con tecnología
+# Maile · Mujeres creando futuro con tecnología
 
 Sitio institucional estático para una iniciativa de acceso a tecnología dirigida a mujeres.
 
@@ -6,7 +6,7 @@ Sitio institucional estático para una iniciativa de acceso a tecnología dirigi
 
 Todo el contenido que cambiará con frecuencia vive en `config.js`:
 
-- `brand`: nombre temporal, descriptor, correo, URL pública y enlaces principales;
+- `brand`: nombre, isotipo (`logo`), descriptor, correo, URL pública y enlaces principales;
 - `forms.endpoint`: URL donde se envían los formularios (ver más abajo);
 - `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle.
   Un programa con `statusKey: "preparing"` sigue apareciendo en la grilla, pero no
@@ -27,7 +27,8 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
 - `privacidad.html` y `terminos.html`: bases legales que deben revisarse al formalizar la iniciativa;
 - `styles.css`: sistema visual responsive;
 - `script.js` y `program.js`: contenido dinámico, menú y validación de formularios;
-- `assets/images`: fotografías optimizadas y previsualización social.
+- `assets/images`: fotografías optimizadas;
+- `assets/brand`: archivos originales de la marca.
 
 No hay proceso de compilación: basta abrir `index.html` o servir la carpeta con un servidor estático.
 
@@ -80,13 +81,52 @@ bloquea leer la respuesta, otra vez en modo opaco. Sin el `id`, cada inscripció
 aparecería duplicada en la planilla.
 
 **La implementación debe tener acceso «cualquier persona».** Si queda restringida
-al dominio, el sitio no puede escribir y el envío falla en silencio. Para
-comprobarlo, abre la URL `/exec` en una ventana de incógnito: debe responder
-`{"ok":true,"mensaje":"Endpoint activo."}` y no una pantalla de inicio de sesión
-de Google.
+al dominio, el sitio no puede escribir y el envío falla en silencio: el formulario
+agradece igual, porque el reintento en modo opaco no permite leer la respuesta.
+
+La propia URL delata cuál de las dos es. Una implementación restringida al dominio
+lleva el dominio en la ruta:
+
+    https://script.google.com/a/macros/tripsy-app.com/s/AKfy…/exec
+
+y una pública, no:
+
+    https://script.google.com/macros/s/AKfy…/exec
+
+Si en `forms.endpoint` aparece `/a/macros/`, hay que volver a implementar con acceso
+«cualquier persona». Para confirmarlo, abre la URL `/exec` en una ventana de
+incógnito: debe responder `{"ok":true,"mensaje":"Endpoint activo."}` y no una
+pantalla de inicio de sesión de Google.
 
 Al cambiar el script hay que volver a implementar (**Implementar → Gestionar
 implementaciones → editar → Nueva versión**); guardar no basta.
+
+## Marca
+
+El nombre vive en un solo lugar: `brand.name` en `config.js`. Las páginas traen el
+marcador `[NOMBRE]` en títulos, metadatos y `aria-label`, y `script.js` lo reemplaza
+al cargar; los elementos con `data-brand` reciben el nombre completo. Para cambiar el
+nombre no hay que tocar el HTML.
+
+En `assets/brand` viven los archivos originales de la marca, y son dos dibujos
+distintos con oficios distintos:
+
+- `maile-avatar.png`: el logo. Una mujer frente a un notebook, de línea fina, dentro
+  de un círculo ciruela con aro degradado lila → rosa → dorado. Lo usan el encabezado
+  y el pie del sitio (`brand.logo` en `config.js`) y la tarjeta social;
+- `favicon.svg` más `favicon-16/32/48/180/512.png`: la misma figura, pero en silueta
+  llena sobre un cuadrado de esquinas redondeadas. Es lo que se ve en la pestaña del
+  navegador y en la pantalla de inicio del teléfono. No es el logo achicado: a 16
+  píxeles la línea fina se empasta y el aro desaparece, así que el favicon resuelve
+  la figura en masas sólidas, que sí sobreviven a ese tamaño.
+
+`favicon.ico` (en la raíz, con 16, 32 y 48 píxeles) se arma desde esos PNG: es el
+archivo que los navegadores piden solos, aunque nadie lo enlace. Si el favicon
+cambia, hay que rehacerlo.
+
+`assets/og-social.png` (1200×630) es la tarjeta que se ve al compartir el sitio en
+redes: logo, nombre y descriptor sobre las formas y los colores de la marca. También
+es un mapa de bits y hay que regenerarla si cambia el logo.
 
 ## Fotos del taller
 

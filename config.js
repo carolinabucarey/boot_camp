@@ -5,7 +5,8 @@
  */
 window.SITE_CONTENT = {
   brand: {
-    name: "[NOMBRE]",
+    name: "Maile",
+    logo: "assets/brand/maile-avatar.png",
     descriptor: "Mujeres creando futuro con tecnología.",
     email: "contacto@nombre.cl",
     siteUrl: "https://bootcamp-female-club.vercel.app",
@@ -26,7 +27,7 @@ window.SITE_CONTENT = {
    * los formularios validan y agradecen, pero no guardan los datos en ninguna parte.
    */
   forms: {
-    endpoint: "https://script.google.com/a/macros/tripsy-app.com/s/AKfycbzs8rqzFfOrBz2XhVPpIu_zzEvIlWYIRez1tGg9n-XwXV3Xpd_MbTRrimoFsBs8OJwoJw/exec"
+    endpoint: "https://script.google.com/macros/s/AKfycbx16HnPVHA0wQAR-JxJXy24ahLxbKV-GVODJJpa5yn9lfoiYEsKQpoh7Am84tTJ6udCnQ/exec"
   },
 
   programs: [
