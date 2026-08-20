@@ -70,7 +70,7 @@ window.SITE_CONTENT = {
         "Ideas concretas de cómo usarlo para vender."
       ],
       methodology: "Grupos pequeños, acompañamiento cercano y trabajo sobre tu propio negocio de principio a fin. Se avanza haciendo: preguntas todo lo que necesites, el error es parte del proceso y nadie se queda atrás.",
-      teachers: ["Carolina Bucarey · Fundadora y facilitadora", "Jackeline Advincula · Facilitadora"],
+      teachers: ["Carolina Bucarey · Fundadora y facilitadora", "Jackeline Advincula · Fundadora y facilitadora"],
       faqs: [
         { question: "¿Qué es exactamente un agente de IA?", answer: "Un asistente de inteligencia artificial que configuras con la información de tu negocio: quién eres, qué vendes, a quién le hablas y cómo te comunicas. Una vez creado, puedes pedirle que redacte publicaciones, responda consultas de clientes, prepare propuestas o te ayude a ordenar tus ideas, siempre con el tono y el criterio de tu marca." },
         { question: "¿Necesito una cuenta de pago en Claude o ChatGPT?", answer: "Sí, y conviene tenerla lista antes de llegar. El agente se construye sobre una de esas dos herramientas y la versión gratuita no permite crearlo ni conservarlo. Cualquiera de las dos sirve: si no sabes cuál contratar, escríbenos y te orientamos." },
