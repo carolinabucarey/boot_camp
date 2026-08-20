@@ -35,7 +35,7 @@ window.SITE_CONTENT = {
       requirements: [
         "Traer un computador portátil y su cargador.",
         "Contar con un correo electrónico al que puedas acceder.",
-        "Llegar con tu negocio, emprendimiento o idea en mente: es el material de trabajo del taller.",
+        "Llegar con tu negocio, tu idea o las ganas de explorar una: es el material de trabajo del taller.",
         "No necesitas experiencia previa en tecnología ni en programación."
       ],
       nextDate: "Convocatoria abierta · próxima fecha por confirmar",
@@ -44,7 +44,7 @@ window.SITE_CONTENT = {
       action: "Quiero participar en el taller",
       href: "programa-agente-ia.html",
       hasDetailPage: true,
-      audience: "Mujeres emprendedoras con un negocio en marcha, una idea que quieren poner de pie o un proyecto propio que necesita crecer. Cada participante trabaja sobre su propio negocio: no hay un ejercicio genérico ni se necesita experiencia técnica previa.",
+      audience: "Mujeres que quieren emprender, hacer crecer lo que ya tienen o simplemente aprender. Da lo mismo si llegas con un negocio andando, con una idea dando vueltas o con las ganas: cada participante trabaja sobre lo suyo y no se necesita experiencia técnica previa.",
       promise: "Primero descubres qué necesita tu negocio. Después construyes el agente que responde a esa necesidad.",
       learn: [
         "Claridad sobre qué necesita hoy tu negocio para crecer.",
@@ -58,7 +58,7 @@ window.SITE_CONTENT = {
       faqs: [
         { question: "¿Qué es exactamente un agente de IA?", answer: "Un asistente de inteligencia artificial que configuras con la información de tu negocio: quién eres, qué vendes, a quién le hablas y cómo te comunicas. Una vez creado, puedes pedirle que redacte publicaciones, responda consultas de clientes, prepare propuestas o te ayude a ordenar tus ideas, siempre con el tono y el criterio de tu marca." },
         { question: "¿Necesito saber programar?", answer: "No. El taller está diseñado para comenzar desde cero. Todo el trabajo se hace con lenguaje común, escribiendo lo que ya sabes de tu negocio." },
-        { question: "¿Debo tener un negocio funcionando?", answer: "No es indispensable. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa o una idea que quieres explorar: el taller empieza justamente por descubrir qué necesitas." },
+        { question: "¿Debo tener un negocio funcionando?", answer: "No. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa, una idea que quieres explorar o solo con ganas de aprender. El taller empieza justamente por descubrir de qué se trata lo tuyo." },
         { question: "¿Con qué me voy del taller?", answer: "Con tu primer agente creado, probado y funcionando, y con tu negocio ordenado por escrito para que puedas seguir trabajándolo por tu cuenta." },
         { question: "¿El taller es presencial?", answer: "Sí. La experiencia prioriza el trabajo práctico, el acompañamiento cercano y el intercambio entre participantes." },
         { question: "¿Tiene costo?", answer: "Las condiciones de participación, cupos y costo se informan de forma clara al abrir cada convocatoria. Déjanos tus datos y te escribimos con toda la información antes de la próxima fecha." }
@@ -130,7 +130,7 @@ window.SITE_CONTENT = {
 
   /* Aviso que se muestra en "Próximos encuentros" cuando no hay fechas publicadas. */
   eventsFallback: {
-    title: "La convocatoria de «Crea tu primer agente con IA» está abierta.",
+    title: "La convocatoria de «Crea tu primer agente con IA» está abierta",
     description: "Estamos cerrando la fecha, la ciudad y el lugar de nuestro primer taller. Déjanos tus datos y serás de las primeras en saberlo cuando abramos los cupos.",
     action: "Quiero recibir la fecha del taller",
     href: "index.html#contacto"
