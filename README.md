@@ -6,8 +6,9 @@ Sitio institucional estático para una iniciativa de acceso a tecnología dirigi
 
 Todo el contenido que cambiará con frecuencia vive en `config.js`:
 
-- `brand`: nombre, isotipo (`logo`), descriptor, correo, URL pública y enlaces
-  principales. Ojo: el nombre y la URL también están en el HTML (ver «Marca»);
+- `brand`: nombre, realce del logotipo (`nameHighlight`), isotipo (`logo`),
+  descriptor, correo, URL pública y enlaces principales. Ojo: el nombre y la URL
+  también están en el HTML (ver «Marca»);
 - `forms.endpoint`: URL donde se envían los formularios (ver más abajo);
 - `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle.
   Un programa con `statusKey: "preparing"` sigue apareciendo en la grilla, pero no
@@ -118,9 +119,17 @@ mismo pasa con `brand.siteUrl`, que alimenta la URL canónica y la de `og:`.
 **Si cambia el nombre o el dominio, hay que cambiarlo en los dos lados**: en el HTML
 de las seis páginas y en `config.js`.
 
-El logotipo va en versales —MAILE.— como el logo horizontal de la marca. El nombre se
-escribe normal, "Maile", en títulos, textos y metadatos; las versales son cosa del
-logotipo y las pone `styles.css`, no el contenido.
+El nombre se escribe MAILE, en versales, siempre: en el logotipo, en los títulos, en
+los metadatos y en el texto corrido.
+
+El logotipo además parte el nombre en dos colores, M**AI**LE, porque el nombre lleva
+"AI" adentro. Ese realce sale de `brand.nameHighlight` en `config.js`: `script.js`
+envuelve esa parte del nombre en un `<span class="ai">` y `styles.css` le da color,
+pero solo dentro de `.wordmark` —en el texto corrido del pie el nombre va de una sola
+pieza—. Dejar `nameHighlight` vacío devuelve el nombre entero de un color.
+
+El logotipo del encabezado y el pie es de palo seco, muy espaciado, siguiendo el logo
+horizontal de la marca; la serif del sitio queda para los títulos.
 
 En `assets/brand` viven los archivos originales de la marca, y son dos dibujos
 distintos con oficios distintos:

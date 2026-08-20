@@ -124,9 +124,10 @@ p { margin: 0; }
   backdrop-filter: blur(16px);
 }
 .nav-shell { display: flex; min-height: 78px; align-items: center; gap: 22px; }
-.wordmark { display: inline-flex; flex: 0 0 auto; gap: 12px; align-items: center; color: var(--plum-950); font-family: var(--serif); font-size: 1.45rem; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; }
+/* El logotipo sigue al logo de la marca: versales de palo seco, muy espaciadas, con "AI" en otro color. */
+.wordmark { display: inline-flex; flex: 0 0 auto; gap: 12px; align-items: center; color: var(--plum-950); font-family: var(--sans); font-size: 1.2rem; font-weight: 600; letter-spacing: .22em; text-decoration: none; }
 .brand-mark { width: 40px; height: 40px; flex: 0 0 auto; }
-.wordmark [data-brand] > span { color: var(--rose-700); }
+.wordmark .ai { color: var(--rose-700); }
 .desktop-nav { display: flex; flex: 1; align-items: center; justify-content: center; gap: 18px; }
 .desktop-nav a { color: var(--muted); text-decoration: none; font-size: .77rem; font-weight: 700; }
 .desktop-nav a:hover { color: var(--plum-950); }
@@ -298,6 +299,7 @@ p { margin: 0; }
 .site-footer { padding: 64px 0 24px; color: rgba(255,255,255,.72); background: #1d101e; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 50px; }
 .footer-brand .wordmark { margin-bottom: 12px; color: var(--white); }
+.footer-brand .wordmark .ai { color: var(--rose-300); }
 .footer-brand p { max-width: 290px; }
 .footer-title { margin-bottom: 14px; color: var(--gold-light); font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .footer-links { display: grid; gap: 8px; }
@@ -391,7 +393,7 @@ p { margin: 0; }
   .section { padding: 72px 0; }
   .nav-shell { min-height: 70px; }
   .mobile-nav { inset-block-start: 70px; }
-  .wordmark { gap: 10px; font-size: 1.22rem; }
+  .wordmark { gap: 10px; font-size: 1.05rem; letter-spacing: .18em; }
   .brand-mark { width: 34px; height: 34px; }
   .nav-actions > .btn { display: none; }
   .hero { padding: 44px 0 32px; }

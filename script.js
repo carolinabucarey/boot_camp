@@ -23,9 +23,15 @@
     if (ogUrl) ogUrl.content = `${brand.siteUrl}${location.pathname === "/" ? "/" : location.pathname}`;
     const ogImage = document.querySelector('meta[property="og:image"]');
     if (ogImage) ogImage.content = `${brand.siteUrl}/assets/og-social.png`;
+    // El logotipo destaca "AI" dentro del nombre: M-AI-LE. En el texto corrido,
+    // en cambio, el nombre va de una sola pieza.
+    const nombre = escapeHTML(brand.name);
+    const realce = escapeHTML(brand.nameHighlight || "");
+    const logotipo = realce && nombre.includes(realce)
+      ? nombre.replace(realce, `<span class="ai">${realce}</span>`)
+      : nombre;
     document.querySelectorAll("[data-brand]").forEach((element) => {
-      const dot = element.querySelector("span") ? "<span>.</span>" : "";
-      element.innerHTML = `${escapeHTML(brand.name)}${dot}`;
+      element.innerHTML = element.closest(".wordmark") ? logotipo : nombre;
     });
     if (brand.logo) {
       document.querySelectorAll("[data-brand-mark]").forEach((element) => { element.src = brand.logo; });
