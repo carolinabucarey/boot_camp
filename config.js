@@ -22,6 +22,82 @@ window.SITE_CONTENT = {
 
   programs: [
     {
+      slug: "crea-tu-primer-agente-con-ia",
+      name: "Crea tu primer agente con IA",
+      tagline: "El mejor aliado para tu negocio",
+      description: "Descubre qué necesita hoy tu negocio y crea un agente de inteligencia artificial que te acompañe a ordenarlo, comunicarlo y vender.",
+      image: "assets/images/mentoria-en-equipo.jpg",
+      imageAlt: "Dos mujeres trabajando juntas con computadores durante un taller práctico",
+      modality: "Presencial",
+      level: "Inicial",
+      duration: "5 horas",
+      result: "Tu primer agente de IA, listo e iterable",
+      requirements: [
+        "Traer un computador portátil y su cargador.",
+        "Contar con un correo electrónico al que puedas acceder.",
+        "Llegar con tu negocio, emprendimiento o idea en mente: es el material de trabajo del taller.",
+        "No necesitas experiencia previa en tecnología ni en programación."
+      ],
+      nextDate: "Convocatoria abierta · próxima fecha por confirmar",
+      status: "Convocatoria abierta",
+      statusKey: "open",
+      action: "Quiero participar en el taller",
+      href: "programa-agente-ia.html",
+      hasDetailPage: true,
+      audience: "Mujeres emprendedoras con un negocio en marcha, una idea que quieren poner de pie o un proyecto propio que necesita crecer. Cada participante trabaja sobre su propio negocio: no hay un ejercicio genérico ni se necesita experiencia técnica previa.",
+      promise: "Primero descubres qué necesita tu negocio. Después construyes el agente que responde a esa necesidad.",
+      learn: [
+        "Descubrir la necesidad real de tu negocio antes de buscar una herramienta.",
+        "Ordenar tu marca, tu producto y tu cliente en un Business Canvas propio.",
+        "Definir tu identidad con cuatro preguntas: para quién, qué, por qué y en qué eres distinta.",
+        "Traducir ese canvas a las instrucciones de un agente de inteligencia artificial.",
+        "Crear, probar e iterar tu propio agente durante el taller.",
+        "Conectar el agente con una estrategia de ventas: canales, posicionamiento y acciones."
+      ],
+      blocks: [
+        {
+          label: "Bloque 1",
+          duration: "1 hora",
+          title: "Descubre lo que ya tienes",
+          description: "Estaciones gráficas del Business Canvas. Cada participante recorre sus insumos —marca, producto y cliente— y define identidad, propuesta de valor, clientes y competidores."
+        },
+        {
+          label: "Bloque 2",
+          duration: "1 hora y media",
+          title: "Bosquejo y teoría",
+          description: "Guía y herramientas teóricas para pasar del canvas al agente: las cuatro preguntas de identidad y cómo se traduce cada respuesta en instrucciones para la inteligencia artificial."
+        },
+        {
+          label: "Bloque 3",
+          duration: "2 horas",
+          title: "Construye tu agente",
+          description: "Desarrollo del agente con acompañamiento cercano. La idea no es que alguien lo haga por ti: iteras tú misma hasta que responde como tu negocio necesita."
+        },
+        {
+          label: "Cierre",
+          duration: "30 minutos",
+          title: "Muestra y define el próximo paso",
+          description: "Cada participante comparte su agente funcionando y define cómo va a seguir usándolo e iterándolo después del taller."
+        }
+      ],
+      identityQuestions: [
+        { question: "Para quién", answer: "Tu cliente: a quién le hablas.", side: "Racional" },
+        { question: "Qué", answer: "Tu producto o la solución que entregas.", side: "Racional" },
+        { question: "Por qué", answer: "Tu propósito, el lado valórico y emocional del negocio.", side: "Emocional" },
+        { question: "Soy distinta por", answer: "Tu diferenciación: qué te separa de la competencia.", side: "Emocional" }
+      ],
+      methodology: "Metodología Montessori-Tech: descubrir, hacer y recuperar la confianza. La herramienta es la misma para todas, pero cada una decide qué construir con ella según lo que su negocio necesita. El error se trabaja como información, no como falla, y el aprendizaje ocurre acompañada de otras mujeres que atraviesan lo mismo.",
+      teachers: ["Carolina · Fundadora y facilitadora"],
+      faqs: [
+        { question: "¿Qué es exactamente un agente de IA?", answer: "Un asistente de inteligencia artificial que configuras con la información de tu negocio: quién eres, qué vendes, a quién le hablas y cómo te comunicas. Una vez creado, puedes pedirle que redacte publicaciones, responda consultas de clientes, prepare propuestas o te ayude a ordenar tus ideas, siempre con el tono y el criterio de tu marca." },
+        { question: "¿Necesito saber programar?", answer: "No. El taller está diseñado para comenzar desde cero. Todo el trabajo se hace con lenguaje común, escribiendo lo que ya sabes de tu negocio." },
+        { question: "¿Debo tener un negocio funcionando?", answer: "No es indispensable. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa o una idea que quieres explorar. El primer bloque está justamente para descubrir qué necesitas." },
+        { question: "¿Con qué me voy del taller?", answer: "Con tu Business Canvas completo y tu primer agente creado, probado y funcionando, listo para que lo sigas iterando por tu cuenta." },
+        { question: "¿El taller es presencial?", answer: "Sí. La experiencia prioriza el trabajo práctico, el acompañamiento cercano y el intercambio entre participantes." },
+        { question: "¿Tiene costo?", answer: "Las condiciones de participación, cupos y costo se informan de forma clara al abrir cada convocatoria. Déjanos tus datos y te escribimos con toda la información antes de la próxima fecha." }
+      ]
+    },
+    {
       slug: "crea-tu-primera-web-con-ia",
       name: "Crea tu primera página web con IA",
       description: "Aprende a transformar una idea en una página web funcional utilizando herramientas de inteligencia artificial y acompañamiento paso a paso.",
@@ -41,6 +117,7 @@ window.SITE_CONTENT = {
       statusKey: "soon",
       action: "Quiero recibir la próxima fecha",
       href: "programa-web-ia.html",
+      hasDetailPage: true,
       audience: "Mujeres que quieren llevar una idea a internet, presentar un proyecto, fortalecer un emprendimiento o simplemente descubrir lo que pueden crear con inteligencia artificial. No se necesita experiencia técnica previa.",
       learn: [
         "Convertir una idea en una estructura clara para una página web.",
@@ -56,23 +133,6 @@ window.SITE_CONTENT = {
         { question: "¿El programa es presencial?", answer: "Sí. La experiencia prioriza el aprendizaje práctico, el acompañamiento cercano y el intercambio entre participantes." },
         { question: "¿La publicación del sitio tiene costo?", answer: "Durante el programa revisaremos alternativas para publicar una primera versión. Cualquier requisito o costo particular se informará de forma clara antes de cada convocatoria." }
       ]
-    },
-    {
-      slug: "emprende-con-ia",
-      name: "Emprende con IA",
-      description: "Explora una oportunidad, ordénala y conviértela en una propuesta de negocio clara con apoyo de inteligencia artificial.",
-      image: "assets/images/mentoria-en-equipo.jpg",
-      imageAlt: "Dos mujeres conversando y trabajando juntas con computadores",
-      modality: "Presencial",
-      level: "Inicial",
-      duration: "Por definir",
-      result: "Propuesta de negocio desarrollada",
-      requirements: ["Tener una idea, desafío u oportunidad que quieras explorar."],
-      nextDate: "Fecha por anunciar",
-      status: "En preparación",
-      statusKey: "preparing",
-      action: "Sumarme a la lista de interés",
-      href: "index.html#contacto"
     },
     {
       slug: "comunica-tu-proyecto-con-ia",
@@ -94,11 +154,20 @@ window.SITE_CONTENT = {
   ],
 
   /*
-   * Deja esta lista vacía para mostrar el estado sin encuentros.
+   * Deja esta lista vacía para mostrar el estado sin encuentros:
+   * en ese caso se muestra el aviso de `eventsFallback`.
    * Cada encuentro admite: title, topic, date, time, city, host,
    * facilitators (lista), capacity, cost, registrationStatus, action y href.
    */
   events: [],
+
+  /* Aviso que se muestra en "Próximos encuentros" cuando no hay fechas publicadas. */
+  eventsFallback: {
+    title: "La convocatoria de «Crea tu primer agente con IA» está abierta.",
+    description: "Estamos cerrando la fecha, la ciudad y el lugar de nuestro primer taller. Déjanos tus datos y serás de las primeras en saberlo cuando abramos los cupos.",
+    action: "Quiero recibir la fecha del taller",
+    href: "index.html#contacto"
+  },
 
   people: [
     {
@@ -109,7 +178,7 @@ window.SITE_CONTENT = {
       role: "Fundadora y facilitadora",
       specialty: "Tecnología aplicada, productos digitales e inteligencia artificial",
       bio: "Impulsa esta iniciativa y facilita experiencias para que más mujeres puedan convertir la tecnología en proyectos y resultados propios.",
-      programs: ["Crea tu primera página web con IA"],
+      programs: ["Crea tu primer agente con IA", "Crea tu primera página web con IA"],
       links: []
     },
     {
