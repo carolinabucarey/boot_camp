@@ -172,9 +172,22 @@
     return invalidFields;
   }
 
+  // Los desplegables viajan con su texto visible: la planilla se lee sin traducir slugs.
+  function readFields(form) {
+    const campos = Object.fromEntries(new FormData(form).entries());
+    form.querySelectorAll("select").forEach((select) => {
+      const option = select.selectedOptions[0];
+      if (option && option.value) campos[select.name] = option.textContent.trim();
+    });
+    return campos;
+  }
+
+  const GRACIAS = "Gracias. Registramos tus datos y te contactaremos cuando tengamos novedades.";
+
   function setupForms() {
+    const endpoint = content.forms?.endpoint;
     document.querySelectorAll("form").forEach((form) => {
-      form.addEventListener("submit", (event) => {
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
         const status = form.querySelector(".form-status");
         const invalidFields = validateForm(form);
@@ -184,9 +197,47 @@
           invalidFields[0].focus();
           return;
         }
-        status.textContent = "Gracias. Registramos tus datos y te contactaremos cuando tengamos novedades.";
-        status.className = "form-status success";
-        form.reset();
+
+        // Sin endpoint configurado no hay dónde guardar: se agradece y no se promete más.
+        if (!endpoint) {
+          status.textContent = GRACIAS;
+          status.className = "form-status success";
+          form.reset();
+          return;
+        }
+
+        const button = form.querySelector('button[type="submit"]');
+        const buttonLabel = button?.textContent;
+        if (button) {
+          button.disabled = true;
+          button.textContent = "Enviando…";
+        }
+        status.textContent = "";
+        status.className = "form-status";
+
+        try {
+          await fetch(endpoint, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify({
+              formulario: form.dataset.formulario || "otros",
+              campos: readFields(form),
+              origen: location.pathname
+            })
+          });
+          status.textContent = GRACIAS;
+          status.className = "form-status success";
+          form.reset();
+        } catch (error) {
+          status.textContent = `No pudimos enviar tus datos. Vuelve a intentarlo o escríbenos a ${content.brand.email}.`;
+          status.className = "form-status error";
+        } finally {
+          if (button) {
+            button.disabled = false;
+            button.textContent = buttonLabel;
+          }
+        }
       });
     });
   }

@@ -7,6 +7,7 @@ Sitio institucional estático para una iniciativa de acceso a tecnología dirigi
 Todo el contenido que cambiará con frecuencia vive en `config.js`:
 
 - `brand`: nombre temporal, descriptor, correo, URL pública y enlaces principales;
+- `forms.endpoint`: URL donde se envían los formularios (ver más abajo);
 - `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle.
   Un programa con `statusKey: "preparing"` sigue apareciendo en la grilla, pero no
   se ofrece en el selector «Programa de interés» del formulario;
@@ -51,3 +52,24 @@ El sitio mantiene separados el recorrido de las participantes y el institucional
 participar (un CTA, un formulario), y todo lo dirigido a fundaciones, empresas,
 municipios e instituciones vive en `organizaciones.html`, enlazada de forma
 discreta desde el menú, el pie y la sección de contacto.
+
+## Formularios → Google Sheets
+
+Los formularios envían sus datos a una planilla mediante una aplicación web de
+Google Apps Script. Mientras `forms.endpoint` esté vacío en `config.js`, los
+formularios validan y agradecen, pero **no guardan nada**.
+
+Para conectarlos, una sola vez:
+
+1. Abre la planilla de destino → **Extensiones → Apps Script**.
+2. Pega el contenido de `integraciones/google-sheets.gs`, reemplazando lo que haya.
+3. **Implementar → Nueva implementación → Aplicación web**, con
+   *Ejecutar como: yo* y *Quién tiene acceso: cualquier persona*.
+4. Copia la URL que termina en `/exec` y pégala en `forms.endpoint` en `config.js`.
+
+Cada formulario escribe en su propia hoja (`Participantes` y `Organizaciones`),
+que se crea sola la primera vez, igual que sus columnas: si mañana un formulario
+suma un campo, aparece una columna nueva sin tocar el script.
+
+Al cambiar el script hay que volver a implementar (**Implementar → Gestionar
+implementaciones → editar → Nueva versión**); guardar no basta.

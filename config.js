@@ -20,6 +20,15 @@ window.SITE_CONTENT = {
     }
   },
 
+  /*
+   * Destino de los formularios. Pega aquí la URL /exec de la aplicación web
+   * de Apps Script (ver integraciones/google-sheets.gs). Mientras esté vacía,
+   * los formularios validan y agradecen, pero no guardan los datos en ninguna parte.
+   */
+  forms: {
+    endpoint: ""
+  },
+
   programs: [
     {
       slug: "crea-tu-primer-agente-con-ia",
