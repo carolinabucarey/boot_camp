@@ -35,8 +35,8 @@ window.SITE_CONTENT = {
       name: "Crea tu primer agente con IA",
       tagline: "El mejor aliado para tu negocio",
       description: "Descubre qué necesita hoy tu negocio y crea un agente de inteligencia artificial que te acompañe a ordenarlo, comunicarlo y vender.",
-      image: "assets/images/programa-agente.jpg",
-      imageAlt: "Grupo de mujeres trabajando juntas en un encuentro presencial",
+      image: "assets/images/mentoria-en-equipo.jpg",
+      imageAlt: "Dos mujeres trabajando juntas con computadores durante un taller práctico",
       modality: "Presencial",
       level: "Inicial",
       duration: "5 horas",
@@ -82,8 +82,8 @@ window.SITE_CONTENT = {
       slug: "crea-tu-primera-web-con-ia",
       name: "Crea tu primera página web con IA",
       description: "Aprende a transformar una idea en una página web funcional utilizando herramientas de inteligencia artificial y acompañamiento paso a paso.",
-      image: "assets/images/programa-web.jpg",
-      imageAlt: "Facilitadora presentando frente al grupo durante el taller",
+      image: "assets/images/mujeres-colaborando.jpg",
+      imageAlt: "Mujeres colaborando alrededor de un computador durante una sesión práctica",
       modality: "Presencial",
       level: "Inicial",
       duration: "Una jornada",
@@ -119,8 +119,8 @@ window.SITE_CONTENT = {
       slug: "comunica-tu-proyecto-con-ia",
       name: "Comunica tu proyecto con IA",
       description: "Define un mensaje claro y crea piezas de comunicación consistentes para presentar tu proyecto a las personas correctas.",
-      image: "assets/images/programa-comunicacion.jpg",
-      imageAlt: "Participantes concentradas en sus proyectos durante el taller",
+      image: "assets/images/aprendizaje-en-comunidad.jpg",
+      imageAlt: "Mujeres planificando un proyecto en una mesa de trabajo",
       modality: "Presencial",
       level: "Inicial",
       duration: "Por definir",
@@ -150,6 +150,13 @@ window.SITE_CONTENT = {
     href: "index.html#contacto"
   },
 
+  /*
+   * Comentarios de quienes participaron. La sección solo aparece cuando hay
+   * comentarios reales: con la lista vacía no se muestra nada.
+   * Cada comentario admite: { quote, author, role, program }.
+   */
+  testimonials: [],
+
   people: [
     {
       name: "Carolina",
@@ -165,8 +172,8 @@ window.SITE_CONTENT = {
     {
       name: "Jackeline Advincula",
       initials: "JA",
-      image: "",
-      imageAlt: "",
+      image: "assets/images/jackeline-advincula.jpg",
+      imageAlt: "Retrato de Jackeline Advincula",
       role: "Facilitadora",
       specialty: "Inteligencia artificial aplicada, innovación y desarrollo de negocios",
       bio: "Ingeniera y fundadora de KUIDDA, empresa peruana que desarrolla agentes de inteligencia artificial para seguridad urbana. Formula proyectos de innovación que han ganado fondos públicos y enseña en aulas universitarias y técnicas. En los talleres acompaña a las participantes a construir su propio proyecto, con la experiencia de quien construye agentes todos los días.",

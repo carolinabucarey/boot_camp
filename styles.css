@@ -225,6 +225,20 @@ p { margin: 0; }
 .pilot p { color: var(--muted); }
 
 .community-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(50px, 8vw, 110px); align-items: center; }
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.gallery-grid img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 26px; box-shadow: var(--shadow-small); }
+.gallery-grid img:first-child { border-radius: 140px 26px 26px 26px; }
+.gallery-grid img:last-child { border-radius: 26px 26px 140px 26px; }
+
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.testimonial { display: flex; flex-direction: column; margin: 0; padding: 32px; border: 1px solid var(--line); border-radius: 28px; background: var(--white); box-shadow: var(--shadow-small); }
+.testimonial blockquote { position: relative; margin: 0 0 24px; padding-top: 34px; color: var(--plum-900); font-family: var(--serif); font-size: 1.32rem; line-height: 1.38; }
+.testimonial blockquote::before { content: "\201C"; position: absolute; top: -8px; left: -4px; color: var(--rose-300); font-family: var(--serif); font-size: 4.5rem; line-height: 1; }
+.testimonial figcaption { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); }
+.testimonial figcaption strong { display: block; color: var(--plum-900); font-size: .95rem; }
+.testimonial figcaption span { display: block; color: var(--muted); font-size: .84rem; }
+.testimonial-program { color: var(--rose-700) !important; font-weight: 800; }
+
 .community-collage { position: relative; min-height: 610px; }
 .community-collage img:first-child { width: 78%; height: 540px; object-fit: cover; border-radius: 180px 32px 32px 32px; }
 .community-collage img:last-child { position: absolute; right: 0; bottom: 0; width: 52%; height: 280px; object-fit: cover; border: 9px solid var(--cream); border-radius: 24px 100px 24px 24px; box-shadow: var(--shadow-small); }
@@ -357,6 +371,8 @@ p { margin: 0; }
   .impact-flow { grid-template-columns: repeat(3, 1fr); }
   .impact-step:nth-child(3)::after { display: none; }
   .impact-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .org-photo { max-width: 620px; }
   .org-note { right: 18px; }
   .people-grid { grid-template-columns: 1fr; }
@@ -387,6 +403,8 @@ p { margin: 0; }
   .attribute { padding: 14px 4px; border-right: 0; border-bottom: 1px solid var(--line); }
   .attribute:last-child { border-bottom: 0; }
   .pillar-list, .cards-grid, .journey, .impact-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .testimonial-grid { grid-template-columns: 1fr; }
   .pillar { min-height: 0; }
   .pillar-number { margin-bottom: 25px; }
   .program-card:last-child { grid-column: auto; display: flex; }

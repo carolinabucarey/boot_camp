@@ -12,6 +12,8 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
   Un programa con `statusKey: "preparing"` sigue apareciendo en la grilla, pero no
   se ofrece en el selector «Programa de interés» del formulario;
 - `events`: encuentros (si la lista está vacía, se muestra el aviso de `eventsFallback`);
+- `testimonials`: comentarios de participantes. La sección solo aparece cuando hay
+  comentarios reales: con la lista vacía no se muestra nada;
 - `eventsFallback`: texto y botón que aparecen en «Próximos encuentros» mientras no haya fechas publicadas;
 - `people`: profesoras y mentoras;
 - `impactIndicators`: indicadores de impacto. Se muestran solo cuando hay cifras reales: con la lista vacía, la sección de impacto no despliega la grilla.
@@ -85,3 +87,10 @@ de Google.
 
 Al cambiar el script hay que volver a implementar (**Implementar → Gestionar
 implementaciones → editar → Nueva versión**); guardar no basta.
+
+## Fotos del taller
+
+`assets/images/experiencia-*.jpg` son fotos del primer bootcamp y alimentan la
+sección «Así se vivió nuestro primer taller». Se eligieron las que muestran el
+ambiente y se descartaron las que dejaban legible el contenido de las
+diapositivas: el sitio comunica la experiencia, no el paso a paso del taller.

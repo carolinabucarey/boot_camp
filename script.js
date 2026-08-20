@@ -98,6 +98,27 @@
       </article>`).join("");
   }
 
+  function renderTestimonials() {
+    const section = document.querySelector("#testimonios");
+    if (!section) return;
+    const list = section.querySelector("#testimonial-list");
+    const testimonials = content.testimonials || [];
+    // Sin comentarios reales, la sección no se muestra.
+    if (!testimonials.length) {
+      section.remove();
+      return;
+    }
+    list.innerHTML = testimonials.map((testimonial) => `
+      <figure class="testimonial">
+        <blockquote>${escapeHTML(testimonial.quote)}</blockquote>
+        <figcaption>
+          <strong>${escapeHTML(testimonial.author)}</strong>
+          ${testimonial.role ? `<span>${escapeHTML(testimonial.role)}</span>` : ""}
+          ${testimonial.program ? `<span class="testimonial-program">${escapeHTML(testimonial.program)}</span>` : ""}
+        </figcaption>
+      </figure>`).join("");
+  }
+
   function renderImpact() {
     const list = document.querySelector("#impact-list");
     if (!list) return;
@@ -265,6 +286,7 @@
   applyBrand();
   renderPrograms();
   renderEvents();
+  renderTestimonials();
   renderImpact();
   renderPeople();
   setupMenu();
