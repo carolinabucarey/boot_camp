@@ -250,7 +250,7 @@ p { margin: 0; }
 .people-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .person-card { display: grid; grid-template-columns: 160px 1fr; overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: var(--white); }
 .person-visual { display: grid; min-height: 100%; place-items: center; color: var(--cream); background: linear-gradient(145deg, var(--plum-800), var(--rose-700)); font-family: var(--serif); font-size: 4rem; }
-.person-visual img { width: 100%; height: 100%; object-fit: cover; }
+.person-visual img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 .person-body { padding: 28px; }
 .person-role { margin: 8px 0 16px; color: var(--rose-700); font-size: .77rem; font-weight: 800; }
 .person-specialty { margin-bottom: 12px; color: var(--plum-700); font-size: .84rem; font-weight: 800; }
