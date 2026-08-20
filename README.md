@@ -81,10 +81,22 @@ bloquea leer la respuesta, otra vez en modo opaco. Sin el `id`, cada inscripció
 aparecería duplicada en la planilla.
 
 **La implementación debe tener acceso «cualquier persona».** Si queda restringida
-al dominio, el sitio no puede escribir y el envío falla en silencio. Para
-comprobarlo, abre la URL `/exec` en una ventana de incógnito: debe responder
-`{"ok":true,"mensaje":"Endpoint activo."}` y no una pantalla de inicio de sesión
-de Google.
+al dominio, el sitio no puede escribir y el envío falla en silencio: el formulario
+agradece igual, porque el reintento en modo opaco no permite leer la respuesta.
+
+La propia URL delata cuál de las dos es. Una implementación restringida al dominio
+lleva el dominio en la ruta:
+
+    https://script.google.com/a/macros/tripsy-app.com/s/AKfy…/exec
+
+y una pública, no:
+
+    https://script.google.com/macros/s/AKfy…/exec
+
+Si en `forms.endpoint` aparece `/a/macros/`, hay que volver a implementar con acceso
+«cualquier persona». Para confirmarlo, abre la URL `/exec` en una ventana de
+incógnito: debe responder `{"ok":true,"mensaje":"Endpoint activo."}` y no una
+pantalla de inicio de sesión de Google.
 
 Al cambiar el script hay que volver a implementar (**Implementar → Gestionar
 implementaciones → editar → Nueva versión**); guardar no basta.
