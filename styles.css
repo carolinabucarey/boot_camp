@@ -225,10 +225,11 @@ p { margin: 0; }
 .pilot p { color: var(--muted); }
 
 .community-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(50px, 8vw, 110px); align-items: center; }
-.gallery-grid { display: grid; max-width: 900px; margin-inline: auto; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.gallery-grid img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 22px; box-shadow: var(--shadow-small); }
-.gallery-grid img:first-child { border-radius: 100px 22px 22px 22px; }
-.gallery-grid img:last-child { border-radius: 22px 22px 100px 22px; }
+/* Tira de fotos: altura pareja y proporción propia, sin recortar ninguna. */
+.gallery-strip { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+.gallery-strip img { height: 374px; width: auto; flex: 0 0 auto; border-radius: 22px; scroll-snap-align: start; box-shadow: var(--shadow-small); }
+.gallery-strip img:first-child { border-radius: 100px 22px 22px 22px; }
+.gallery-strip img:last-child { border-radius: 22px 22px 100px 22px; }
 
 .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .testimonial { display: flex; flex-direction: column; margin: 0; padding: 32px; border: 1px solid var(--line); border-radius: 28px; background: var(--white); box-shadow: var(--shadow-small); }
@@ -372,7 +373,6 @@ p { margin: 0; }
   .impact-flow { grid-template-columns: repeat(3, 1fr); }
   .impact-step:nth-child(3)::after { display: none; }
   .impact-grid { grid-template-columns: 1fr 1fr; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .org-photo { max-width: 620px; }
   .org-note { right: 18px; }
@@ -404,7 +404,7 @@ p { margin: 0; }
   .attribute { padding: 14px 4px; border-right: 0; border-bottom: 1px solid var(--line); }
   .attribute:last-child { border-bottom: 0; }
   .pillar-list, .cards-grid, .journey, .impact-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gallery-strip img { height: 280px; }
   .testimonial-grid { grid-template-columns: 1fr; }
   .pillar { min-height: 0; }
   .pillar-number { margin-bottom: 25px; }
