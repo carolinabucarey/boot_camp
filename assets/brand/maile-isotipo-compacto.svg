@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 1024 1024" role="img" aria-label="Maile">
+  <title>Maile</title>
+  <defs>
+    <linearGradient id="maileRingCompacto" x1="8%" y1="4%" x2="92%" y2="96%">
+      <stop offset="0%" stop-color="#d5c0e8"/><stop offset="34%" stop-color="#e8a9c2"/>
+      <stop offset="66%" stop-color="#e3a3a8"/><stop offset="100%" stop-color="#dda877"/>
+    </linearGradient>
+  </defs>
+  <circle cx="512" cy="512" r="512" fill="url(#maileRingCompacto)"/>
+  <circle cx="512" cy="512" r="470" fill="#2e1b36"/>
+  <g transform="translate(512,512) scale(1.16) translate(-512,-512)">
+    <g fill="none" stroke="#fdf6f0" stroke-width="19" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M402 524 C390 442 390 352 428 302 C452 268 480 252 512 252 C544 252 572 268 596 302 C634 352 634 442 622 524 C620 542 600 546 592 532 C600 472 604 428 596 390 C592 316 556 294 512 294 C468 294 432 316 428 390 C420 428 424 472 432 532 C424 546 404 542 402 524 Z"/>
+      <ellipse cx="512" cy="384" rx="76" ry="94"/>
+      <path d="M458 474 C462 510 458 528 444 540 C398 558 362 590 348 634 C338 672 332 716 328 764"/>
+      <path d="M566 474 C562 510 566 528 580 540 C626 558 662 590 676 634 C686 672 692 716 696 764"/>
+    </g>
+    <g stroke="#fdf6f0" stroke-width="19" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M400 712 L312 762 L712 762 L624 712 Z" fill="#2e1b36"/>
+      <rect x="402" y="592" width="220" height="120" rx="16" fill="#2e1b36"/>
+      <rect x="418" y="608" width="188" height="88" rx="8" fill="none"/>
+    </g>
+    <path d="M512 612 C516.5 638 523 645 550 650 C523 655 516.5 662 512 688 C507.5 662 501 655 474 650 C501 645 507.5 638 512 612 Z" fill="#d9a455"/>
+  </g>
+</svg>

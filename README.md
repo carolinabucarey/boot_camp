@@ -1,4 +1,4 @@
-# [NOMBRE] · Mujeres creando futuro con tecnología
+# Maile · Mujeres creando futuro con tecnología
 
 Sitio institucional estático para una iniciativa de acceso a tecnología dirigida a mujeres.
 
@@ -6,7 +6,7 @@ Sitio institucional estático para una iniciativa de acceso a tecnología dirigi
 
 Todo el contenido que cambiará con frecuencia vive en `config.js`:
 
-- `brand`: nombre temporal, descriptor, correo, URL pública y enlaces principales;
+- `brand`: nombre, isotipo (`logo`), descriptor, correo, URL pública y enlaces principales;
 - `forms.endpoint`: URL donde se envían los formularios (ver más abajo);
 - `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle.
   Un programa con `statusKey: "preparing"` sigue apareciendo en la grilla, pero no
@@ -27,7 +27,8 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
 - `privacidad.html` y `terminos.html`: bases legales que deben revisarse al formalizar la iniciativa;
 - `styles.css`: sistema visual responsive;
 - `script.js` y `program.js`: contenido dinámico, menú y validación de formularios;
-- `assets/images`: fotografías optimizadas y previsualización social.
+- `assets/images`: fotografías optimizadas;
+- `assets/brand`: isotipo de Maile en sus dos versiones.
 
 No hay proceso de compilación: basta abrir `index.html` o servir la carpeta con un servidor estático.
 
@@ -87,6 +88,28 @@ de Google.
 
 Al cambiar el script hay que volver a implementar (**Implementar → Gestionar
 implementaciones → editar → Nueva versión**); guardar no basta.
+
+## Marca
+
+El nombre vive en un solo lugar: `brand.name` en `config.js`. Las páginas traen el
+marcador `[NOMBRE]` en títulos, metadatos y `aria-label`, y `script.js` lo reemplaza
+al cargar; los elementos con `data-brand` reciben el nombre completo. Para cambiar el
+nombre no hay que tocar el HTML.
+
+El isotipo es una mujer frente a un notebook dentro de un círculo ciruela, con un aro
+degradado lila → rosa → dorado. Vive en dos archivos:
+
+- `assets/brand/maile-isotipo.svg`: versión maestra, con el aro fino separado del
+  círculo por un espacio en blanco. Es la que conviene usar en piezas grandes;
+- `assets/brand/maile-isotipo-compacto.svg`: el aro va al borde y los trazos son más
+  gruesos, para que la figura siga leyéndose en tamaños chicos. Es la que usa el sitio
+  en el encabezado y el pie (`brand.logo` en `config.js`) y la que originó los favicon.
+
+De esa versión compacta salen `favicon.ico`, `assets/favicon-16.png`, `-32`, `-180` y
+`-512`. `assets/og-social.png` (1200×630) es la tarjeta que se ve al compartir el sitio
+en redes: isotipo, nombre y descriptor sobre las formas y los colores de la marca.
+Al cambiar el isotipo hay que regenerar los favicon y la tarjeta social, porque son
+mapas de bits y no se actualizan solos.
 
 ## Fotos del taller
 

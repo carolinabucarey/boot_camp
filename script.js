@@ -14,6 +14,9 @@
     document.querySelectorAll('meta[content*="[NOMBRE]"]').forEach((meta) => {
       meta.content = meta.content.replaceAll("[NOMBRE]", brand.name);
     });
+    document.querySelectorAll('[aria-label*="[NOMBRE]"]').forEach((element) => {
+      element.setAttribute("aria-label", element.getAttribute("aria-label").replaceAll("[NOMBRE]", brand.name));
+    });
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = `${brand.siteUrl}${location.pathname === "/" ? "/" : location.pathname}`;
     const ogUrl = document.querySelector('meta[property="og:url"]');
@@ -24,6 +27,9 @@
       const dot = element.querySelector("span") ? "<span>.</span>" : "";
       element.innerHTML = `${escapeHTML(brand.name)}${dot}`;
     });
+    if (brand.logo) {
+      document.querySelectorAll("[data-brand-mark]").forEach((element) => { element.src = brand.logo; });
+    }
     document.querySelectorAll("[data-descriptor]").forEach((element) => { element.textContent = brand.descriptor; });
     document.querySelectorAll("[data-email]").forEach((element) => {
       element.textContent = brand.email;
