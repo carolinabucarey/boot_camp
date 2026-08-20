@@ -139,10 +139,14 @@
     if (!list) return;
     list.innerHTML = content.people.map((person) => `
       <article class="person-card">
-        <div class="person-visual">${person.image ? `<img src="${escapeHTML(person.image)}" alt="${escapeHTML(person.imageAlt)}" loading="lazy">` : `<span aria-label="Perfil de ${escapeHTML(person.name)}">${escapeHTML(person.initials)}</span>`}</div>
         <div class="person-body">
-          <h3>${escapeHTML(person.name)}</h3>
-          <p class="person-role">${escapeHTML(person.role)}</p>
+          <div class="person-header">
+            <div class="person-visual">${person.image ? `<img src="${escapeHTML(person.image)}" alt="${escapeHTML(person.imageAlt)}" loading="lazy">` : `<span aria-label="Perfil de ${escapeHTML(person.name)}">${escapeHTML(person.initials)}</span>`}</div>
+            <div>
+              <h3>${escapeHTML(person.name)}</h3>
+              <p class="person-role">${escapeHTML(person.role)}</p>
+            </div>
+          </div>
           ${person.specialty ? `<p class="person-specialty">${escapeHTML(person.specialty)}</p>` : ""}
           ${person.bio ? `<p class="person-bio">${richText(person.bio)}</p>` : ""}
           <p class="person-programs"><strong>Programas:</strong> ${person.programs.map(escapeHTML).join(", ")}</p>
