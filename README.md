@@ -6,7 +6,8 @@ Sitio institucional estático para una iniciativa de acceso a tecnología dirigi
 
 Todo el contenido que cambiará con frecuencia vive en `config.js`:
 
-- `brand`: nombre, isotipo (`logo`), descriptor, correo, URL pública y enlaces principales;
+- `brand`: nombre, isotipo (`logo`), descriptor, correo, URL pública y enlaces
+  principales. Ojo: el nombre y la URL también están en el HTML (ver «Marca»);
 - `forms.endpoint`: URL donde se envían los formularios (ver más abajo);
 - `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle.
   Un programa con `statusKey: "preparing"` sigue apareciendo en la grilla, pero no
@@ -103,10 +104,23 @@ implementaciones → editar → Nueva versión**); guardar no basta.
 
 ## Marca
 
-El nombre vive en un solo lugar: `brand.name` en `config.js`. Las páginas traen el
-marcador `[NOMBRE]` en títulos, metadatos y `aria-label`, y `script.js` lo reemplaza
-al cargar; los elementos con `data-brand` reciben el nombre completo. Para cambiar el
-nombre no hay que tocar el HTML.
+El nombre está escrito en el HTML de cada página —en el `<title>`, en los metadatos
+`og:`, en el `aria-label` del logo y en el encabezado y el pie— y también en
+`brand.name` de `config.js`, de donde salen el logotipo, el descriptor y el correo al
+cargar la página.
+
+Están en los dos lados a propósito. Antes las páginas traían el marcador `[NOMBRE]` y
+`script.js` lo reemplazaba al cargar, pero los rastreadores de Google y de las redes
+sociales leen el HTML sin ejecutar JavaScript: al compartir el sitio por WhatsApp, la
+tarjeta mostraba literalmente "[NOMBRE] · Mujeres creando futuro con tecnología". Lo
+mismo pasa con `brand.siteUrl`, que alimenta la URL canónica y la de `og:`.
+
+**Si cambia el nombre o el dominio, hay que cambiarlo en los dos lados**: en el HTML
+de las seis páginas y en `config.js`.
+
+El logotipo va en versales —MAILE.— como el logo horizontal de la marca. El nombre se
+escribe normal, "Maile", en títulos, textos y metadatos; las versales son cosa del
+logotipo y las pone `styles.css`, no el contenido.
 
 En `assets/brand` viven los archivos originales de la marca, y son dos dibujos
 distintos con oficios distintos:

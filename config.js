@@ -9,7 +9,7 @@ window.SITE_CONTENT = {
     logo: "assets/brand/maile-avatar.png",
     descriptor: "Mujeres creando futuro con tecnología.",
     email: "contacto@nombre.cl",
-    siteUrl: "https://bootcamp-female-club.vercel.app",
+    siteUrl: "https://www.maile.cl",
     links: {
       home: "index.html",
       participate: "index.html#contacto",
