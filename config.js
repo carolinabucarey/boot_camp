@@ -165,7 +165,7 @@ window.SITE_CONTENT = {
       imageAlt: "Retrato de Carolina Bucarey",
       role: "Fundadora y facilitadora",
       specialty: "Estrategia, productos digitales e inteligencia artificial aplicada",
-      bio: "Ingeniera civil industrial de la Universidad de Santiago y MBA del IE Business School, con quince años liderando estrategia, operaciones y productos digitales en América Latina. Fundadora y CEO de Savia, que ayuda a profesionales y organizaciones a llevar la inteligencia artificial a su trabajo diario, y cofundadora de Tripsy. Su trayectoria pasa por McKinsey, Mercado Libre, DiDi y Groupon. Impulsa esta iniciativa para abrir más espacio a las mujeres que quieran construir y liderar en tecnología.",
+      bio: "**Ingeniera civil industrial** de la Universidad de Santiago y **MBA del IE Business School**, con **quince años** liderando estrategia, operaciones y productos digitales en América Latina. Fundadora y CEO de **Savia**, que ayuda a profesionales y organizaciones a llevar la inteligencia artificial a su trabajo diario, y cofundadora de **Tripsy**. Su trayectoria pasa por **McKinsey, Mercado Libre, DiDi y Groupon**. Impulsa esta iniciativa para abrir más espacio a las mujeres que quieran construir y liderar en tecnología.",
       programs: ["Crea tu primer agente con IA", "Crea tu primera página web con IA"],
       links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/carolinabucarey/" }]
     },
@@ -176,7 +176,7 @@ window.SITE_CONTENT = {
       imageAlt: "Retrato de Jackeline Advincula",
       role: "Fundadora y facilitadora",
       specialty: "Inteligencia artificial aplicada, innovación y desarrollo de negocios",
-      bio: "Ingeniera y fundadora de KUIDDA, empresa peruana que desarrolla agentes de inteligencia artificial para seguridad urbana. Formula proyectos de innovación que han ganado fondos públicos y enseña en aulas universitarias y técnicas. En los talleres acompaña a las participantes a construir su propio proyecto, con la experiencia de quien construye agentes todos los días.",
+      bio: "**Ingeniera química** de la Universidad Nacional de Ingeniería, con diplomatura en gestión de proyectos de la Pontificia Universidad Católica del Perú y un **MBA en curso en ESAN**. Fundadora y CEO de **KUIDDA**, empresa peruana que desarrolla **agentes de inteligencia artificial** para seguridad urbana. Formula proyectos de innovación que han **ganado fondos públicos** y enseña en aulas universitarias y técnicas. Desde 2019 lidera un **proyecto de empoderamiento con alumnas de secundaria** en Huachipa, enmarcado en el objetivo de desarrollo sostenible de equidad de género. En los talleres acompaña a las participantes a construir su propio proyecto, con la experiencia de quien construye agentes todos los días.",
       programs: ["Crea tu primer agente con IA"],
       links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/jackelineadvincula/" }]
     },
