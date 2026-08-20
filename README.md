@@ -96,20 +96,25 @@ marcador `[NOMBRE]` en títulos, metadatos y `aria-label`, y `script.js` lo reem
 al cargar; los elementos con `data-brand` reciben el nombre completo. Para cambiar el
 nombre no hay que tocar el HTML.
 
-`assets/brand/maile-avatar.png` es el logo original: una mujer frente a un notebook
-dentro de un círculo ciruela, con un aro degradado lila → rosa → dorado. Es el archivo
-maestro y lo usan el encabezado y el pie del sitio (`brand.logo` en `config.js`).
+En `assets/brand` viven los archivos originales de la marca, y son dos dibujos
+distintos con oficios distintos:
 
-De él salen dos piezas que son mapas de bits y no se actualizan solas: si el logo
-cambia, hay que regenerarlas.
+- `maile-avatar.png`: el logo. Una mujer frente a un notebook, de línea fina, dentro
+  de un círculo ciruela con aro degradado lila → rosa → dorado. Lo usan el encabezado
+  y el pie del sitio (`brand.logo` en `config.js`) y la tarjeta social;
+- `favicon.svg` más `favicon-16/32/48/180/512.png`: la misma figura, pero en silueta
+  llena sobre un cuadrado de esquinas redondeadas. Es lo que se ve en la pestaña del
+  navegador y en la pantalla de inicio del teléfono. No es el logo achicado: a 16
+  píxeles la línea fina se empasta y el aro desaparece, así que el favicon resuelve
+  la figura en masas sólidas, que sí sobreviven a ese tamaño.
 
-- Los favicon (`favicon.ico` con 16/32/48, y `assets/favicon-16.png`, `-32`, `-180`
-  y `-512`). No son el original tal cual: a 16 y 32 píxeles el aro se pierde y los
-  trazos finos de la figura se empastan, así que la figura va acercada y el aro
-  llega al borde del círculo. Es el mismo dibujo, ajustado para que sobreviva al
-  tamaño de una pestaña.
-- `assets/og-social.png` (1200×630), la tarjeta que se ve al compartir el sitio en
-  redes: logo, nombre y descriptor sobre las formas y los colores de la marca.
+`favicon.ico` (en la raíz, con 16, 32 y 48 píxeles) se arma desde esos PNG: es el
+archivo que los navegadores piden solos, aunque nadie lo enlace. Si el favicon
+cambia, hay que rehacerlo.
+
+`assets/og-social.png` (1200×630) es la tarjeta que se ve al compartir el sitio en
+redes: logo, nombre y descriptor sobre las formas y los colores de la marca. También
+es un mapa de bits y hay que regenerarla si cambia el logo.
 
 ## Fotos del taller
 
