@@ -11,7 +11,7 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
 - `events`: encuentros (si la lista está vacía, se muestra el aviso de `eventsFallback`);
 - `eventsFallback`: texto y botón que aparecen en «Próximos encuentros» mientras no haya fechas publicadas;
 - `people`: profesoras y mentoras;
-- `impactIndicators`: indicadores de impacto verificados o pendientes.
+- `impactIndicators`: indicadores de impacto. Se muestran solo cuando hay cifras reales: con la lista vacía, la sección de impacto no despliega la grilla.
 
 ## Páginas y estilos
 

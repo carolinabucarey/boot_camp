@@ -99,6 +99,10 @@
   function renderImpact() {
     const list = document.querySelector("#impact-list");
     if (!list) return;
+    if (!content.impactIndicators.length) {
+      list.remove();
+      return;
+    }
     list.innerHTML = content.impactIndicators.map((indicator) => `
       <article class="impact-card"><span class="impact-value">${escapeHTML(indicator.value)}</span><span class="impact-label">${escapeHTML(indicator.label)}</span></article>`).join("");
   }

@@ -80,7 +80,7 @@ window.SITE_CONTENT = {
         "No necesitas experiencia previa en programación."
       ],
       nextDate: "Estamos preparando el próximo encuentro.",
-      status: "Próximamente",
+      status: "Nueva fecha por confirmar",
       statusKey: "soon",
       action: "Quiero recibir la próxima fecha",
       href: "programa-web-ia.html",
@@ -161,14 +161,10 @@ window.SITE_CONTENT = {
     }
   ],
 
-  impactIndicators: [
-    { label: "Mujeres participantes", value: "Próximamente" },
-    { label: "Encuentros realizados", value: "Próximamente" },
-    { label: "Proyectos creados", value: "Próximamente" },
-    { label: "Porcentaje de finalización", value: "En medición" },
-    { label: "Confianza antes y después", value: "En medición" },
-    { label: "Testimonios", value: "Próximamente" },
-    { label: "Organizaciones colaboradoras", value: "Próximamente" },
-    { label: "Presencia territorial", value: "Próximamente" }
-  ]
+  /*
+   * Indicadores de impacto. Se muestran solo cuando hay cifras reales:
+   * con la lista vacía, la sección de impacto no despliega la grilla.
+   * Cada indicador admite: { label, value }.
+   */
+  impactIndicators: []
 };
