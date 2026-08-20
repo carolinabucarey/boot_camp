@@ -6,7 +6,7 @@
 window.SITE_CONTENT = {
   brand: {
     name: "Maile",
-    logo: "assets/brand/maile-isotipo-compacto.svg",
+    logo: "assets/brand/maile-avatar.png",
     descriptor: "Mujeres creando futuro con tecnología.",
     email: "contacto@nombre.cl",
     siteUrl: "https://bootcamp-female-club.vercel.app",

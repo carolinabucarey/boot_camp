@@ -28,7 +28,7 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
 - `styles.css`: sistema visual responsive;
 - `script.js` y `program.js`: contenido dinámico, menú y validación de formularios;
 - `assets/images`: fotografías optimizadas;
-- `assets/brand`: isotipo de Maile en sus dos versiones.
+- `assets/brand`: archivos originales de la marca.
 
 No hay proceso de compilación: basta abrir `index.html` o servir la carpeta con un servidor estático.
 
@@ -96,20 +96,20 @@ marcador `[NOMBRE]` en títulos, metadatos y `aria-label`, y `script.js` lo reem
 al cargar; los elementos con `data-brand` reciben el nombre completo. Para cambiar el
 nombre no hay que tocar el HTML.
 
-El isotipo es una mujer frente a un notebook dentro de un círculo ciruela, con un aro
-degradado lila → rosa → dorado. Vive en dos archivos:
+`assets/brand/maile-avatar.png` es el logo original: una mujer frente a un notebook
+dentro de un círculo ciruela, con un aro degradado lila → rosa → dorado. Es el archivo
+maestro y lo usan el encabezado y el pie del sitio (`brand.logo` en `config.js`).
 
-- `assets/brand/maile-isotipo.svg`: versión maestra, con el aro fino separado del
-  círculo por un espacio en blanco. Es la que conviene usar en piezas grandes;
-- `assets/brand/maile-isotipo-compacto.svg`: el aro va al borde y los trazos son más
-  gruesos, para que la figura siga leyéndose en tamaños chicos. Es la que usa el sitio
-  en el encabezado y el pie (`brand.logo` en `config.js`) y la que originó los favicon.
+De él salen dos piezas que son mapas de bits y no se actualizan solas: si el logo
+cambia, hay que regenerarlas.
 
-De esa versión compacta salen `favicon.ico`, `assets/favicon-16.png`, `-32`, `-180` y
-`-512`. `assets/og-social.png` (1200×630) es la tarjeta que se ve al compartir el sitio
-en redes: isotipo, nombre y descriptor sobre las formas y los colores de la marca.
-Al cambiar el isotipo hay que regenerar los favicon y la tarjeta social, porque son
-mapas de bits y no se actualizan solos.
+- Los favicon (`favicon.ico` con 16/32/48, y `assets/favicon-16.png`, `-32`, `-180`
+  y `-512`). No son el original tal cual: a 16 y 32 píxeles el aro se pierde y los
+  trazos finos de la figura se empastan, así que la figura va acercada y el aro
+  llega al borde del círculo. Es el mismo dibujo, ajustado para que sobreviva al
+  tamaño de una pestaña.
+- `assets/og-social.png` (1200×630), la tarjeta que se ve al compartir el sitio en
+  redes: logo, nombre y descriptor sobre las formas y los colores de la marca.
 
 ## Fotos del taller
 
