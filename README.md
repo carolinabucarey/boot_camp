@@ -7,7 +7,9 @@ Sitio institucional estático para una iniciativa de acceso a tecnología dirigi
 Todo el contenido que cambiará con frecuencia vive en `config.js`:
 
 - `brand`: nombre temporal, descriptor, correo, URL pública y enlaces principales;
-- `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle;
+- `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle.
+  Un programa con `statusKey: "preparing"` sigue apareciendo en la grilla, pero no
+  se ofrece en el selector «Programa de interés» del formulario;
 - `events`: encuentros (si la lista está vacía, se muestra el aviso de `eventsFallback`);
 - `eventsFallback`: texto y botón que aparecen en «Próximos encuentros» mientras no haya fechas publicadas;
 - `people`: profesoras y mentoras;

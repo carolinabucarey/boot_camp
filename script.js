@@ -65,7 +65,9 @@
 
     const programSelect = document.querySelector("#p-programa");
     if (programSelect) {
-      programSelect.insertAdjacentHTML("beforeend", content.programs.map((program) => `<option value="${escapeHTML(program.slug)}">${escapeHTML(program.name)}</option>`).join(""));
+      // Solo se ofrecen los programas que ya existen: los que están en preparación no aparecen.
+      const offered = content.programs.filter((program) => program.statusKey !== "preparing");
+      programSelect.insertAdjacentHTML("beforeend", offered.map((program) => `<option value="${escapeHTML(program.slug)}">${escapeHTML(program.name)}</option>`).join(""));
       programSelect.insertAdjacentHTML("beforeend", '<option value="mentora">Sumarme como profesora o mentora</option><option value="otro">Otro interés</option>');
     }
   }
