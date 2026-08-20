@@ -247,9 +247,12 @@ p { margin: 0; }
 .network-cta { display: flex; align-items: center; justify-content: space-between; gap: 25px; margin-top: 32px; padding: 26px 30px; border-radius: 24px; color: var(--white); background: var(--plum-900); }
 .network-cta p { max-width: 650px; color: rgba(255,255,255,.72); }
 
+.contact-layout { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
+.contact-layout .contact-intro { margin-bottom: 0; }
 .contact-intro { max-width: 720px; margin-bottom: 50px; }
 .contact-intro .lead { margin-top: 22px; }
 .forms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+.forms-grid.single { grid-template-columns: minmax(0, 1fr); }
 .form-card { padding: 34px; border: 1px solid var(--line); border-radius: 30px; background: var(--white); box-shadow: var(--shadow-small); }
 .form-card.institutional { background: var(--plum-900); }
 .form-card.institutional h3 { color: var(--white); }
@@ -351,6 +354,8 @@ p { margin: 0; }
   .org-note { right: 18px; }
   .people-grid { grid-template-columns: 1fr; }
   .person-card { grid-template-columns: 180px 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-layout .contact-intro { margin-bottom: 8px; }
   .forms-grid { grid-template-columns: 1fr; }
   .form-card.institutional { margin-top: 12px; }
   .info-panel { position: static; }

@@ -33,14 +33,13 @@
         <a href="#proposito">Nuestro propósito</a>
         <a href="#programas">Programas</a>
         <a href="#encuentros">Encuentros</a>
-        <a href="#organizaciones">Organizaciones</a>
+        <a href="organizaciones.html">Organizaciones</a>
         <a href="#impacto">Impacto</a>
         <a href="#comunidad">Comunidad</a>
         <a href="#red">Profesoras y mentoras</a>
         <a href="#contacto">Contacto</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn-secondary" href="#form-organizaciones">Para organizaciones</a>
         <a class="btn btn-primary" href="#contacto">Quiero participar</a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Abrir menú"><span></span></button>
       </div>
@@ -50,14 +49,13 @@
       <a href="#proposito">Nuestro propósito</a>
       <a href="#programas">Programas</a>
       <a href="#encuentros">Próximos encuentros</a>
-      <a href="#organizaciones">Para organizaciones</a>
+      <a href="organizaciones.html">Para organizaciones</a>
       <a href="#impacto">Impacto</a>
       <a href="#comunidad">Comunidad</a>
       <a href="#red">Profesoras y mentoras</a>
       <a href="#contacto">Contacto</a>
       <div class="button-row">
         <a class="btn btn-primary" href="#contacto">Quiero participar</a>
-        <a class="btn btn-secondary" href="#form-organizaciones">Quiero llevar este programa a mi organización</a>
       </div>
     </nav>
   </header>
@@ -72,7 +70,6 @@
             <p class="lead">Reducimos barreras de acceso a la tecnología y creamos oportunidades de desarrollo personal, profesional y económico para mujeres, mediante experiencias prácticas, presenciales y comunitarias.</p>
             <div class="button-row">
               <a class="btn btn-primary btn-arrow" href="#contacto">Quiero participar</a>
-              <a class="btn btn-secondary" href="#form-organizaciones">Quiero llevar este programa a mi organización</a>
             </div>
           </div>
           <div class="hero-visual" aria-label="Mujeres aprendiendo y colaborando en un encuentro presencial">
@@ -144,32 +141,6 @@
       </div>
     </section>
 
-    <section class="section section-plum" id="organizaciones">
-      <div class="container">
-        <div class="org-grid">
-          <div class="org-photo">
-            <img src="assets/images/mentoria-en-equipo.jpg" alt="Mujeres colaborando en una mesa de trabajo con computadores" width="1200" height="798" loading="lazy">
-            <p class="org-note">Programas con propósito, diseñados para cada contexto.</p>
-          </div>
-          <div class="org-copy">
-            <p class="eyebrow">Para organizaciones</p>
-            <h2>Llevemos nuevas oportunidades a más mujeres</h2>
-            <p class="lead">Diseñamos e implementamos experiencias de aprendizaje para fundaciones, empresas, municipios, instituciones educativas y organizaciones que quieran ampliar el acceso de las mujeres a la tecnología.</p>
-            <div class="chip-list" aria-label="Modalidades para organizaciones">
-              <span class="chip">Cohortes patrocinadas</span><span class="chip">Programas para comunidades</span><span class="chip">Formación para equipos</span><span class="chip">Encuentros territoriales</span><span class="chip">Talleres a medida</span><span class="chip">Alianzas de largo plazo</span>
-            </div>
-            <div class="button-row"><a class="btn btn-light btn-arrow" href="#form-organizaciones">Quiero llevar este programa a mi organización</a></div>
-          </div>
-        </div>
-        <div class="implementation">
-          <h3>Qué podemos implementar</h3>
-          <ul class="implementation-list">
-            <li>Diagnóstico de las participantes</li><li>Diseño del programa</li><li>Profesoras y facilitadoras</li><li>Ejecución presencial</li><li>Materiales y acompañamiento</li><li>Medición de resultados</li><li>Testimonios e informe de impacto</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="impacto">
       <div class="container">
         <div class="section-header">
@@ -218,45 +189,30 @@
 
     <section class="section section-lavender" id="contacto">
       <div class="container">
-        <div class="contact-intro">
-          <p class="eyebrow">Contacto</p>
-          <h2>Hay distintas formas de ser parte</h2>
-          <p class="lead">Cuéntanos si quieres participar, colaborar o llevar una experiencia a tu organización. Te responderemos cuando tengamos una próxima convocatoria o podamos conversar.</p>
+        <div class="contact-layout">
+          <div class="contact-intro">
+            <p class="eyebrow">Contacto</p>
+            <h2>Hay distintas formas de ser parte</h2>
+            <p class="lead">Déjanos tus datos y te escribimos cuando abramos la próxima convocatoria. También puedes sumarte a la red de profesoras y mentoras desde este mismo formulario.</p>
+            <p class="fine-print">¿Vienes de una organización? El recorrido para fundaciones, empresas, municipios e instituciones está <a href="organizaciones.html">en su propia página</a>.</p>
+          </div>
+          <div class="forms-grid single">
+            <form class="form-card" id="form-participantes" novalidate>
+              <h3>Quiero participar</h3>
+              <p class="form-intro">Recibe próximas fechas y novedades de los programas.</p>
+              <div class="form-grid">
+                <div class="field"><label for="p-nombre">Nombre *</label><input id="p-nombre" name="nombre" autocomplete="name" required></div>
+                <div class="field"><label for="p-correo">Correo *</label><input id="p-correo" name="correo" type="email" autocomplete="email" required></div>
+                <div class="field"><label for="p-telefono">Teléfono <span class="fine-print">(opcional)</span></label><input id="p-telefono" name="telefono" type="tel" autocomplete="tel"></div>
+                <div class="field"><label for="p-ciudad">Ciudad *</label><input id="p-ciudad" name="ciudad" autocomplete="address-level2" required></div>
+                <div class="field full"><label for="p-programa">Programa de interés *</label><select id="p-programa" name="programa" required><option value="">Selecciona una opción</option></select></div>
+                <div class="field full"><label for="p-experiencia">Experiencia previa <span class="fine-print">(opcional)</span></label><input id="p-experiencia" name="experiencia" placeholder="No necesitas experiencia para participar"></div>
+                <div class="field full"><label for="p-mensaje">Mensaje</label><textarea id="p-mensaje" name="mensaje"></textarea></div>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit">Quiero recibir novedades</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
         </div>
-        <div class="forms-grid">
-          <form class="form-card" id="form-participantes" novalidate>
-            <h3>Quiero participar</h3>
-            <p class="form-intro">Recibe próximas fechas y novedades de los programas.</p>
-            <div class="form-grid">
-              <div class="field"><label for="p-nombre">Nombre *</label><input id="p-nombre" name="nombre" autocomplete="name" required></div>
-              <div class="field"><label for="p-correo">Correo *</label><input id="p-correo" name="correo" type="email" autocomplete="email" required></div>
-              <div class="field"><label for="p-telefono">Teléfono <span class="fine-print">(opcional)</span></label><input id="p-telefono" name="telefono" type="tel" autocomplete="tel"></div>
-              <div class="field"><label for="p-ciudad">Ciudad *</label><input id="p-ciudad" name="ciudad" autocomplete="address-level2" required></div>
-              <div class="field full"><label for="p-programa">Programa de interés *</label><select id="p-programa" name="programa" required><option value="">Selecciona una opción</option></select></div>
-              <div class="field full"><label for="p-experiencia">Experiencia previa <span class="fine-print">(opcional)</span></label><input id="p-experiencia" name="experiencia" placeholder="No necesitas experiencia para participar"></div>
-              <div class="field full"><label for="p-mensaje">Mensaje</label><textarea id="p-mensaje" name="mensaje"></textarea></div>
-            </div>
-            <button class="btn btn-primary btn-block" type="submit">Quiero recibir novedades</button>
-            <p class="form-status" role="status" aria-live="polite"></p>
-          </form>
-
-          <form class="form-card institutional" id="form-organizaciones" novalidate>
-            <h3>Quiero implementar o financiar un programa</h3>
-            <p class="form-intro">Conversemos sobre las necesidades de tu comunidad u organización.</p>
-            <div class="form-grid">
-              <div class="field"><label for="o-nombre">Nombre *</label><input id="o-nombre" name="nombre" autocomplete="name" required></div>
-              <div class="field"><label for="o-organizacion">Organización *</label><input id="o-organizacion" name="organizacion" autocomplete="organization" required></div>
-              <div class="field"><label for="o-cargo">Cargo *</label><input id="o-cargo" name="cargo" autocomplete="organization-title" required></div>
-              <div class="field"><label for="o-correo">Correo *</label><input id="o-correo" name="correo" type="email" autocomplete="email" required></div>
-              <div class="field"><label for="o-telefono">Teléfono <span class="fine-print">(opcional)</span></label><input id="o-telefono" name="telefono" type="tel" autocomplete="tel"></div>
-              <div class="field"><label for="o-tipo">Tipo de organización *</label><select id="o-tipo" name="tipo" required><option value="">Selecciona</option><option>Fundación</option><option>Empresa</option><option>Municipio</option><option>Institución educativa</option><option>Organización social</option><option>Otra</option></select></div>
-              <div class="field"><label for="o-ciudad">Ciudad o territorio *</label><input id="o-ciudad" name="ciudad" autocomplete="address-level2" required></div>
-              <div class="field"><label for="o-participantes">N.º aproximado de participantes *</label><input id="o-participantes" name="participantes" type="number" min="1" inputmode="numeric" required></div>
-              <div class="field full"><label for="o-mensaje">Mensaje *</label><textarea id="o-mensaje" name="mensaje" required></textarea></div>
-            </div>
-            <button class="btn btn-light btn-block" type="submit">Enviar consulta institucional</button>
-            <p class="form-status" role="status" aria-live="polite"></p>
-          </form>
         </div>
       </div>
     </section>
@@ -267,7 +223,7 @@
       <div class="footer-grid">
         <div class="footer-brand"><a class="wordmark" href="index.html" data-brand>[NOMBRE]<span>.</span></a><p data-descriptor>Mujeres creando futuro con tecnología.</p></div>
         <div><p class="footer-title">Explora</p><nav class="footer-links" aria-label="Navegación del pie"><a href="#proposito">Nuestro propósito</a><a href="#programas">Programas</a><a href="#encuentros">Encuentros</a><a href="#impacto">Impacto</a></nav></div>
-        <div><p class="footer-title">Participa</p><nav class="footer-links"><a href="#contacto">Quiero participar</a><a href="#form-organizaciones">Para organizaciones</a><a href="#red">Profesoras y mentoras</a><a data-email href="mailto:contacto@nombre.cl">contacto@nombre.cl</a></nav></div>
+        <div><p class="footer-title">Participa</p><nav class="footer-links"><a href="#contacto">Quiero participar</a><a href="organizaciones.html">Para organizaciones</a><a href="#red">Profesoras y mentoras</a><a data-email href="mailto:contacto@nombre.cl">contacto@nombre.cl</a></nav></div>
         <div><p class="footer-title">Información</p><nav class="footer-links"><a data-privacy href="privacidad.html">Política de privacidad</a><a data-terms href="terminos.html">Términos</a><span data-socials>Redes sociales · próximamente</span></nav></div>
       </div>
       <div class="footer-bottom"><span>© <span data-year></span> <span data-brand>[NOMBRE]</span>. Derechos reservados.</span><span>Creado para aprender, hacer y avanzar juntas.</span></div>

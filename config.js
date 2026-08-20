@@ -12,7 +12,7 @@ window.SITE_CONTENT = {
     links: {
       home: "index.html",
       participate: "index.html#contacto",
-      organizations: "index.html#form-organizaciones",
+      organizations: "organizaciones.html",
       instagram: "",
       linkedin: "",
       privacy: "privacidad.html",
