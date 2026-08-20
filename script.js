@@ -56,10 +56,10 @@
         </div>
         <div class="program-body">
           <div class="meta-row"><span class="meta">${escapeHTML(program.modality)}</span><span class="meta">Nivel ${escapeHTML(program.level)}</span>${program.duration !== "Por definir" ? `<span class="meta">${escapeHTML(program.duration)}</span>` : ""}</div>
-          <h3>${escapeHTML(program.name)}</h3>
+          <h3>${escapeHTML(program.name)}${program.tagline ? `<span class="program-tagline">${escapeHTML(program.tagline)}</span>` : ""}</h3>
           <p>${escapeHTML(program.description)}</p>
           <div class="result"><small>Resultado</small><strong>${escapeHTML(program.result)}</strong></div>
-          <a class="btn btn-secondary btn-arrow" href="${escapeHTML(program.href)}">${program.slug === "crea-tu-primera-web-con-ia" ? "Ver programa" : escapeHTML(program.action)}</a>
+          <a class="btn btn-secondary btn-arrow" href="${escapeHTML(program.href)}">${program.hasDetailPage ? "Ver programa" : escapeHTML(program.action)}</a>
         </div>
       </article>`).join("");
 
@@ -74,10 +74,16 @@
     const list = document.querySelector("#event-list");
     if (!list) return;
     if (!content.events.length) {
+      const fallback = content.eventsFallback || {
+        title: "Estamos preparando nuevas experiencias presenciales.",
+        description: "Déjanos tus datos y te avisaremos cuando abramos la próxima convocatoria.",
+        action: "Quiero recibir las próximas fechas",
+        href: "index.html#contacto"
+      };
       list.innerHTML = `
         <div class="empty-state">
-          <div><h3>Estamos preparando nuevas experiencias presenciales.</h3><p>Déjanos tus datos y te avisaremos cuando abramos la próxima convocatoria.</p></div>
-          <a class="btn btn-primary" href="#contacto">Quiero recibir las próximas fechas</a>
+          <div><h3>${escapeHTML(fallback.title)}</h3><p>${escapeHTML(fallback.description)}</p></div>
+          <a class="btn btn-primary" href="${escapeHTML(fallback.href)}">${escapeHTML(fallback.action)}</a>
         </div>`;
       return;
     }
@@ -93,6 +99,10 @@
   function renderImpact() {
     const list = document.querySelector("#impact-list");
     if (!list) return;
+    if (!content.impactIndicators.length) {
+      list.remove();
+      return;
+    }
     list.innerHTML = content.impactIndicators.map((indicator) => `
       <article class="impact-card"><span class="impact-value">${escapeHTML(indicator.value)}</span><span class="impact-label">${escapeHTML(indicator.label)}</span></article>`).join("");
   }
