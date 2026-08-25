@@ -51,8 +51,12 @@ window.SITE_CONTENT = {
         "Tener una cuenta de pago en Claude o en ChatGPT: el agente se construye ahí y la versión gratuita no permite crearlo.",
         "No necesitas experiencia previa en tecnología ni en programación."
       ],
-      city: "Santiago",
-      nextDate: "Convocatoria abierta · próxima fecha por confirmar",
+      city: "Las Condes, Santiago",
+      nextDate: "5 de septiembre · 14:00 a 19:00 h",
+      eventDate: "5 de septiembre",
+      eventTime: "14:00 a 19:00 h",
+      eventLocation: "Salón del edificio Málaga 115, Las Condes",
+      eventAccess: "Cerca del metro Escuela Militar",
       price: {
         earlyBird: "$65.000",
         general: "$80.000",
@@ -80,7 +84,7 @@ window.SITE_CONTENT = {
         { question: "¿Necesito saber programar?", answer: "No. El taller está diseñado para comenzar desde cero. Todo el trabajo se hace con lenguaje común, escribiendo lo que ya sabes de tu negocio." },
         { question: "¿Debo tener un negocio funcionando?", answer: "No. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa, una idea que quieres explorar o solo con ganas de aprender. El taller empieza justamente por descubrir de qué se trata lo tuyo." },
         { question: "¿Con qué me voy del taller?", answer: "Con tu primer agente creado, probado y funcionando, y con tu negocio ordenado por escrito para que puedas seguir trabajándolo por tu cuenta." },
-        { question: "¿Dónde y cuándo es?", answer: "En Santiago. Estamos cerrando la fecha y el lugar exacto: déjanos tus datos y te escribimos apenas los confirmemos." },
+        { question: "¿Dónde y cuándo es?", answer: "El 5 de septiembre, de 14:00 a 19:00 h, en el salón del edificio Málaga 115, Las Condes, cerca del metro Escuela Militar." },
         { question: "¿El taller es presencial?", answer: "Sí. La experiencia prioriza el trabajo práctico, el acompañamiento cercano y el intercambio entre participantes." },
         { question: "¿Cuánto cuesta?", answer: "El valor early bird es de $65.000 y el general, de $80.000 (pesos chilenos). El early bird está disponible durante la primera etapa de inscripción: si dejas tus datos ahora, te escribimos con el valor que te corresponde y la forma de pago antes de confirmar tu cupo." }
       ]
@@ -147,7 +151,18 @@ window.SITE_CONTENT = {
    * Cada encuentro admite: title, topic, date, time, city, host,
    * facilitators (lista), capacity, cost, registrationStatus, action y href.
    */
-  events: [],
+  events: [
+    {
+      title: "Crea tu primer agente con IA",
+      topic: "Taller presencial",
+      date: "5 de septiembre",
+      time: "14:00 a 19:00 h",
+      city: "Las Condes, Santiago",
+      host: "Salón del edificio Málaga 115 · cerca del metro Escuela Militar",
+      action: "Quiero participar",
+      href: "#contacto"
+    }
+  ],
 
   /* Aviso que se muestra en "Próximos encuentros" cuando no hay fechas publicadas. */
   eventsFallback: {

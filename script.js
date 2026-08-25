@@ -105,7 +105,12 @@
     list.innerHTML = content.events.map((event) => `
       <article class="event-card">
         <div><strong>${escapeHTML(event.date)}</strong><br><span>${escapeHTML(event.time)}</span></div>
-        <div><p class="eyebrow">${escapeHTML(event.topic)}</p><h3>${escapeHTML(event.title)}</h3><p>${escapeHTML(event.city)} · ${escapeHTML(event.host)}</p><p>${escapeHTML(event.facilitators.join(", "))} · ${escapeHTML(event.capacity)} cupos · ${escapeHTML(event.cost)} · ${escapeHTML(event.registrationStatus)}</p></div>
+        <div><p class="eyebrow">${escapeHTML(event.topic)}</p><h3>${escapeHTML(event.title)}</h3><p>${escapeHTML(event.city)} · ${escapeHTML(event.host)}</p>${event.facilitators?.length || event.capacity || event.cost || event.registrationStatus ? `<p>${[
+          event.facilitators?.length ? event.facilitators.join(", ") : "",
+          event.capacity ? `${event.capacity} cupos` : "",
+          event.cost,
+          event.registrationStatus
+        ].filter(Boolean).map(escapeHTML).join(" · ")}</p>` : ""}</div>
         <a class="btn btn-primary" href="${escapeHTML(event.href)}">${escapeHTML(event.action)}</a>
       </article>`).join("");
   }

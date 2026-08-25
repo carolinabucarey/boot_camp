@@ -23,6 +23,10 @@
   setText("[data-city]", program.city);
   // Sin ciudad definida, la fila no se muestra.
   if (!program.city) document.querySelector("[data-city-row]")?.remove();
+  setText("[data-event-date]", program.eventDate);
+  setText("[data-event-time]", program.eventTime);
+  setText("[data-event-location]", program.eventLocation);
+  setText("[data-event-access]", program.eventAccess);
   setText("[data-audience]", program.audience);
   setText("[data-promise]", program.promise);
   setText("[data-methodology]", program.methodology);
