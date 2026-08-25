@@ -84,6 +84,24 @@
     }
   }
 
+  function setupProgramInterest() {
+    const programSelect = document.querySelector("#p-programa");
+    if (!programSelect) return;
+
+    const programSlug = new URLSearchParams(location.search).get("programa");
+    const program = content.programs.find((item) => item.slug === programSlug);
+    const option = Array.from(programSelect.options).find((item) => item.value === programSlug);
+    if (!program || !option) return;
+
+    option.selected = true;
+    option.defaultSelected = true;
+
+    if (program.statusKey === "open") {
+      const submitButton = document.querySelector('#form-participantes button[type="submit"]');
+      if (submitButton) submitButton.textContent = "Inscribirme";
+    }
+  }
+
   function renderEvents() {
     const list = document.querySelector("#event-list");
     if (!list) return;
@@ -306,6 +324,7 @@
 
   applyBrand();
   renderPrograms();
+  setupProgramInterest();
   renderEvents();
   renderTestimonials();
   renderImpact();

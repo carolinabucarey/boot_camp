@@ -40,6 +40,13 @@
   renderList("#teacher-list", program.teachers);
   renderList("#requirement-list", program.requirements);
 
+  if (program.statusKey === "open") {
+    const registrationHref = `index.html?programa=${encodeURIComponent(program.slug)}#contacto`;
+    document.querySelectorAll('a[href="index.html#contacto"]').forEach((link) => {
+      link.href = registrationHref;
+    });
+  }
+
   const faqList = document.querySelector("#faq-list");
   if (faqList && program.faqs) {
     faqList.innerHTML = program.faqs.map((faq) => `<details class="faq"><summary>${escapeHTML(faq.question)}</summary><p>${escapeHTML(faq.answer)}</p></details>`).join("");
