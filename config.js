@@ -17,7 +17,7 @@ window.SITE_CONTENT = {
       participate: "index.html#contacto",
       organizations: "organizaciones.html",
       instagram: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/company/maile-chile",
       privacy: "privacidad.html",
       terms: "terminos.html"
     }
@@ -52,8 +52,8 @@ window.SITE_CONTENT = {
         "No necesitas experiencia previa en tecnología ni en programación."
       ],
       city: "Las Condes, Santiago",
-      nextDate: "5 de septiembre · 14:00 a 19:00 h",
-      eventDate: "5 de septiembre",
+      nextDate: "5 de septiembre de 2026 · 14:00 a 19:00 h",
+      eventDate: "5 de septiembre de 2026",
       eventTime: "14:00 a 19:00 h",
       eventLocation: "Salón del edificio Málaga 115, Las Condes",
       eventAccess: "Cerca del metro Escuela Militar",
@@ -84,7 +84,7 @@ window.SITE_CONTENT = {
         { question: "¿Necesito saber programar?", answer: "No. El taller está diseñado para comenzar desde cero. Todo el trabajo se hace con lenguaje común, escribiendo lo que ya sabes de tu negocio." },
         { question: "¿Debo tener un negocio funcionando?", answer: "No. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa, una idea que quieres explorar o solo con ganas de aprender. El taller empieza justamente por descubrir de qué se trata lo tuyo." },
         { question: "¿Con qué me voy del taller?", answer: "Con tu primer agente creado, probado y funcionando, y con tu negocio ordenado por escrito para que puedas seguir trabajándolo por tu cuenta." },
-        { question: "¿Dónde y cuándo es?", answer: "El 5 de septiembre, de 14:00 a 19:00 h, en el salón del edificio Málaga 115, Las Condes, cerca del metro Escuela Militar." },
+        { question: "¿Dónde y cuándo es?", answer: "El 5 de septiembre de 2026, de 14:00 a 19:00 h, en el salón del edificio Málaga 115, Las Condes, cerca del metro Escuela Militar." },
         { question: "¿El taller es presencial?", answer: "Sí. La experiencia prioriza el trabajo práctico, el acompañamiento cercano y el intercambio entre participantes." },
         { question: "¿Cuánto cuesta?", answer: "El valor early bird es de $65.000 y el general, de $80.000 (pesos chilenos). El early bird está disponible durante la primera etapa de inscripción: si dejas tus datos ahora, te escribimos con el valor que te corresponde y la forma de pago antes de confirmar tu cupo." }
       ]
@@ -155,7 +155,7 @@ window.SITE_CONTENT = {
     {
       title: "Crea tu primer agente con IA",
       topic: "Taller presencial",
-      date: "5 de septiembre",
+      date: "5 de septiembre de 2026",
       time: "14:00 a 19:00 h",
       city: "Las Condes, Santiago",
       host: "Salón del edificio Málaga 115 · cerca del metro Escuela Militar",

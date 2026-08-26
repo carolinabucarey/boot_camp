@@ -18,9 +18,11 @@
   function applyBrand() {
     const { brand } = content;
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.href = `${brand.siteUrl}${location.pathname === "/" ? "/" : location.pathname}`;
+    // La URL canónica declarada en el HTML es la fuente de verdad. Así, por
+    // ejemplo, /index.html y la portada con parámetros siguen apuntando a /.
+    const canonicalUrl = canonical?.href || `${brand.siteUrl}${location.pathname === "/" ? "/" : location.pathname}`;
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.content = `${brand.siteUrl}${location.pathname === "/" ? "/" : location.pathname}`;
+    if (ogUrl) ogUrl.content = canonicalUrl;
     const ogImage = document.querySelector('meta[property="og:image"]');
     if (ogImage) ogImage.content = `${brand.siteUrl}/assets/og-social.png`;
     // El logotipo destaca "AI" dentro del nombre: M-AI-LE. En el texto corrido,

@@ -11,8 +11,8 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
   también están en el HTML (ver «Marca»);
 - `forms.endpoint`: URL donde se envían los formularios (ver más abajo);
 - `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle.
-  Un programa con `statusKey: "preparing"` sigue apareciendo en la grilla, pero no
-  se ofrece en el selector «Programa de interés» del formulario;
+  Solo los programas con `statusKey: "open"` se ofrecen en el selector «Programa
+  de interés» del formulario;
 - `events`: encuentros (si la lista está vacía, se muestra el aviso de `eventsFallback`);
 - `testimonials`: comentarios de participantes. La sección solo aparece cuando hay
   comentarios reales: con la lista vacía no se muestra nada;
@@ -33,6 +33,20 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
 - `assets/brand`: archivos originales de la marca.
 
 No hay proceso de compilación: basta abrir `index.html` o servir la carpeta con un servidor estático.
+
+## SEO e indexación
+
+- `robots.txt` permite el rastreo y declara la ubicación de `sitemap.xml`;
+- `sitemap.xml` incluye únicamente las páginas públicas que deben aparecer en buscadores;
+- las páginas legales llevan `noindex,follow` y por eso no aparecen en el sitemap;
+- la portada declara los datos estructurados `Organization` y `WebSite`;
+- las páginas interiores declaran breadcrumbs y el taller con fecha publicada usa
+  datos estructurados `Event`.
+
+Cuando cambie una fecha, lugar o estado de convocatoria, actualiza tanto `config.js`
+como los datos estructurados de la página de detalle correspondiente. Después de
+publicar cambios importantes, actualiza `lastmod` en `sitemap.xml` y solicita una
+nueva indexación desde Google Search Console.
 
 ## Páginas de detalle de un programa
 
