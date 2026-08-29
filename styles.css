@@ -319,6 +319,17 @@ p { margin: 0; }
 .prose-section h2 { margin-bottom: 24px; font-size: clamp(2rem, 4vw, 3.1rem); }
 .prose-section h3 { margin: 28px 0 10px; }
 .prose-section p { color: var(--muted); }
+.facilitators-intro { margin-bottom: 24px; }
+.facilitator-list { display: grid; gap: 20px; }
+.facilitator-profile { padding: 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--white); box-shadow: var(--shadow-small); }
+.facilitator-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+.facilitator-heading h3 { margin: 0; }
+.facilitator-profile p + p { margin-top: 14px; }
+.linkedin-link { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border-radius: 7px; color: var(--white); background: #0a66c2; transition: transform .2s ease, background-color .2s ease; }
+.linkedin-link:hover { color: var(--white); background: #004182; transform: translateY(-2px); }
+.linkedin-link:focus-visible { outline: 3px solid var(--rose-300); outline-offset: 3px; }
+.linkedin-link svg { width: 22px; height: 22px; fill: currentColor; }
+.facilitators-closing { margin-top: 24px; padding: 22px 24px; border-left: 4px solid var(--gold); border-radius: 0 16px 16px 0; background: var(--cream-2); }
 .check-list { display: grid; gap: 13px; padding: 0; list-style: none; }
 .check-list li { position: relative; padding-left: 32px; color: var(--muted); }
 .check-list li::before { content: "✓"; position: absolute; left: 0; top: 1px; display: grid; width: 21px; height: 21px; place-items: center; border-radius: 50%; color: var(--rose-700); background: var(--rose-100); font-size: .7rem; font-weight: 800; }
@@ -429,6 +440,8 @@ p { margin: 0; }
   .community-collage img:last-child { height: 190px; }
   .benefit-list { grid-template-columns: 1fr; }
   .person-body { padding: 24px 20px; }
+  .facilitator-profile { padding: 24px 20px; }
+  .facilitators-closing { padding: 20px; }
   .network-cta { align-items: flex-start; flex-direction: column; }
   .form-card { padding: 27px 20px; }
   .form-grid { grid-template-columns: 1fr; }
