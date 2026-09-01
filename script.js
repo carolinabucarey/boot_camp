@@ -51,6 +51,7 @@
     if (socialContainer) {
       const socials = [
         ["Instagram", brand.links.instagram],
+        ["WhatsApp", brand.links.whatsapp],
         ["LinkedIn", brand.links.linkedin]
       ].filter(([, href]) => href);
       if (socials.length) {

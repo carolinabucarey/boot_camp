@@ -16,7 +16,8 @@ window.SITE_CONTENT = {
       home: "index.html",
       participate: "index.html#contacto",
       organizations: "organizaciones.html",
-      instagram: "",
+      instagram: "https://www.instagram.com/maile_edtech/",
+      whatsapp: "https://wa.me/56990195787",
       linkedin: "https://www.linkedin.com/company/maile-chile",
       privacy: "privacidad.html",
       terms: "terminos.html"
