@@ -347,6 +347,8 @@ p { margin: 0; }
 .price-alt strong { color: var(--plum-800); }
 .price-block .fine-print { margin: 12px 0 0; }
 .date-note { margin: 20px 0; padding: 17px; border-radius: 15px; color: var(--plum-800); background: var(--lavender-100); font-weight: 800; }
+.course-contact { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
+.course-contact a { color: var(--rose-700); font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .faq { border-bottom: 1px solid var(--line); }
 .faq summary { padding: 19px 36px 19px 0; color: var(--plum-800); cursor: pointer; font-weight: 800; }
 .faq p { padding: 0 0 20px; }

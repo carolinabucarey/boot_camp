@@ -58,6 +58,16 @@
         socialContainer.innerHTML = socials.map(([label, href]) => `<a href="${escapeHTML(href)}" rel="noopener noreferrer">${label}</a>`).join(" · ");
       }
     }
+
+    document.querySelectorAll("[data-course-contact]").forEach((element) => {
+      const courseLinks = [
+        ["WhatsApp", brand.links.whatsapp],
+        ["Instagram", brand.links.instagram]
+      ].filter(([, href]) => href);
+      if (courseLinks.length) {
+        element.innerHTML = `¿Tienes dudas? ${courseLinks.map(([label, href]) => `<a href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`).join(" · ")}`;
+      }
+    });
   }
 
   function renderPrograms() {
