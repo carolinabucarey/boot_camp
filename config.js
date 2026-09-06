@@ -41,6 +41,56 @@ window.SITE_CONTENT = {
 
   programs: [
     {
+      slug: "crea-tu-primer-agente-con-ia-online",
+      name: "Crea tu primer agente con IA — Edición online",
+      tagline: "Dos sesiones en vivo para crear una solución propia",
+      need: "Aplicar IA a una necesidad concreta de tu trabajo, proyecto o negocio.",
+      description: "Convierte un objetivo real en una primera versión de tu propio agente de IA, creada y probada por ti en dos sesiones online en vivo.",
+      image: "assets/images/experiencia-trabajando.jpg",
+      imageAlt: "Mujeres trabajando en sus proyectos con computadores durante una experiencia práctica",
+      modality: "Online, en vivo",
+      level: "Inicial",
+      duration: "4 horas · 2 sesiones",
+      result: "Una primera versión de tu propio agente de IA",
+      requirements: [
+        "Computador con conexión estable a internet.",
+        "Traer una tarea, necesidad u objetivo que te gustaría resolver.",
+        "No necesitas saber programar ni tener experiencia técnica previa."
+      ],
+      nextDate: "Jueves 1 y viernes 2 de octubre de 2026 · 19:00 a 21:00 horas",
+      eventDate: "1 y 2 de octubre de 2026",
+      eventTime: "19:00 a 21:00 horas, horario de Chile",
+      eventLocation: "Online, en vivo",
+      eventAccess: "Recibirás la información de conexión antes del inicio del programa.",
+      status: "Inscripciones abiertas",
+      statusKey: "open",
+      action: "Conocer el programa",
+      href: "programa-agente-ia-online.html",
+      hasDetailPage: true,
+      price: {
+        general: "$70.000 CLP",
+        note: "Incluye las dos sesiones, materiales, acompañamiento y un mes de Claude Pro."
+      },
+      audience: "Mujeres que quieren aplicar la inteligencia artificial a una necesidad profesional, laboral, personal, de un proyecto o de un negocio. No necesitas tener un negocio ni experiencia técnica previa.",
+      promise: "Convierte un objetivo real de tu trabajo, proyecto o negocio en un agente de IA creado por ti.",
+      learn: [
+        "Definirás una necesidad concreta y el objetivo de tu agente.",
+        "Identificarás quién lo utilizará y qué información necesita.",
+        "Crearás sus instrucciones y su forma de responder.",
+        "Construirás y probarás una primera versión con situaciones reales.",
+        "Detectarás mejoras y aprenderás a seguir desarrollándolo."
+      ],
+      methodology: "Trabajarás sobre una necesidad propia mediante una secuencia práctica: definir, crear, probar y continuar. Las explicaciones serán simples, sin tecnicismos innecesarios, y contarás con acompañamiento durante la construcción.",
+      teachers: [],
+      faqs: [
+        { question: "¿Necesito saber programar?", answer: "No. El programa está diseñado para mujeres sin experiencia técnica previa." },
+        { question: "¿Tengo que tener un negocio?", answer: "No. Puedes trabajar sobre una necesidad de tu trabajo, un proyecto, una idea, un negocio o un objetivo personal." },
+        { question: "¿Tengo que llegar con una idea definida?", answer: "No necesita estar completamente desarrollada. Es recomendable que llegues con una tarea, necesidad u objetivo que te gustaría resolver; durante la primera sesión te ayudaremos a acotarlo." },
+        { question: "¿Saldré con un agente terminado?", answer: "Saldrás con una primera versión creada y probada. Podrás continuar ajustándola y ampliándola después del curso." },
+        { question: "¿Qué incluye el valor?", answer: "Incluye las dos sesiones online en vivo, los materiales de trabajo, el acompañamiento durante la creación y un mes de Claude Pro." }
+      ]
+    },
+    {
       slug: "crea-tu-primer-agente-con-ia",
       name: "Crea tu primer agente con IA",
       tagline: "De un objetivo real a una primera solución propia",
@@ -154,7 +204,21 @@ window.SITE_CONTENT = {
    * Cada encuentro admite: title, topic, date, time, city, host,
    * facilitators (lista), capacity, cost, registrationStatus, action y href.
    */
-  events: [],
+  events: [
+    {
+      title: "Crea tu primer agente con IA — Edición online",
+      topic: "Agentes con IA · Nivel inicial",
+      date: "1 y 2 de octubre de 2026",
+      time: "19:00 a 21:00 horas",
+      city: "Online",
+      host: "En vivo",
+      facilitators: [],
+      cost: "$70.000 CLP",
+      registrationStatus: "Inscripciones abiertas",
+      action: "Inscribirme",
+      href: "index.html?programa=crea-tu-primer-agente-con-ia-online#contacto"
+    }
+  ],
 
   /* Aviso que se muestra en "Próximos encuentros" cuando no hay fechas publicadas. */
   eventsFallback: {

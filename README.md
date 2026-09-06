@@ -24,6 +24,7 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
 
 - `index.html`: página institucional completa;
 - `programa-agente-ia.html`: detalle del taller «Crea tu primer agente con IA»;
+- `programa-agente-ia-online.html`: detalle de la edición online del programa de agentes;
 - `programa-web-ia.html`: detalle del programa de páginas web;
 - `organizaciones.html`: recorrido institucional (propuesta, modalidades y formulario);
 - `gracias-por-tu-compra.html`: retorno posterior al pago y acceso al grupo de WhatsApp;
