@@ -182,19 +182,24 @@ window.SITE_CONTENT = {
         "Una idea o proyecto claramente definido.",
         "Textos, imágenes, colores o referencias disponibles, si ya los tienes."
       ],
-      nextDate: "Fecha y horario por confirmar · 10 cupos",
-      eventDate: "Por confirmar",
-      eventTime: "Por confirmar",
+      nextDate: "Miércoles 7 y jueves 8 de octubre de 2026 · Horario por confirmar",
+      eventDate: "7 y 8 de octubre de 2026",
+      eventTime: "Horario por confirmar",
       eventLocation: "Online, en vivo",
       eventAccess: "Recibirás la información de conexión antes del inicio del programa.",
-      status: "En preparación",
-      statusKey: "soon",
-      action: "Conocer el programa",
+      status: "Inscripciones abiertas",
+      statusKey: "open",
+      action: "Inscribirme",
       href: "programa-web-ia.html",
       hasDetailPage: true,
       price: {
         general: "$74.990 CLP",
         note: "Incluye dos sesiones online en vivo, construcción guiada, publicación inicial, configuración técnica y un dominio .cl por 12 meses. Las suscripciones de ChatGPT y Claude no están incluidas."
+      },
+      payment: {
+        providerName: "Mercado Pago",
+        checkoutUrl: "https://mpago.la/2ZrMcvC",
+        discounts: []
       },
       audience: "Mujeres que ya utilizan ChatGPT y Claude, quieren avanzar más allá de los usos básicos y tienen una idea, proyecto o necesidad que desean convertir en una solución web. No necesitas saber programar, pero sí llegar con claridad sobre lo que quieres desarrollar.",
       promise: "Convierte una idea clara en una primera solución web creada y publicada por ti.",
@@ -262,6 +267,20 @@ window.SITE_CONTENT = {
       registrationStatus: "Inscripciones abiertas",
       action: "Inscribirme",
       href: "pago.html?programa=crea-tu-primer-agente-con-ia-online"
+    },
+    {
+      title: "Crea y publica tu proyecto web con IA",
+      topic: "Proyectos web con IA · Nivel intermedio",
+      date: "7 y 8 de octubre de 2026",
+      time: "Horario por confirmar",
+      city: "Online",
+      host: "En vivo",
+      facilitators: [],
+      capacity: 10,
+      cost: "$74.990 CLP",
+      registrationStatus: "Inscripciones abiertas",
+      action: "Inscribirme",
+      href: "pago.html?programa=crea-tu-primera-web-con-ia"
     }
   ],
 
