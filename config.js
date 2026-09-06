@@ -20,6 +20,10 @@ window.SITE_CONTENT = {
       organizations: "organizaciones.html",
       instagram: "https://www.instagram.com/maile_edtech/",
       whatsapp: "https://wa.me/56990195787",
+      // Pega aquí la invitación completa del grupo, por ejemplo:
+      // https://chat.whatsapp.com/XXXXXXXX. Mientras esté vacío, la página de
+      // confirmación permite solicitar el acceso por el WhatsApp oficial.
+      whatsappGroup: "https://chat.whatsapp.com/IdHkG0A9t2QCiKcOYs9ta7?mode=gi_t",
       linkedin: "https://www.linkedin.com/company/maile-chile",
       privacy: "privacidad.html",
       terms: "terminos.html"

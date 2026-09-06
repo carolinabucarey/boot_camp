@@ -74,6 +74,22 @@
     });
   }
 
+  function setupPurchaseConfirmation() {
+    const button = document.querySelector("[data-whatsapp-group]");
+    if (!button) return;
+
+    const groupLink = content.brand?.links?.whatsappGroup?.trim();
+    if (!/^https:\/\/chat\.whatsapp\.com\//i.test(groupLink || "")) return;
+
+    button.href = groupLink;
+    const label = button.querySelector("[data-whatsapp-label]");
+    const description = document.querySelector("[data-whatsapp-description]");
+    const note = document.querySelector("[data-whatsapp-note]");
+    if (label) label.textContent = "Unirme al grupo de WhatsApp";
+    if (description) description.textContent = "Ahí compartiremos avisos, materiales, enlaces y todo lo que necesitas antes de comenzar.";
+    if (note) note.textContent = "El enlace se abrirá en WhatsApp.";
+  }
+
   function renderPrograms() {
     const list = document.querySelector("#program-list");
     if (!list) return;
@@ -369,6 +385,7 @@
   }
 
   applyBrand();
+  setupPurchaseConfirmation();
   renderPrograms();
   setupProgramInterest();
   renderEvents();
