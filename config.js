@@ -50,7 +50,7 @@ window.SITE_CONTENT = {
       imageAlt: "Mujeres trabajando en sus proyectos con computadores durante una experiencia práctica",
       modality: "Online, en vivo",
       level: "Inicial",
-      duration: "4 horas · 2 sesiones",
+      duration: "4 horas, distribuidas en 2 sesiones",
       result: "Una primera versión de tu propio agente de IA",
       requirements: [
         "Computador con conexión estable a internet.",
@@ -69,7 +69,7 @@ window.SITE_CONTENT = {
       hasDetailPage: true,
       price: {
         general: "$70.000 CLP",
-        note: "Incluye las dos sesiones, materiales, acompañamiento y un mes de Claude Pro."
+        note: "Las primeras inscritas reciben 500 créditos en ChatGPT y una semana de Claude Cowork."
       },
       audience: "Mujeres que quieren aplicar la inteligencia artificial a una necesidad profesional, laboral, personal, de un proyecto o de un negocio. No necesitas tener un negocio ni experiencia técnica previa.",
       promise: "Convierte un objetivo real de tu trabajo, proyecto o negocio en un agente de IA creado por ti.",
@@ -87,7 +87,7 @@ window.SITE_CONTENT = {
         { question: "¿Tengo que tener un negocio?", answer: "No. Puedes trabajar sobre una necesidad de tu trabajo, un proyecto, una idea, un negocio o un objetivo personal." },
         { question: "¿Tengo que llegar con una idea definida?", answer: "No necesita estar completamente desarrollada. Es recomendable que llegues con una tarea, necesidad u objetivo que te gustaría resolver; durante la primera sesión te ayudaremos a acotarlo." },
         { question: "¿Saldré con un agente terminado?", answer: "Saldrás con una primera versión creada y probada. Podrás continuar ajustándola y ampliándola después del curso." },
-        { question: "¿Qué incluye el valor?", answer: "Incluye las dos sesiones online en vivo, los materiales de trabajo, el acompañamiento durante la creación y un mes de Claude Pro." }
+        { question: "¿Qué incluye el valor?", answer: "Incluye las dos sesiones online en vivo, los materiales de trabajo y el acompañamiento durante la creación. Además, las primeras inscritas reciben 500 créditos en ChatGPT y una semana de Claude Cowork." }
       ]
     },
     {
