@@ -10,7 +10,9 @@ window.SITE_CONTENT = {
     nameHighlight: "AI",
     logo: "assets/brand/maile-avatar.png",
     descriptor: "Mujeres creando futuro con tecnología.",
-    email: "contacto@nombre.cl",
+    // Pendiente de confirmación. Mientras esté vacío, el sitio prioriza los
+    // canales sociales vigentes y no publica un correo de marcador.
+    email: "",
     siteUrl: "https://www.maile.cl",
     links: {
       home: "index.html",
@@ -37,62 +39,57 @@ window.SITE_CONTENT = {
     {
       slug: "crea-tu-primer-agente-con-ia",
       name: "Crea tu primer agente con IA",
-      tagline: "El mejor aliado para tu negocio",
-      description: "Descubre qué necesita hoy tu negocio y crea un agente de inteligencia artificial que te acompañe a ordenarlo, comunicarlo y vender.",
+      tagline: "De un objetivo real a una primera solución propia",
+      need: "Aplicar IA a una necesidad concreta de tu trabajo, proyecto o negocio.",
+      description: "Convierte un objetivo de tu trabajo, proyecto o negocio en un agente de IA que puedas probar, utilizar y seguir mejorando.",
       image: "assets/images/mentoria-en-equipo.jpg",
       imageAlt: "Dos mujeres trabajando juntas con computadores durante un taller práctico",
       modality: "Presencial",
       level: "Inicial",
-      duration: "5 horas",
-      result: "Tu primer agente de IA, listo e iterable",
+      duration: "Por confirmar",
+      result: "Una primera versión de tu agente, creada, probada e iterable",
       requirements: [
-        "Traer un computador portátil y su cargador.",
-        "Contar con un correo electrónico al que puedas acceder.",
-        "Llegar con tu negocio, tu idea o las ganas de explorar una: es el material de trabajo del taller.",
-        "Tener una cuenta de pago en Claude o en ChatGPT: el agente se construye ahí y la versión gratuita no permite crearlo.",
-        "No necesitas experiencia previa en tecnología ni en programación."
+        "Traer un computador personal y su cargador.",
+        "Traer un objetivo o una tarea que te gustaría resolver.",
+        "No necesitas experiencia previa en tecnología ni programación."
       ],
-      city: "Las Condes, Santiago",
-      nextDate: "5 de septiembre de 2026 · 14:00 a 19:00 h",
-      eventDate: "5 de septiembre de 2026",
-      eventTime: "14:00 a 19:00 h",
-      eventLocation: "Salón del edificio Málaga 115, Las Condes",
-      eventAccess: "Cerca del metro Escuela Militar",
-      price: {
-        earlyBird: "$65.000",
-        general: "$80.000",
-        note: "Valores en pesos chilenos. El precio early bird aplica durante la primera etapa de inscripción."
-      },
-      status: "Convocatoria abierta",
-      statusKey: "open",
-      action: "Quiero participar en el taller",
+      city: "Santiago",
+      nextDate: "Nueva fecha por confirmar",
+      eventDate: "Por confirmar",
+      eventTime: "Por confirmar",
+      eventLocation: "Por confirmar",
+      eventAccess: "Te avisaremos cuando confirmemos la próxima edición.",
+      status: "Nueva fecha por confirmar",
+      statusKey: "soon",
+      action: "Quiero conocer la próxima fecha",
       href: "programa-agente-ia.html",
       hasDetailPage: true,
-      audience: "Mujeres que quieren emprender, hacer crecer lo que ya tienen o simplemente aprender. Da lo mismo si llegas con un negocio andando, con una idea dando vueltas o con las ganas: cada participante trabaja sobre lo suyo y no se necesita experiencia técnica previa.",
-      promise: "Primero descubres qué necesita tu negocio. Después construyes el agente que responde a esa necesidad.",
+      audience: "No necesitas ser emprendedora ni tener conocimientos técnicos. Puedes trabajar sobre una necesidad de tu trabajo, proyecto, negocio o desarrollo profesional; solo necesitas traer un objetivo que quieras trabajar.",
+      promise: "Parte de un objetivo real de tu trabajo, proyecto o negocio y construye un agente de IA que puedas probar, utilizar y seguir mejorando.",
       learn: [
-        "Claridad sobre qué necesita hoy tu negocio para crecer.",
-        "Tu marca, tu producto y tu cliente ordenados y por escrito.",
-        "Tu primer agente de inteligencia artificial, creado y funcionando.",
-        "La capacidad de seguir ajustándolo tú misma cuando tu negocio cambie.",
-        "Ideas concretas de cómo usarlo para vender."
+        "Elegirás un objetivo concreto.",
+        "Definirás a quién debe ayudar tu agente.",
+        "Organizarás la información que necesita.",
+        "Crearás sus instrucciones y forma de responder.",
+        "Construirás una primera versión.",
+        "La probarás con situaciones reales.",
+        "Identificarás mejoras y próximos pasos."
       ],
-      methodology: "Grupos pequeños, acompañamiento cercano y trabajo sobre tu propio negocio de principio a fin. Se avanza haciendo: preguntas todo lo que necesites, el error es parte del proceso y nadie se queda atrás.",
+      methodology: "Una experiencia presencial, práctica y acompañada. Trabajarás sobre tu propio objetivo, avanzarás paso a paso y podrás resolver dudas mientras construyes y pruebas.",
       teachers: ["Carolina Bucarey · Fundadora y facilitadora", "Jackeline Advincula · Fundadora y facilitadora"],
       faqs: [
-        { question: "¿Qué es exactamente un agente de IA?", answer: "Un asistente de inteligencia artificial que configuras con la información de tu negocio: quién eres, qué vendes, a quién le hablas y cómo te comunicas. Una vez creado, puedes pedirle que redacte publicaciones, responda consultas de clientes, prepare propuestas o te ayude a ordenar tus ideas, siempre con el tono y el criterio de tu marca." },
-        { question: "¿Necesito una cuenta de pago en Claude o ChatGPT?", answer: "Sí, y conviene tenerla lista antes de llegar. El agente se construye sobre una de esas dos herramientas y la versión gratuita no permite crearlo ni conservarlo. Cualquiera de las dos sirve: si no sabes cuál contratar, escríbenos y te orientamos." },
-        { question: "¿Necesito saber programar?", answer: "No. El taller está diseñado para comenzar desde cero. Todo el trabajo se hace con lenguaje común, escribiendo lo que ya sabes de tu negocio." },
-        { question: "¿Debo tener un negocio funcionando?", answer: "No. Puedes llegar con un emprendimiento en marcha, un proyecto en pausa, una idea que quieres explorar o solo con ganas de aprender. El taller empieza justamente por descubrir de qué se trata lo tuyo." },
-        { question: "¿Con qué me voy del taller?", answer: "Con tu primer agente creado, probado y funcionando, y con tu negocio ordenado por escrito para que puedas seguir trabajándolo por tu cuenta." },
-        { question: "¿Dónde y cuándo es?", answer: "El 5 de septiembre de 2026, de 14:00 a 19:00 h, en el salón del edificio Málaga 115, Las Condes, cerca del metro Escuela Militar." },
-        { question: "¿El taller es presencial?", answer: "Sí. La experiencia prioriza el trabajo práctico, el acompañamiento cercano y el intercambio entre participantes." },
-        { question: "¿Cuánto cuesta?", answer: "El valor early bird es de $65.000 y el general, de $80.000 (pesos chilenos). El early bird está disponible durante la primera etapa de inscripción: si dejas tus datos ahora, te escribimos con el valor que te corresponde y la forma de pago antes de confirmar tu cupo." }
+        { question: "¿Necesito saber programar?", answer: "No. El programa está diseñado para mujeres sin experiencia técnica previa." },
+        { question: "¿Tengo que tener un negocio?", answer: "No. Puedes trabajar sobre una necesidad de tu trabajo, proyecto, negocio o desarrollo profesional." },
+        { question: "¿Tengo que llegar con una idea definida?", answer: "No tiene que estar completamente definida, pero sí debes traer un objetivo o una tarea que te gustaría resolver. Durante el encuentro te ayudaremos a acotarla." },
+        { question: "¿Saldré con un agente terminado?", answer: "Saldrás con una primera versión creada y probada. Podrás continuar ajustándola después del encuentro." },
+        { question: "¿Qué debo llevar?", answer: "Un computador personal. Los demás requisitos se informarán al confirmar la próxima fecha." },
+        { question: "¿Incluye acompañamiento posterior?", answer: "Estamos definiendo las actividades de continuidad para la próxima edición. Informaremos su alcance antes de abrir la convocatoria." }
       ]
     },
     {
       slug: "crea-tu-primera-web-con-ia",
       name: "Crea tu primera página web con IA",
+      need: "Dar forma y presencia digital a una idea o proyecto.",
       description: "Aprende a transformar una idea en una página web funcional utilizando herramientas de inteligencia artificial y acompañamiento paso a paso.",
       image: "assets/images/mujeres-colaborando.jpg",
       imageAlt: "Mujeres colaborando alrededor de un computador durante una sesión práctica",
@@ -130,6 +127,7 @@ window.SITE_CONTENT = {
     {
       slug: "comunica-tu-proyecto-con-ia",
       name: "Comunica tu proyecto con IA",
+      need: "Comunicar un proyecto con claridad y consistencia.",
       description: "Define un mensaje claro y crea piezas de comunicación consistentes para presentar tu proyecto a las personas correctas.",
       image: "assets/images/aprendizaje-en-comunidad.jpg",
       imageAlt: "Mujeres planificando un proyecto en una mesa de trabajo",
@@ -152,24 +150,13 @@ window.SITE_CONTENT = {
    * Cada encuentro admite: title, topic, date, time, city, host,
    * facilitators (lista), capacity, cost, registrationStatus, action y href.
    */
-  events: [
-    {
-      title: "Crea tu primer agente con IA",
-      topic: "Taller presencial",
-      date: "5 de septiembre de 2026",
-      time: "14:00 a 19:00 h",
-      city: "Las Condes, Santiago",
-      host: "Salón del edificio Málaga 115 · cerca del metro Escuela Militar",
-      action: "Quiero participar",
-      href: "#contacto"
-    }
-  ],
+  events: [],
 
   /* Aviso que se muestra en "Próximos encuentros" cuando no hay fechas publicadas. */
   eventsFallback: {
-    title: "La convocatoria de «Crea tu primer agente con IA» está abierta",
-    description: "Será en Santiago y estamos cerrando la fecha y el lugar. Déjanos tus datos y serás de las primeras en saberlo cuando abramos los cupos.",
-    action: "Quiero recibir la fecha del taller",
+    title: "Estamos preparando los próximos encuentros.",
+    description: "Déjanos tus datos y te avisaremos cuando confirmemos una nueva fecha.",
+    action: "Quiero conocer las próximas fechas",
     href: "index.html#contacto"
   },
 
@@ -208,7 +195,7 @@ window.SITE_CONTENT = {
       initials: "+",
       image: "",
       imageAlt: "",
-      role: "Convocatoria abierta",
+      role: "Red en formación",
       specialty: "Tecnología, negocios, comunicación y desarrollo profesional",
       bio: "Estamos construyendo una red diversa de mujeres que quiera enseñar desde la experiencia y acompañar nuevos aprendizajes.",
       programs: ["Próximos programas"],

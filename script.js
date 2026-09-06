@@ -40,6 +40,10 @@
     }
     document.querySelectorAll("[data-descriptor]").forEach((element) => { element.textContent = brand.descriptor; });
     document.querySelectorAll("[data-email]").forEach((element) => {
+      if (!brand.email) {
+        element.remove();
+        return;
+      }
       element.textContent = brand.email;
       element.href = `mailto:${brand.email}`;
     });
@@ -82,16 +86,17 @@
         <div class="program-body">
           <div class="meta-row"><span class="meta">${escapeHTML(program.modality)}</span><span class="meta">Nivel ${escapeHTML(program.level)}</span>${program.duration !== "Por definir" ? `<span class="meta">${escapeHTML(program.duration)}</span>` : ""}</div>
           <h3>${escapeHTML(program.name)}${program.tagline ? `<span class="program-tagline">${escapeHTML(program.tagline)}</span>` : ""}</h3>
+          ${program.need ? `<div class="program-detail"><small>Necesidad</small><p>${escapeHTML(program.need)}</p></div>` : ""}
           <p>${escapeHTML(program.description)}</p>
-          <div class="result"><small>Resultado</small><strong>${escapeHTML(program.result)}</strong></div>
-          <a class="btn btn-secondary btn-arrow" href="${escapeHTML(program.href)}">${program.hasDetailPage ? "Ver programa" : escapeHTML(program.action)}</a>
+          <div class="result"><small>Qué podrás crear</small><strong>${escapeHTML(program.result)}</strong></div>
+          <a class="btn btn-secondary btn-arrow" href="${escapeHTML(program.href)}" data-track="select_program" data-program="${escapeHTML(program.slug)}">${escapeHTML(program.action)}</a>
         </div>
       </article>`).join("");
 
     const programSelect = document.querySelector("#p-programa");
     if (programSelect) {
-      // El formulario solo permite inscribirse en programas con convocatoria abierta.
-      const offered = content.programs.filter((program) => program.statusKey === "open");
+      // El formulario también permite manifestar interés antes de abrir una fecha.
+      const offered = content.programs.filter((program) => program.statusKey === "open" || program.statusKey === "soon");
       programSelect.insertAdjacentHTML("beforeend", offered.map((program) => `<option value="${escapeHTML(program.slug)}">${escapeHTML(program.name)}</option>`).join(""));
     }
   }
@@ -232,7 +237,8 @@
     form.querySelectorAll("input, select, textarea").forEach((field) => {
       const value = field.value.trim();
       let message = "";
-      if (field.required && !value) message = "Este campo es obligatorio.";
+      if (field.required && field.type === "checkbox" && !field.checked) message = "Debes aceptar para continuar.";
+      else if (field.required && !value) message = "Este campo es obligatorio.";
       else if (field.type === "email" && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) message = "Ingresa un correo válido.";
       else if (field.type === "number" && value && Number(value) < Number(field.min || 0)) message = "Ingresa un número válido.";
       if (message) {
@@ -247,6 +253,9 @@
   // Los desplegables viajan con su texto visible: la planilla se lee sin traducir slugs.
   function readFields(form) {
     const campos = Object.fromEntries(new FormData(form).entries());
+    form.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+      campos[input.name] = input.checked ? "Sí" : "No";
+    });
     form.querySelectorAll("select").forEach((select) => {
       const option = select.selectedOptions[0];
       if (option && option.value) campos[select.name] = option.textContent.trim();
@@ -277,9 +286,24 @@
 
   const GRACIAS = "Gracias. Registramos tus datos y te contactaremos cuando tengamos novedades.";
 
+  function track(eventName, properties = {}) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...properties });
+  }
+
   function setupForms() {
     const endpoint = content.forms?.endpoint;
     document.querySelectorAll("form").forEach((form) => {
+      const source = document.createElement("input");
+      source.type = "hidden";
+      source.name = "source_page";
+      source.value = location.pathname || "/";
+      form.append(source);
+      const campaign = document.createElement("input");
+      campaign.type = "hidden";
+      campaign.name = "campaign_source";
+      campaign.value = new URLSearchParams(location.search).get("utm_source") || "direct";
+      form.append(campaign);
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         const status = form.querySelector(".form-status");
@@ -295,6 +319,11 @@
         if (!endpoint) {
           status.textContent = GRACIAS;
           status.className = "form-status success";
+          if (form.dataset.formulario === "organizaciones") track("submit_organization_form");
+          else {
+            track("submit_participant_form");
+            track("join_interest_list");
+          }
           form.reset();
           return;
         }
@@ -320,9 +349,14 @@
           await send(endpoint, payload);
           status.textContent = GRACIAS;
           status.className = "form-status success";
+          if (form.dataset.formulario === "organizaciones") track("submit_organization_form");
+          else {
+            track("submit_participant_form");
+            track("join_interest_list");
+          }
           form.reset();
         } catch (error) {
-          status.textContent = `No pudimos enviar tus datos. Vuelve a intentarlo o escríbenos a ${content.brand.email}.`;
+          status.textContent = "No pudimos enviar tus datos. Vuelve a intentarlo o contáctanos por WhatsApp o Instagram.";
           status.className = "form-status error";
         } finally {
           if (button) {
@@ -343,6 +377,22 @@
   renderPeople();
   setupMenu();
   setupForms();
+  if (document.body.dataset.program) track("view_program", { programa: document.body.dataset.program });
+  if (location.pathname.endsWith("organizaciones.html")) track("view_organizations");
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (!link) return;
+    if (link.dataset.track) track(link.dataset.track, { programa: link.dataset.program || "" });
+    if (link.href.includes("wa.me")) track("click_whatsapp");
+    if (link.href.includes("instagram.com")) track("click_instagram");
+    if (link.href.includes("linkedin.com")) track("click_linkedin");
+  });
+  document.querySelector("#p-programa")?.addEventListener("change", (event) => {
+    track("select_program", { programa: event.target.value });
+  });
+  document.querySelector("#o-busca")?.addEventListener("change", (event) => {
+    track("select_partnership_type", { tipo_colaboracion: event.target.value });
+  });
   if (location.hash) {
     window.addEventListener("load", () => {
       requestAnimationFrame(() => {

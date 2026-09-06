@@ -11,8 +11,8 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
   también están en el HTML (ver «Marca»);
 - `forms.endpoint`: URL donde se envían los formularios (ver más abajo);
 - `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle.
-  Solo los programas con `statusKey: "open"` se ofrecen en el selector «Programa
-  de interés» del formulario;
+  Los programas con `statusKey: "open"` o `"soon"` se ofrecen en el selector
+  «Programa de interés» del formulario;
 - `events`: encuentros (si la lista está vacía, se muestra el aviso de `eventsFallback`);
 - `testimonials`: comentarios de participantes. La sección solo aparece cuando hay
   comentarios reales: con la lista vacía no se muestra nada;
@@ -40,8 +40,9 @@ No hay proceso de compilación: basta abrir `index.html` o servir la carpeta con
 - `sitemap.xml` incluye únicamente las páginas públicas que deben aparecer en buscadores;
 - las páginas legales llevan `noindex,follow` y por eso no aparecen en el sitemap;
 - la portada declara los datos estructurados `Organization` y `WebSite`;
-- las páginas interiores declaran breadcrumbs y el taller con fecha publicada usa
-  datos estructurados `Event`.
+- las páginas interiores declaran breadcrumbs; el programa de agentes usa datos
+  estructurados `Course` y `FAQPage`. Solo debe agregarse `Event` cuando una nueva
+  edición tenga fecha y lugar confirmados.
 
 Cuando cambie una fecha, lugar o estado de convocatoria, actualiza tanto `config.js`
 como los datos estructurados de la página de detalle correspondiente. Después de
@@ -54,8 +55,9 @@ nueva indexación desde Google Search Console.
 muestra con `<body data-program="slug-del-programa">` y rellena los contenedores por
 atributo (`data-audience`, `data-methodology`, `#learn-list`, `#requirement-list`,
 `#faq-list`, etc.) con los datos de ese programa en `config.js`.
-Para publicar una fecha del taller, basta editar `nextDate`, `status` y `eventsFallback`
-en `config.js`, o agregar el encuentro a la lista `events`. El bloque `price`
+Para publicar una fecha del taller, edita `nextDate`, `status` y `eventsFallback`
+en `config.js`, agrega el encuentro a la lista `events` y publica su `Event` en los
+datos estructurados de la página. El bloque `price`
 (`earlyBird`, `general`, `note`) alimenta el recuadro de valores del panel lateral;
 si un programa no lo trae, ese recuadro no se muestra.
 
@@ -121,8 +123,8 @@ implementaciones → editar → Nueva versión**); guardar no basta.
 
 El nombre está escrito en el HTML de cada página —en el `<title>`, en los metadatos
 `og:`, en el `aria-label` del logo y en el encabezado y el pie— y también en
-`brand.name` de `config.js`, de donde salen el logotipo, el descriptor y el correo al
-cargar la página.
+`brand.name` de `config.js`, de donde salen el logotipo, el descriptor y, cuando se
+confirme, el correo al cargar la página.
 
 Están en los dos lados a propósito. Antes las páginas traían el marcador `[NOMBRE]` y
 `script.js` lo reemplazaba al cargar, pero los rastreadores de Google y de las redes
