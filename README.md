@@ -1,14 +1,24 @@
 # Maile · Mujeres creando futuro con tecnología
 
-Sitio institucional estático para una iniciativa de acceso a tecnología dirigida a mujeres.
+Sitio institucional para una iniciativa de acceso a tecnología dirigida a mujeres,
+construido con [Next.js](https://nextjs.org) (App Router) y React, en JavaScript.
+
+## Desarrollo
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # build de producción
+npm start        # sirve el build de producción
+```
 
 ## Contenido editable
 
-Todo el contenido que cambiará con frecuencia vive en `config.js`:
+Todo el contenido que cambiará con frecuencia vive en `lib/site-content.js`:
 
 - `brand`: nombre, realce del logotipo (`nameHighlight`), isotipo (`logo`),
-  descriptor, correo, URL pública y enlaces principales. Ojo: el nombre y la URL
-  también están en el HTML (ver «Marca»);
+  descriptor, correo, URL pública y enlaces principales. Ojo: el nombre también
+  está repetido en los metadatos de cada página (ver «Marca»);
 - `forms.endpoint`: URL donde se envían los formularios (ver más abajo);
 - `programs`: programas, requisitos, estados, fechas, valores y contenido del detalle.
   Los programas con `statusKey: "open"` o `"soon"` se ofrecen en el selector
@@ -20,67 +30,77 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
 - `people`: profesoras y mentoras;
 - `impactIndicators`: indicadores de impacto. Se muestran solo cuando hay cifras reales: con la lista vacía, la sección de impacto no despliega la grilla.
 
-## Páginas y estilos
+`lib/program-helpers.js` concentra la lógica derivada de esos datos (cupos
+disponibles, si corresponde ofrecer el pago o la lista de espera, etc.), para
+que las páginas de programa no la repitan.
 
-- `index.html`: página institucional completa;
-- `programa-agente-ia.html`: detalle del taller «Crea tu primer agente con IA»;
-- `programa-agente-ia-online.html`: detalle de la edición online del programa de agentes;
-- `programa-web-ia.html`: detalle del programa de páginas web;
-- `organizaciones.html`: recorrido institucional (propuesta, modalidades y formulario);
-- `pago.html`: resumen de inscripción, códigos de colaboradoras y salida al cobro alojado;
-- `gracias-por-tu-compra.html`: retorno posterior al pago y acceso al grupo de WhatsApp;
-- `privacidad.html` y `terminos.html`: bases legales que deben revisarse al formalizar la iniciativa;
-- `styles.css`: sistema visual responsive;
-- `script.js` y `program.js`: contenido dinámico, menú y validación de formularios;
-- `assets/images`: fotografías optimizadas;
-- `assets/brand`: archivos originales de la marca.
+## Páginas y estructura
 
-No hay proceso de compilación: basta abrir `index.html` o servir la carpeta con un servidor estático.
+- `/` (`app/page.js`): página institucional completa;
+- `/programas/crea-tu-primer-agente-con-ia`: detalle del taller «Crea tu primer agente con IA»;
+- `/programas/crea-tu-primer-agente-con-ia-online`: detalle de la edición online del programa de agentes;
+- `/programas/crea-tu-primera-web-con-ia`: detalle del programa de páginas web;
+- `/organizaciones`: recorrido institucional (propuesta, modalidades y formulario);
+- `/pago`: resumen de inscripción, códigos de colaboradoras y salida al cobro alojado;
+- `/gracias-por-tu-compra`: retorno posterior al pago y acceso al grupo de WhatsApp;
+- `/privacidad` y `/terminos`: bases legales que deben revisarse al formalizar la iniciativa;
+- `app/globals.css`: sistema visual responsive (compartido por toda la app);
+- `components/`: piezas de UI reutilizables (encabezado, pie de página, formularios, tarjetas de programa, etc.);
+- `public/assets/images`: fotografías optimizadas;
+- `public/assets/brand`: archivos originales de la marca.
+
+Las URLs anteriores en `.html` (`index.html`, `programa-agente-ia.html`, etc.)
+redirigen de forma permanente a las rutas nuevas — ver `next.config.js`.
 
 ## SEO e indexación
 
-- `robots.txt` permite el rastreo y declara la ubicación de `sitemap.xml`;
-- `sitemap.xml` incluye únicamente las páginas públicas que deben aparecer en buscadores;
-- las páginas legales llevan `noindex,follow` y por eso no aparecen en el sitemap;
-- la portada declara los datos estructurados `Organization` y `WebSite`;
-- las páginas interiores declaran breadcrumbs; el programa de agentes usa datos
-  estructurados `Course` y `FAQPage`. Solo debe agregarse `Event` cuando una nueva
-  edición tenga fecha y lugar confirmados.
+- `public/robots.txt` permite el rastreo y declara la ubicación de `public/sitemap.xml`;
+- `public/sitemap.xml` incluye únicamente las páginas públicas que deben aparecer en buscadores;
+- las páginas legales y de pago llevan metadata `robots: noindex` y por eso no aparecen en el sitemap;
+- cada página define sus propios metadatos (`export const metadata`) y, cuando corresponde,
+  datos estructurados JSON-LD a través del componente `<StructuredData>`;
+- la portada declara `Organization` y `WebSite`; las páginas de programa declaran
+  `BreadcrumbList`, `Course` y `FAQPage` (la edición online además declara `Event`).
 
-Cuando cambie una fecha, lugar o estado de convocatoria, actualiza tanto `config.js`
-como los datos estructurados de la página de detalle correspondiente. Después de
-publicar cambios importantes, actualiza `lastmod` en `sitemap.xml` y solicita una
-nueva indexación desde Google Search Console.
+Cuando cambie una fecha, lugar o estado de convocatoria, actualiza tanto
+`lib/site-content.js` como los datos estructurados de la página de detalle
+correspondiente (`app/programas/<slug>/page.js`). Después de publicar cambios
+importantes, actualiza `lastmod` en `public/sitemap.xml` y solicita una nueva
+indexación desde Google Search Console.
 
 ## Páginas de detalle de un programa
 
-`program.js` sirve a todas las páginas de detalle. Cada página declara qué programa
-muestra con `<body data-program="slug-del-programa">` y rellena los contenedores por
-atributo (`data-audience`, `data-methodology`, `#learn-list`, `#requirement-list`,
-`#faq-list`, etc.) con los datos de ese programa en `config.js`.
-Para publicar una fecha del taller, edita `nextDate`, `status` y `eventsFallback`
-en `config.js`, agrega el encuentro a la lista `events` y publica su `Event` en los
-datos estructurados de la página. El bloque `price`
-(`earlyBird`, `general`, `note`) alimenta el recuadro de valores del panel lateral;
-si un programa no lo trae, ese recuadro no se muestra.
+Cada programa tiene su propia página en `app/programas/<slug>/page.js`. La
+prosa de cada sección está escrita directamente en JSX (varía bastante entre
+programas), mientras que los datos que cambian con frecuencia —nombre, precio,
+cupos, fechas, requisitos, preguntas frecuentes— se leen desde
+`lib/site-content.js` mediante `getProgramBySlug()`.
 
-El sitio comunica el resultado y el valor de cada programa, no su diseño interno:
-la estructura por bloques, los marcos de trabajo y la metodología detallada se
-mantienen fuera del contenido público (todo lo que vive en `config.js` se sirve
-al navegador y es visible para cualquiera).
+Para publicar una fecha del taller, edita `nextDate`, `status` y
+`eventsFallback` en `lib/site-content.js`, agrega el encuentro a la lista
+`events` y actualiza el bloque JSON-LD `Event`/`Course` en la página de
+detalle correspondiente. El bloque `price` (`earlyBird`, `general`, `note`)
+alimenta el recuadro de valores del panel lateral; si un programa no lo trae,
+ese recuadro no se muestra.
+
+El sitio comunica el resultado y el valor de cada programa, no su diseño
+interno: la estructura por bloques, los marcos de trabajo y la metodología
+detallada se mantienen fuera del contenido público (todo lo que vive en
+`lib/site-content.js` se sirve al navegador y es visible para cualquiera).
 
 ## Retorno de pago y grupo de WhatsApp
 
-Configura `brand.links.whatsappGroup` en `config.js` con la invitación completa del
-grupo. Mientras ese valor esté vacío, `gracias-por-tu-compra.html` permite escribir
-al WhatsApp oficial con un mensaje prellenado para solicitar el acceso. La página
-lleva `noindex,nofollow` y no debe agregarse al sitemap.
+Configura `brand.links.whatsappGroup` en `lib/site-content.js` con la
+invitación completa del grupo. Mientras ese valor esté vacío,
+`/gracias-por-tu-compra` permite escribir al WhatsApp oficial con un mensaje
+prellenado para solicitar el acceso.
 
 ## Pago, códigos de descuento y cupos
 
-Cada programa puede declarar bloques `payment` y `capacity` en `config.js`. El sitio
-no procesa tarjetas ni calcula cargos: `payment.checkoutUrl` debe ser un enlace de
-cobro alojado por el proveedor y con el precio general ya definido allí.
+Cada programa puede declarar bloques `payment` y `capacity` en
+`lib/site-content.js`. El sitio no procesa tarjetas ni calcula cargos:
+`payment.checkoutUrl` debe ser un enlace de cobro alojado por el proveedor y
+con el precio general ya definido allí.
 
 Para activar la venta de un programa:
 
@@ -88,11 +108,11 @@ Para activar la venta de un programa:
    en `payment.checkoutUrl`.
 2. Configura en el proveedor la cantidad máxima de ventas. Ese límite es el que evita
    una sobreventa si dos personas pagan al mismo tiempo.
-3. Completa `capacity.total` y `capacity.remaining` en `config.js`. Estos valores son
-   informativos y deben actualizarse cuando cambie la disponibilidad. Con
+3. Completa `capacity.total` y `capacity.remaining` en `lib/site-content.js`. Estos valores
+   son informativos y deben actualizarse cuando cambie la disponibilidad. Con
    `remaining: 0`, el sitio reemplaza el pago por la lista de espera.
 4. Configura el retorno exitoso del proveedor a
-   `https://www.maile.cl/gracias-por-tu-compra.html?programa=SLUG-DEL-PROGRAMA`.
+   `https://www.maile.cl/gracias-por-tu-compra?programa=SLUG-DEL-PROGRAMA`.
 
 Para una red colaboradora, crea otro enlace de cobro en el proveedor con el monto
 rebajado y agrégalo a `payment.discounts`:
@@ -100,28 +120,30 @@ rebajado y agrégalo a `payment.discounts`:
     { code: "REDMUJERES10", partner: "Nombre de la red", price: "$63.000 CLP", checkoutUrl: "https://enlace-de-cobro" }
 
 El código se compara sin distinguir mayúsculas de minúsculas. Al aplicarlo, el sitio
-muestra el valor promocional y abre el enlace correspondiente. Como `config.js` es
-público, los códigos no deben considerarse secretos; el proveedor debe mantener el
-monto final, los límites de uso y la vigencia. También puedes compartir un enlace que
-traiga el código escrito de antemano:
+muestra el valor promocional y abre el enlace correspondiente. Como
+`lib/site-content.js` es público, los códigos no deben considerarse secretos; el
+proveedor debe mantener el monto final, los límites de uso y la vigencia. También
+puedes compartir un enlace que traiga el código escrito de antemano:
 
-    https://www.maile.cl/pago.html?programa=SLUG-DEL-PROGRAMA&codigo=REDMUJERES10
+    https://www.maile.cl/pago?programa=SLUG-DEL-PROGRAMA&codigo=REDMUJERES10
 
-Nunca guardes credenciales, tokens o llaves privadas del proveedor en `config.js`.
+Nunca guardes credenciales, tokens o llaves privadas del proveedor en `lib/site-content.js`.
 
 ## Dos recorridos separados
 
 El sitio mantiene separados el recorrido de las participantes y el institucional:
-`index.html` y las páginas de programa hablan solo a las mujeres que quieren
+`/` y las páginas de programa hablan solo a las mujeres que quieren
 participar (un CTA, un formulario), y todo lo dirigido a fundaciones, empresas,
-municipios e instituciones vive en `organizaciones.html`, enlazada de forma
+municipios e instituciones vive en `/organizaciones`, enlazada de forma
 discreta desde el menú, el pie y la sección de contacto.
 
 ## Formularios → Google Sheets
 
-Los formularios envían sus datos a una planilla mediante una aplicación web de
-Google Apps Script. Mientras `forms.endpoint` esté vacío en `config.js`, los
-formularios validan y agradecen, pero **no guardan nada**.
+Los formularios (`components/ParticipantsForm.js` y
+`components/OrganizationsForm.js`) envían sus datos a una planilla mediante una
+aplicación web de Google Apps Script. Mientras `forms.endpoint` esté vacío en
+`lib/site-content.js`, los formularios validan y agradecen, pero **no guardan
+nada**.
 
 Para conectarlos, una sola vez:
 
@@ -129,7 +151,7 @@ Para conectarlos, una sola vez:
 2. Pega el contenido de `integraciones/google-sheets.gs`, reemplazando lo que haya.
 3. **Implementar → Nueva implementación → Aplicación web**, con
    *Ejecutar como: yo* y *Quién tiene acceso: cualquier persona*.
-4. Copia la URL que termina en `/exec` y pégala en `forms.endpoint` en `config.js`.
+4. Copia la URL que termina en `/exec` y pégala en `forms.endpoint` en `lib/site-content.js`.
 
 Cada formulario escribe en su propia hoja (`Participantes` y `Organizaciones`),
 que se crea sola la primera vez, igual que sus columnas: si mañana un formulario
@@ -164,55 +186,51 @@ implementaciones → editar → Nueva versión**); guardar no basta.
 
 ## Marca
 
-El nombre está escrito en el HTML de cada página —en el `<title>`, en los metadatos
-`og:`, en el `aria-label` del logo y en el encabezado y el pie— y también en
-`brand.name` de `config.js`, de donde salen el logotipo, el descriptor y, cuando se
-confirme, el correo al cargar la página.
+El nombre está escrito en los metadatos de cada página (`title`, `openGraph`,
+`twitter`) —porque los rastreadores de Google y de las redes sociales leen el
+HTML servido sin depender de que React se hidrate— y también en `brand.name`
+de `lib/site-content.js`, de donde salen el logotipo (`components/Wordmark.js`),
+el descriptor y, cuando se confirme, el correo.
 
-Están en los dos lados a propósito. Antes las páginas traían el marcador `[NOMBRE]` y
-`script.js` lo reemplazaba al cargar, pero los rastreadores de Google y de las redes
-sociales leen el HTML sin ejecutar JavaScript: al compartir el sitio por WhatsApp, la
-tarjeta mostraba literalmente "[NOMBRE] · Mujeres creando futuro con tecnología". Lo
-mismo pasa con `brand.siteUrl`, que alimenta la URL canónica y la de `og:`.
-
-**Si cambia el nombre o el dominio, hay que cambiarlo en los dos lados**: en el HTML
-de las seis páginas y en `config.js`.
+**Si cambia el nombre o el dominio, hay que cambiarlo en los dos lados**: en los
+metadatos de cada página (`app/**/page.js`) y en `lib/site-content.js`.
 
 El nombre se escribe MAILE, en versales, siempre: en el logotipo, en los títulos, en
 los metadatos y en el texto corrido.
 
 El logotipo además parte el nombre en dos colores, M**AI**LE, porque el nombre lleva
-"AI" adentro. Ese realce sale de `brand.nameHighlight` en `config.js`: `script.js`
-envuelve esa parte del nombre en un `<span class="ai">` y `styles.css` le da color,
-pero solo dentro de `.wordmark` —en el texto corrido del pie el nombre va de una sola
+"AI" adentro. Ese realce sale de `brand.nameHighlight` en `lib/site-content.js`:
+`lib/brand.js` (`splitWordmark`) separa esa parte del nombre y `Wordmark.js` la
+envuelve en un `<span class="ai">`; `app/globals.css` le da color, pero solo
+dentro de `.wordmark` —en el texto corrido del pie el nombre va de una sola
 pieza—. Dejar `nameHighlight` vacío devuelve el nombre entero de un color.
 
 El logotipo del encabezado y el pie es de palo seco, muy espaciado, siguiendo el logo
 horizontal de la marca; la serif del sitio queda para los títulos.
 
-En `assets/brand` viven los archivos originales de la marca, y son dos dibujos
+En `public/assets/brand` viven los archivos originales de la marca, y son dos dibujos
 distintos con oficios distintos:
 
 - `maile-avatar.png`: el logo. Una mujer frente a un notebook, de línea fina, dentro
   de un círculo ciruela con aro degradado lila → rosa → dorado. Lo usan el encabezado
-  y el pie del sitio (`brand.logo` en `config.js`) y la tarjeta social;
+  y el pie del sitio (`brand.logo` en `lib/site-content.js`) y la tarjeta social;
 - `favicon.svg` más `favicon-16/32/48/180/512.png`: la misma figura, pero en silueta
   llena sobre un cuadrado de esquinas redondeadas. Es lo que se ve en la pestaña del
-  navegador y en la pantalla de inicio del teléfono. No es el logo achicado: a 16
-  píxeles la línea fina se empasta y el aro desaparece, así que el favicon resuelve
-  la figura en masas sólidas, que sí sobreviven a ese tamaño.
+  navegador y en la pantalla de inicio del teléfono (configurado en `app/layout.js`).
+  No es el logo achicado: a 16 píxeles la línea fina se empasta y el aro desaparece,
+  así que el favicon resuelve la figura en masas sólidas, que sí sobreviven a ese tamaño.
 
-`favicon.ico` (en la raíz, con 16, 32 y 48 píxeles) se arma desde esos PNG: es el
+`public/favicon.ico` (con 16, 32 y 48 píxeles) se arma desde esos PNG: es el
 archivo que los navegadores piden solos, aunque nadie lo enlace. Si el favicon
 cambia, hay que rehacerlo.
 
-`assets/og-social.png` (1200×630) es la tarjeta que se ve al compartir el sitio en
+`public/assets/og-social.png` (1200×630) es la tarjeta que se ve al compartir el sitio en
 redes: logo, nombre y descriptor sobre las formas y los colores de la marca. También
 es un mapa de bits y hay que regenerarla si cambia el logo.
 
 ## Fotos del taller
 
-`assets/images/experiencia-*.jpg` son fotos del primer bootcamp y alimentan la
+`public/assets/images/experiencia-*.jpg` son fotos del primer bootcamp y alimentan la
 sección «Así se vivió nuestro primer taller». Se eligieron las que muestran el
 ambiente y se descartaron las que dejaban legible el contenido de las
 diapositivas: el sitio comunica la experiencia, no el paso a paso del taller.
