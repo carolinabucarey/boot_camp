@@ -8,6 +8,12 @@
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;"
   })[character]);
 
+  function programCapacityLabel(capacity) {
+    const total = Number(capacity?.total);
+    if (Number.isInteger(total) && total > 0) return `${total} cupos`;
+    return typeof capacity === "string" ? capacity.trim() : "";
+  }
+
   /*
    * El nombre y la URL también están escritos en el HTML, no solo aquí: los
    * rastreadores de Google y de las redes leen el HTML sin ejecutar JavaScript,
@@ -100,7 +106,7 @@
           <span class="status">${escapeHTML(program.status)}</span>
         </div>
         <div class="program-body">
-          <div class="meta-row"><span class="meta">${escapeHTML(program.modality)}</span><span class="meta">Nivel ${escapeHTML(program.level)}</span>${program.duration !== "Por definir" ? `<span class="meta">${escapeHTML(program.duration)}</span>` : ""}</div>
+          <div class="meta-row"><span class="meta">${escapeHTML(program.modality)}</span><span class="meta">Nivel ${escapeHTML(program.level)}</span>${program.duration !== "Por definir" ? `<span class="meta">${escapeHTML(program.duration)}</span>` : ""}${programCapacityLabel(program.capacity) ? `<span class="meta">${escapeHTML(programCapacityLabel(program.capacity))}</span>` : ""}</div>
           <h3>${escapeHTML(program.name)}${program.tagline ? `<span class="program-tagline">${escapeHTML(program.tagline)}</span>` : ""}</h3>
           ${program.need ? `<div class="program-detail"><small>Necesidad</small><p>${escapeHTML(program.need)}</p></div>` : ""}
           <p>${escapeHTML(program.description)}</p>
@@ -153,17 +159,37 @@
       return;
     }
     list.className = "event-list";
-    list.innerHTML = content.events.map((event) => `
+    list.innerHTML = content.events.map((event) => {
+      const programSlug = new URL(event.href, location.href).searchParams.get("programa");
+      const program = content.programs.find((item) => item.slug === programSlug);
+      const remaining = Number(program?.capacity?.remaining);
+      const hasRemaining = Number.isInteger(Number(program?.capacity?.total)) && Number(program.capacity.total) > 0 && Number.isInteger(remaining) && remaining >= 0;
+      const canPay = Boolean(
+        program && (!hasRemaining || remaining > 0) &&
+        (program.payment?.checkoutUrl?.trim() || program.payment?.discounts?.some((discount) => discount.checkoutUrl?.trim()))
+      );
+      const soldOut = program && hasRemaining && remaining === 0;
+      const href = event.href.startsWith("pago.html") && !canPay
+        ? `index.html?programa=${encodeURIComponent(programSlug || "")}#contacto`
+        : event.href;
+      const action = soldOut ? "Sumarme a la lista de espera" : event.action;
+      const registrationStatus = soldOut ? "Cupos completos" : event.registrationStatus;
+      const eventCapacity = typeof event.capacity === "number" ? `${event.capacity} cupos` : event.capacity;
+      const capacity = hasRemaining && remaining > 0
+        ? (remaining === 1 ? "1 cupo disponible" : `${remaining} cupos disponibles`)
+        : eventCapacity;
+      return `
       <article class="event-card">
         <div><strong>${escapeHTML(event.date)}</strong><br><span>${escapeHTML(event.time)}</span></div>
-        <div><p class="eyebrow">${escapeHTML(event.topic)}</p><h3>${escapeHTML(event.title)}</h3><p>${escapeHTML(event.city)} · ${escapeHTML(event.host)}</p>${event.facilitators?.length || event.capacity || event.cost || event.registrationStatus ? `<p>${[
+        <div><p class="eyebrow">${escapeHTML(event.topic)}</p><h3>${escapeHTML(event.title)}</h3><p>${escapeHTML(event.city)} · ${escapeHTML(event.host)}</p>${event.facilitators?.length || capacity || event.cost || registrationStatus ? `<p>${[
           event.facilitators?.length ? event.facilitators.join(", ") : "",
-          event.capacity ? `${event.capacity} cupos` : "",
+          capacity,
           event.cost,
-          event.registrationStatus
+          registrationStatus
         ].filter(Boolean).map(escapeHTML).join(" · ")}</p>` : ""}</div>
-        <a class="btn btn-primary" href="${escapeHTML(event.href)}">${escapeHTML(event.action)}</a>
-      </article>`).join("");
+        <a class="btn btn-primary" href="${escapeHTML(href)}">${escapeHTML(action)}</a>
+      </article>`;
+    }).join("");
   }
 
   function renderTestimonials() {
@@ -309,7 +335,7 @@
 
   function setupForms() {
     const endpoint = content.forms?.endpoint;
-    document.querySelectorAll("form").forEach((form) => {
+    document.querySelectorAll("form[data-formulario]").forEach((form) => {
       const source = document.createElement("input");
       source.type = "hidden";
       source.name = "source_page";

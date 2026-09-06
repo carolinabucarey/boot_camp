@@ -64,12 +64,30 @@ window.SITE_CONTENT = {
       eventAccess: "Recibirás la información de conexión antes del inicio del programa.",
       status: "Inscripciones abiertas",
       statusKey: "open",
+      // Completa ambos valores al abrir la venta. Usa 0 en `remaining` para cerrar el pago.
+      capacity: {
+        total: null,
+        remaining: null
+      },
       action: "Conocer el programa",
       href: "programa-agente-ia-online.html",
       hasDetailPage: true,
       price: {
         general: "$70.000 CLP",
         note: "Las primeras inscritas reciben 500 créditos en ChatGPT y una semana de Claude Cowork."
+      },
+      /*
+       * El cobro ocurre siempre en una página alojada por el proveedor de pago.
+       * Pega el enlace general en `checkoutUrl`. Para cada red colaboradora,
+       * crea un enlace con el valor rebajado y agrégalo a `discounts`.
+       * Nunca pongas credenciales ni llaves privadas en este archivo público.
+       */
+      payment: {
+        providerName: "plataforma de pago",
+        checkoutUrl: "",
+        discounts: [
+          // { code: "REDMUJERES10", partner: "Nombre de la red", price: "$63.000 CLP", checkoutUrl: "https://..." }
+        ]
       },
       audience: "Mujeres que quieren aplicar la inteligencia artificial a una necesidad profesional, laboral, personal, de un proyecto o de un negocio. No necesitas tener un negocio ni experiencia técnica previa.",
       promise: "Convierte un objetivo real de tu trabajo, proyecto o negocio en un agente de IA creado por ti.",
@@ -142,40 +160,67 @@ window.SITE_CONTENT = {
     },
     {
       slug: "crea-tu-primera-web-con-ia",
-      name: "Crea tu primera página web con IA",
-      need: "Dar forma y presencia digital a una idea o proyecto.",
-      description: "Aprende a transformar una idea en una página web funcional utilizando herramientas de inteligencia artificial y acompañamiento paso a paso.",
+      name: "Crea y publica tu proyecto web con IA",
+      tagline: "Convierte una idea clara en una primera solución web creada y publicada por ti",
+      need: "Convertir una idea, proyecto o necesidad propia en una solución web concreta.",
+      description: "Define, construye, revisa y publica una primera solución web utilizando ChatGPT y Claude, sin necesidad de saber programar.",
       image: "assets/images/mujeres-colaborando.jpg",
       imageAlt: "Mujeres colaborando alrededor de un computador durante una sesión práctica",
-      modality: "Presencial",
-      level: "Inicial",
-      duration: "Una jornada",
-      result: "Sitio web publicado",
+      modality: "100% online en vivo",
+      level: "Intermedio",
+      duration: "4 horas, divididas en dos jornadas",
+      result: "Una primera solución web funcional, versionada y publicada",
+      capacity: {
+        total: 10,
+        remaining: 10
+      },
       requirements: [
-        "Traer un computador portátil y su cargador.",
-        "Contar con un correo electrónico al que puedas acceder.",
-        "No necesitas experiencia previa en programación."
+        "Computador con conexión estable a internet y navegador actualizado.",
+        "Experiencia previa utilizando ChatGPT y Claude.",
+        "Suscripción activa a un plan pagado de ChatGPT y a Claude Pro o superior.",
+        "Cuentas personales de GitHub y Vercel.",
+        "Una idea o proyecto claramente definido.",
+        "Textos, imágenes, colores o referencias disponibles, si ya los tienes."
       ],
-      nextDate: "Estamos preparando el próximo encuentro.",
-      status: "Nueva fecha por confirmar",
+      nextDate: "Fecha y horario por confirmar · 10 cupos",
+      eventDate: "Por confirmar",
+      eventTime: "Por confirmar",
+      eventLocation: "Online, en vivo",
+      eventAccess: "Recibirás la información de conexión antes del inicio del programa.",
+      status: "En preparación",
       statusKey: "soon",
-      action: "Quiero recibir la próxima fecha",
+      action: "Conocer el programa",
       href: "programa-web-ia.html",
       hasDetailPage: true,
-      audience: "Mujeres que quieren llevar una idea a internet, presentar un proyecto, fortalecer un emprendimiento o simplemente descubrir lo que pueden crear con inteligencia artificial. No se necesita experiencia técnica previa.",
+      price: {
+        general: "$74.990 CLP",
+        note: "Incluye dos sesiones online en vivo, construcción guiada, publicación inicial, configuración técnica y un dominio .cl por 12 meses. Las suscripciones de ChatGPT y Claude no están incluidas."
+      },
+      audience: "Mujeres que ya utilizan ChatGPT y Claude, quieren avanzar más allá de los usos básicos y tienen una idea, proyecto o necesidad que desean convertir en una solución web. No necesitas saber programar, pero sí llegar con claridad sobre lo que quieres desarrollar.",
+      promise: "Convierte una idea clara en una primera solución web creada y publicada por ti.",
       learn: [
-        "Convertir una idea en una estructura clara para una página web.",
-        "Usar herramientas de inteligencia artificial para crear contenido y prototipos.",
-        "Tomar decisiones básicas de diseño, navegación y accesibilidad.",
-        "Revisar, mejorar y publicar una primera versión funcional."
+        "Definir qué quieres crear, para quién y qué necesidad debe resolver.",
+        "Acotar el proyecto para construir una primera versión posible.",
+        "Convertir tu idea en instrucciones claras para la inteligencia artificial.",
+        "Definir contenidos, secciones y funciones principales.",
+        "Trabajar con un repositorio individual en GitHub.",
+        "Utilizar Claude Code desde el navegador para generar y modificar el proyecto.",
+        "Probar la web, revisar cambios y trabajar con versiones.",
+        "Publicar en Vercel y comprender cómo conectar un dominio .cl."
       ],
-      methodology: "Una experiencia guiada y práctica: avanzamos en pequeños pasos, aplicamos cada concepto al proyecto de cada participante y resolvemos dudas en conjunto.",
-      teachers: ["Carolina · Fundadora y facilitadora"],
+      methodology: "Trabajarás directamente sobre tu propia idea o necesidad. Cada explicación estará conectada con una acción concreta: definir, crear, probar o publicar. No enseñaremos programación tradicional; aprenderás a dirigir a la inteligencia artificial, tomar decisiones sobre lo que construye y comprobar que el resultado responda a tu objetivo.",
+      teachers: [],
       faqs: [
-        { question: "¿Necesito saber programar?", answer: "No. El programa está diseñado para comenzar desde cero y avanzar con acompañamiento paso a paso." },
-        { question: "¿Debo llegar con una idea definida?", answer: "No es indispensable. Puedes llegar con una idea inicial, un proyecto en marcha o descubrir durante la jornada qué te gustaría crear." },
-        { question: "¿El programa es presencial?", answer: "Sí. La experiencia prioriza el aprendizaje práctico, el acompañamiento cercano y el intercambio entre participantes." },
-        { question: "¿La publicación del sitio tiene costo?", answer: "Durante el programa revisaremos alternativas para publicar una primera versión. Cualquier requisito o costo particular se informará de forma clara antes de cada convocatoria." }
+        { question: "¿Necesito saber programar?", answer: "No. Trabajaremos con instrucciones en lenguaje natural. Sin embargo, debes tener experiencia previa utilizando ChatGPT y Claude." },
+        { question: "¿Puedo participar si solamente tengo una idea general?", answer: "Necesitas tener cierta claridad sobre qué quieres crear, para quién y qué debería permitir hacer. Antes del programa te pediremos una descripción breve para ayudarte a acotar el proyecto." },
+        { question: "¿Necesito instalar algún programa?", answer: "No será necesario instalar Visual Studio Code. Trabajaremos principalmente desde el navegador con ChatGPT, Claude Code, GitHub y Vercel." },
+        { question: "¿Las suscripciones están incluidas?", answer: "No. Cada participante debe contar con suscripciones activas a un plan pagado de ChatGPT y a Claude Pro o superior. Estas suscripciones son independientes del valor del programa." },
+        { question: "¿Terminaré con una aplicación completa?", answer: "Terminarás con una primera versión web funcional y acotada. El alcance dependerá de la complejidad del proyecto y del punto de partida de cada participante." },
+        { question: "¿Podré modificar mi proyecto después?", answer: "Sí. Aprenderás el proceso para solicitar cambios con inteligencia artificial, revisar las versiones en GitHub y volver a publicar." },
+        { question: "¿El dominio quedará a mi nombre?", answer: "Sí. MAILE realizará la compra y configuración inicial. Después deberás crear una cuenta en NIC Chile para que podamos transferirte la titularidad y administración del dominio." },
+        { question: "¿Qué ocurre después de los primeros 12 meses?", answer: "Podrás renovar el dominio directamente desde tu cuenta de NIC Chile. El costo de renovación no está incluido." },
+        { question: "¿Incluye alojamiento por 12 meses?", answer: "El programa incluye la publicación inicial en Vercel y la conexión del dominio. La continuidad del alojamiento dependerá de la cuenta y del plan de Vercel de cada participante." },
+        { question: "¿Incluye mantenimiento o soporte posterior?", answer: "No incluye mantenimiento, modificaciones posteriores ni soporte técnico individual después de las sesiones. Sí incluye acceso a la comunidad MAILE, de acuerdo con las actividades y recursos disponibles." }
       ]
     },
     {
@@ -216,7 +261,7 @@ window.SITE_CONTENT = {
       cost: "$70.000 CLP",
       registrationStatus: "Inscripciones abiertas",
       action: "Inscribirme",
-      href: "index.html?programa=crea-tu-primer-agente-con-ia-online#contacto"
+      href: "pago.html?programa=crea-tu-primer-agente-con-ia-online"
     }
   ],
 
@@ -244,7 +289,7 @@ window.SITE_CONTENT = {
       role: "Fundadora y facilitadora",
       specialty: "Estrategia, productos digitales e inteligencia artificial aplicada",
       bio: "Ingeniera civil industrial de la Universidad de Santiago y MBA del IE Business School, con quince años liderando estrategia, operaciones y productos digitales en América Latina. Fundadora y CEO de Savia y cofundadora de Tripsy, empresa chilena respaldada por Start-Up Chile que ha ganado fondos públicos. Su trayectoria pasa por McKinsey, DiDi y Groupon. En los talleres acompaña a las participantes a convertir una idea en un resultado propio. Impulsa esta iniciativa para abrir más espacio a las mujeres que quieran construir y liderar en tecnología.",
-      programs: ["Crea tu primer agente con IA", "Crea tu primera página web con IA"],
+      programs: ["Crea tu primer agente con IA", "Crea y publica tu proyecto web con IA"],
       links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/carolinabucarey/" }]
     },
     {

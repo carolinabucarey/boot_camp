@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserva tu cupo | MAILE</title>
+  <meta name="description" content="Revisa tu inscripción, aplica un código de descuento y continúa al pago seguro de tu experiencia MAILE.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#351b38">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/favicon-180.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="payment-page">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="payment-header">
+    <div class="container confirmation-nav">
+      <a class="wordmark" href="index.html" aria-label="MAILE, ir al inicio">
+        <img class="brand-mark" src="assets/brand/maile-avatar.png" alt="" width="40" height="40" data-brand-mark>
+        <span data-brand>M<span class="ai">AI</span>LE</span>
+      </a>
+      <span class="confirmation-secure">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2m-11 0h12v10H6V10Zm6 4v2"/></svg>
+        Pago protegido
+      </span>
+    </div>
+  </header>
+
+  <main class="payment-main" id="contenido">
+    <div class="container payment-layout">
+      <section class="payment-intro" aria-labelledby="payment-title">
+        <a class="payment-back" href="programa-agente-ia-online.html" data-program-back>← Volver al programa</a>
+        <p class="eyebrow">Reserva tu lugar</p>
+        <h1 id="payment-title">Estás a un paso de crear tu agente</h1>
+        <p class="lead">Revisa la información de tu inscripción y continúa a una plataforma de pago segura para confirmar tu cupo.</p>
+
+        <div class="payment-promise">
+          <span aria-hidden="true">✓</span>
+          <p>Tu cupo queda confirmado al completar el pago. Recibirás el comprobante en el correo que indiques durante el cobro.</p>
+        </div>
+      </section>
+
+      <section class="checkout-card" aria-labelledby="order-title">
+        <p class="checkout-kicker">Resumen de inscripción</p>
+        <h2 id="order-title" data-payment-program>Crea tu primer agente con IA — Edición online</h2>
+
+        <dl class="order-details">
+          <div><dt>Fechas</dt><dd data-payment-date>1 y 2 de octubre de 2026</dd></div>
+          <div><dt>Horario</dt><dd data-payment-time>19:00 a 21:00 horas</dd></div>
+          <div><dt>Modalidad</dt><dd data-payment-modality>Online, en vivo</dd></div>
+          <div data-capacity-row><dt>Disponibilidad</dt><dd data-capacity-remaining></dd></div>
+        </dl>
+
+        <div class="order-total">
+          <span>Total</span>
+          <strong data-payment-price>$70.000 CLP</strong>
+        </div>
+
+        <form id="payment-form" novalidate>
+          <div class="discount-panel" data-discount-panel>
+            <label for="discount-code">Código de descuento <span>(opcional)</span></label>
+            <div class="discount-controls">
+              <input id="discount-code" name="discount_code" type="text" inputmode="text" autocomplete="off" maxlength="40" placeholder="Ej. REDMUJERES10" aria-describedby="discount-help discount-status">
+              <button class="btn btn-secondary" id="apply-discount" type="button">Aplicar</button>
+            </div>
+            <p class="discount-help" id="discount-help">Si una red colaboradora te compartió un código, escríbelo tal como lo recibiste.</p>
+            <p class="discount-status" id="discount-status" aria-live="polite"></p>
+          </div>
+
+          <button class="btn btn-primary btn-block checkout-button" id="checkout-button" type="submit">
+            Continuar al pago seguro <span aria-hidden="true">→</span>
+          </button>
+          <p class="checkout-provider">El cobro se completa en <span data-payment-provider>la plataforma de pago</span>. MAILE no recibe ni almacena los datos de tu tarjeta.</p>
+          <p class="checkout-legal">Al continuar, declaras haber revisado los <a href="terminos.html">términos</a> y la <a href="privacidad.html">política de privacidad</a>.</p>
+        </form>
+
+        <div class="payment-unavailable" id="payment-unavailable" hidden>
+          <h3>Estamos habilitando el pago en línea</h3>
+          <p>Mientras terminamos la configuración, escríbenos y te ayudaremos a reservar tu cupo.</p>
+          <a class="btn btn-primary btn-block" href="https://wa.me/56990195787?text=Hola%20MAILE%2C%20quiero%20reservar%20mi%20cupo%20en%20el%20bootcamp%20online." target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="confirmation-footer">
+    <span>© <span data-year></span> <span data-brand>MAILE</span></span>
+    <span>¿Tienes dudas? <a href="https://wa.me/56990195787" target="_blank" rel="noopener noreferrer">Escríbenos</a></span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script src="pago.js"></script>
+</body>
+</html>

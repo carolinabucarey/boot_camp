@@ -27,6 +27,7 @@ Todo el contenido que cambiará con frecuencia vive en `config.js`:
 - `programa-agente-ia-online.html`: detalle de la edición online del programa de agentes;
 - `programa-web-ia.html`: detalle del programa de páginas web;
 - `organizaciones.html`: recorrido institucional (propuesta, modalidades y formulario);
+- `pago.html`: resumen de inscripción, códigos de colaboradoras y salida al cobro alojado;
 - `gracias-por-tu-compra.html`: retorno posterior al pago y acceso al grupo de WhatsApp;
 - `privacidad.html` y `terminos.html`: bases legales que deben revisarse al formalizar la iniciativa;
 - `styles.css`: sistema visual responsive;
@@ -74,6 +75,39 @@ Configura `brand.links.whatsappGroup` en `config.js` con la invitación completa
 grupo. Mientras ese valor esté vacío, `gracias-por-tu-compra.html` permite escribir
 al WhatsApp oficial con un mensaje prellenado para solicitar el acceso. La página
 lleva `noindex,nofollow` y no debe agregarse al sitemap.
+
+## Pago, códigos de descuento y cupos
+
+Cada programa puede declarar bloques `payment` y `capacity` en `config.js`. El sitio
+no procesa tarjetas ni calcula cargos: `payment.checkoutUrl` debe ser un enlace de
+cobro alojado por el proveedor y con el precio general ya definido allí.
+
+Para activar la venta de un programa:
+
+1. Crea en el proveedor un enlace de cobro con el precio general y pega su URL HTTPS
+   en `payment.checkoutUrl`.
+2. Configura en el proveedor la cantidad máxima de ventas. Ese límite es el que evita
+   una sobreventa si dos personas pagan al mismo tiempo.
+3. Completa `capacity.total` y `capacity.remaining` en `config.js`. Estos valores son
+   informativos y deben actualizarse cuando cambie la disponibilidad. Con
+   `remaining: 0`, el sitio reemplaza el pago por la lista de espera.
+4. Configura el retorno exitoso del proveedor a
+   `https://www.maile.cl/gracias-por-tu-compra.html?programa=SLUG-DEL-PROGRAMA`.
+
+Para una red colaboradora, crea otro enlace de cobro en el proveedor con el monto
+rebajado y agrégalo a `payment.discounts`:
+
+    { code: "REDMUJERES10", partner: "Nombre de la red", price: "$63.000 CLP", checkoutUrl: "https://enlace-de-cobro" }
+
+El código se compara sin distinguir mayúsculas de minúsculas. Al aplicarlo, el sitio
+muestra el valor promocional y abre el enlace correspondiente. Como `config.js` es
+público, los códigos no deben considerarse secretos; el proveedor debe mantener el
+monto final, los límites de uso y la vigencia. También puedes compartir un enlace que
+traiga el código escrito de antemano:
+
+    https://www.maile.cl/pago.html?programa=SLUG-DEL-PROGRAMA&codigo=REDMUJERES10
+
+Nunca guardes credenciales, tokens o llaves privadas del proveedor en `config.js`.
 
 ## Dos recorridos separados
 

@@ -34,6 +34,23 @@
   setText("[data-price-early]", program.price?.earlyBird);
   setText("[data-price-general]", program.price?.general);
   setText("[data-price-note]", program.price?.note);
+  const totalCapacity = Number(program.capacity?.total);
+  const remainingCapacity = Number(program.capacity?.remaining);
+  const hasCapacity = Number.isInteger(totalCapacity) && totalCapacity > 0;
+  const hasRemaining = hasCapacity && Number.isInteger(remainingCapacity) && remainingCapacity >= 0;
+  if (hasCapacity) {
+    setText("[data-capacity]", `${totalCapacity} cupos`);
+    setText("[data-capacity-total]", `${totalCapacity} cupos`);
+    setText("[data-capacity-remaining]", hasRemaining
+      ? (remainingCapacity === 1 ? "1 cupo disponible" : `${remainingCapacity} cupos disponibles`)
+      : `${totalCapacity} cupos`);
+  } else {
+    if (typeof program.capacity === "string" && program.capacity.trim()) {
+      setText("[data-capacity]", program.capacity);
+    } else {
+      document.querySelectorAll("[data-capacity-row], [data-capacity-message]").forEach((element) => element.remove());
+    }
+  }
   // Sin precio publicado, el bloque de valores no se muestra.
   if (!program.price) document.querySelector("[data-price-block]")?.remove();
   renderList("#learn-list", program.learn);
@@ -45,6 +62,22 @@
     document.querySelectorAll('a[href="index.html#contacto"]').forEach((link) => {
       link.href = registrationHref;
     });
+
+    const checkoutAvailable = (!hasRemaining || remainingCapacity !== 0) && Boolean(
+      program.payment?.checkoutUrl?.trim() ||
+      program.payment?.discounts?.some((discount) => discount.checkoutUrl?.trim())
+    );
+    if (checkoutAvailable) {
+      const paymentHref = `pago.html?programa=${encodeURIComponent(program.slug)}`;
+      document.querySelectorAll("[data-payment-link]").forEach((link) => {
+        link.href = paymentHref;
+      });
+    } else if (hasRemaining && remainingCapacity === 0) {
+      document.querySelectorAll("[data-payment-link]").forEach((link) => {
+        link.href = "index.html#contacto";
+        link.textContent = "Sumarme a la lista de espera";
+      });
+    }
   }
 
   const faqList = document.querySelector("#faq-list");
