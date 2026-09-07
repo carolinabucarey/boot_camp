@@ -198,18 +198,16 @@ export default function ProgramaWebIaPage() {
                       </div>
                       <span className="session-date">Miércoles 7</span>
                     </header>
-                    <p>Entenderás cómo funciona una web y dejarás tu proyecto completamente definido antes de escribir una sola línea.</p>
+                    <p>Entenderás cómo funciona una web y dejarás tu proyecto definido antes de escribir una sola línea.</p>
                     <ul className="check-list">
-                      <li>Entender qué es realmente una página web: el front, el back y por qué hoy puedes publicar sin tocar el back.</li>
-                      <li>Dejar atrás la pregunta de qué lenguaje usar: no aprendes a programar sola, programas con inteligencia artificial.</li>
-                      <li>Paso 1: definir el objetivo de tu página (vender, que te escriban, que te conozcan, inspirar, enseñar o que se inscriban) y cómo ese objetivo cambia todo el diseño.</li>
-                      <li>Paso 2: definir tu contenido con cinco preguntas: quién eres, qué ofreces, a quién le sirve, qué quieres que hagan y cómo te ubican.</li>
-                      <li>Paso 3: ordenar tu marca antes del diseño (tono, colores, tipografías y mensajes) con el skill de marca de Claude.</li>
-                      <li>Paso 4: dibujar en papel los componentes de tu página: barra, portada, secciones, testimonios y cierre.</li>
-                      <li>Paso 5: elegir referencias según lo que quieres transmitir: tecnología, estética, cercanía o marca personal.</li>
+                      <li>Entender cómo funciona una página web.</li>
+                      <li>Definir el objetivo de tu página.</li>
+                      <li>Escribir el contenido de tu proyecto.</li>
+                      <li>Ordenar tu marca antes del diseño.</li>
+                      <li>Elegir tus referencias visuales.</li>
                     </ul>
                     <p className="session-result">
-                      <strong>Resultado:</strong> llegarás al día 2 con tu objetivo definido, tu contenido escrito, tu guía de marca, el boceto de tu página y dos referencias elegidas.
+                      <strong>Resultado:</strong> llegarás al día 2 con tu objetivo, tu contenido, tu guía de marca, el boceto de tu página y tus referencias.
                     </p>
                   </article>
                   <article className="session-card">
@@ -222,13 +220,12 @@ export default function ProgramaWebIaPage() {
                     </header>
                     <p>Construirás tu página con inteligencia artificial y la dejarás publicada en internet.</p>
                     <ul className="check-list">
-                      <li>Paso 6: preparar tus herramientas y dejar todo listo: navegador, cuenta de Claude, GitHub y el servicio donde se publica tu página.</li>
-                      <li>Conocer el stack que usaremos —React, Next.js, Tailwind y Vercel— y por qué es el que la inteligencia artificial escribe mejor.</li>
-                      <li>Paso 7: trabajar con el ciclo pedir, mirar, corregir y publicar.</li>
-                      <li>Escribir tu primer pedido a la inteligencia artificial a partir de tu boceto y tus referencias.</li>
-                      <li>Revisar lo que genera, pedir cambios las veces que sea necesario y resolver errores sin bloquearte.</li>
-                      <li>Trabajar con versiones en GitHub para no perder lo construido.</li>
-                      <li>Publicar en Vercel y comprender cómo conectar tu dominio .cl y volver a publicar.</li>
+                      <li>Preparar tus herramientas de trabajo.</li>
+                      <li>Conocer el stack que usaremos.</li>
+                      <li>Trabajar con el ciclo pedir, mirar, corregir y publicar.</li>
+                      <li>Construir tu página con inteligencia artificial.</li>
+                      <li>Guardar versiones de tu trabajo en GitHub.</li>
+                      <li>Publicar tu web y conectar tu dominio .cl.</li>
                     </ul>
                     <p className="session-result">
                       <strong>Resultado:</strong> terminarás con tu web publicada y un proceso que podrás repetir por tu cuenta.
