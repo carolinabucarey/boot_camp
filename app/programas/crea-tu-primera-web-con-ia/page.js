@@ -89,12 +89,12 @@ const STRUCTURED_DATA = {
         {
           "@type": "Question",
           name: "¿Necesito instalar algún programa?",
-          acceptedAnswer: { "@type": "Answer", text: "No será necesario instalar Visual Studio Code. Trabajaremos principalmente desde el navegador con ChatGPT, Claude Code, GitHub y Vercel." }
+          acceptedAnswer: { "@type": "Answer", text: "Te guiaremos paso a paso en la preparación de las herramientas al inicio de la segunda jornada. Trabajaremos con ChatGPT, Claude Code, GitHub y Vercel." }
         },
         {
           "@type": "Question",
           name: "¿Las suscripciones están incluidas?",
-          acceptedAnswer: { "@type": "Answer", text: "No. Cada participante debe contar con suscripciones activas a un plan pagado de ChatGPT y a Claude Pro o superior." }
+          acceptedAnswer: { "@type": "Answer", text: "No. Cada participante debe contar con una suscripción activa a Claude Code o a ChatGPT, en su plan más económico." }
         },
         {
           "@type": "Question",
@@ -138,7 +138,7 @@ export default function ProgramaWebIaPage() {
             <p className="eyebrow">Inscripciones abiertas · Edición online</p>
             <h1>{program.name}</h1>
             <p className="lead">{program.promise}</p>
-            <p className="hero-support">7 y 8 de octubre de 2026 · Horario por confirmar · 10 cupos · $74.990 CLP</p>
+            <p className="hero-support">7 y 8 de octubre de 2026 · 18:30 a 20:30 horas · 10 cupos · $74.990 CLP</p>
             <div className="button-row">
               <a className="btn btn-light btn-arrow" href={cta.href}>
                 {cta.label || "Reservar mi cupo"}
@@ -158,7 +158,7 @@ export default function ProgramaWebIaPage() {
                   ChatGPT y Claude. Aprenderás a definir qué quieres construir, darle instrucciones claras a la inteligencia
                   artificial, revisar lo que genera y publicar el resultado en internet.
                 </p>
-                <p className="prose-note">No necesitas saber programar ni instalar Visual Studio Code.</p>
+                <p className="prose-note">No necesitas saber programar.</p>
               </section>
 
               <section className="prose-section">
@@ -188,52 +188,50 @@ export default function ProgramaWebIaPage() {
 
               <section className="prose-section">
                 <p className="eyebrow">Programa</p>
-                <h2>Dos jornadas para definir, crear, mejorar y publicar</h2>
+                <h2>Dos jornadas: primero defines, después construyes y publicas</h2>
                 <div className="session-list">
                   <article className="session-card">
                     <header>
                       <div>
                         <p className="eyebrow">Día 1</p>
-                        <h3>De la idea a la primera versión</h3>
+                        <h3>De la idea a un proyecto definido</h3>
                       </div>
                       <span className="session-date">Miércoles 7</span>
                     </header>
-                    <p>Transformarás tu idea en una propuesta clara y comenzarás a construirla.</p>
+                    <p>Entenderás cómo funciona una web y dejarás tu proyecto completamente definido antes de escribir una sola línea.</p>
                     <ul className="check-list">
-                      <li>Definir qué quieres crear, para quién y qué necesidad debe resolver.</li>
-                      <li>Acotar el proyecto para construir una primera versión.</li>
-                      <li>Convertir la idea en instrucciones claras para la inteligencia artificial.</li>
-                      <li>Definir contenidos, secciones y funciones principales.</li>
-                      <li>Comprender cómo se relacionan ChatGPT, Claude, GitHub y Vercel.</li>
-                      <li>Trabajar con un repositorio individual en GitHub.</li>
-                      <li>Utilizar Claude Code desde el navegador.</li>
-                      <li>Generar la primera versión y detectar mejoras.</li>
+                      <li>Entender qué es realmente una página web: el front, el back y por qué hoy puedes publicar sin tocar el back.</li>
+                      <li>Dejar atrás la pregunta de qué lenguaje usar: no aprendes a programar sola, programas con inteligencia artificial.</li>
+                      <li>Paso 1: definir el objetivo de tu página (vender, que te escriban, que te conozcan, inspirar, enseñar o que se inscriban) y cómo ese objetivo cambia todo el diseño.</li>
+                      <li>Paso 2: definir tu contenido con cinco preguntas: quién eres, qué ofreces, a quién le sirve, qué quieres que hagan y cómo te ubican.</li>
+                      <li>Paso 3: ordenar tu marca antes del diseño (tono, colores, tipografías y mensajes) con el skill de marca de Claude.</li>
+                      <li>Paso 4: dibujar en papel los componentes de tu página: barra, portada, secciones, testimonios y cierre.</li>
+                      <li>Paso 5: elegir referencias según lo que quieres transmitir: tecnología, estética, cercanía o marca personal.</li>
                     </ul>
                     <p className="session-result">
-                      <strong>Resultado:</strong> tendrás una primera versión de tu proyecto y una lista clara de mejoras.
+                      <strong>Resultado:</strong> llegarás al día 2 con tu objetivo definido, tu contenido escrito, tu guía de marca, el boceto de tu página y dos referencias elegidas.
                     </p>
                   </article>
                   <article className="session-card">
                     <header>
                       <div>
                         <p className="eyebrow">Día 2</p>
-                        <h3>Mejora y publicación</h3>
+                        <h3>De la definición a tu web publicada</h3>
                       </div>
                       <span className="session-date">Jueves 8</span>
                     </header>
-                    <p>Mejorarás la primera versión y la publicarás en internet.</p>
+                    <p>Construirás tu página con inteligencia artificial y la dejarás publicada en internet.</p>
                     <ul className="check-list">
-                      <li>Probar la web y comprobar si responde al objetivo definido.</li>
-                      <li>Solicitar cambios de contenido, diseño y funcionamiento.</li>
-                      <li>Trabajar con versiones para no perder lo construido.</li>
-                      <li>Revisar los cambios realizados por la inteligencia artificial.</li>
-                      <li>Preparar una versión para publicación.</li>
-                      <li>Conectar el repositorio de GitHub con Vercel.</li>
-                      <li>Realizar el primer despliegue.</li>
-                      <li>Comprender cómo conectar el dominio y volver a publicar.</li>
+                      <li>Paso 6: preparar tus herramientas y dejar todo listo: navegador, cuenta de Claude, GitHub y el servicio donde se publica tu página.</li>
+                      <li>Conocer el stack que usaremos —React, Next.js, Tailwind y Vercel— y por qué es el que la inteligencia artificial escribe mejor.</li>
+                      <li>Paso 7: trabajar con el ciclo pedir, mirar, corregir y publicar.</li>
+                      <li>Escribir tu primer pedido a la inteligencia artificial a partir de tu boceto y tus referencias.</li>
+                      <li>Revisar lo que genera, pedir cambios las veces que sea necesario y resolver errores sin bloquearte.</li>
+                      <li>Trabajar con versiones en GitHub para no perder lo construido.</li>
+                      <li>Publicar en Vercel y comprender cómo conectar tu dominio .cl y volver a publicar.</li>
                     </ul>
                     <p className="session-result">
-                      <strong>Resultado:</strong> terminarás con una web publicada y un proceso para seguir modificándola.
+                      <strong>Resultado:</strong> terminarás con tu web publicada y un proceso que podrás repetir por tu cuenta.
                     </p>
                   </article>
                 </div>
@@ -335,11 +333,7 @@ export default function ProgramaWebIaPage() {
                 </div>
                 <div className="info-item">
                   <span>Horario</span>
-                  <strong>Por confirmar</strong>
-                </div>
-                <div className="info-item">
-                  <span>Facilitación</span>
-                  <strong>Por confirmar</strong>
+                  <strong>18:30 a 20:30 horas</strong>
                 </div>
               </div>
               {program.price && (

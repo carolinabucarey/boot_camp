@@ -22,7 +22,6 @@ export default function ProgramCard({ program }) {
         </h3>
         {program.need && (
           <div className="program-detail">
-            <small>Necesidad</small>
             <p>{program.need}</p>
           </div>
         )}
