@@ -138,7 +138,7 @@ export default function ProgramaWebIaPage() {
             <p className="eyebrow">Inscripciones abiertas · Edición online</p>
             <h1>{program.name}</h1>
             <p className="lead">{program.promise}</p>
-            <p className="hero-support">7 y 8 de octubre de 2026 · 18:30 a 20:30 horas · 10 cupos · $74.990 CLP</p>
+            <p className="hero-support">7 y 8 de octubre de 2026 · 18:30 a 20:30 horas · 10 cupos · $74.990 CLP · incluye dominio .cl por 1 año</p>
             <div className="button-row">
               <a className="btn btn-light btn-arrow" href={cta.href}>
                 {cta.label || "Reservar mi cupo"}
@@ -331,6 +331,10 @@ export default function ProgramaWebIaPage() {
                 <div className="info-item">
                   <span>Horario</span>
                   <strong>18:30 a 20:30 horas</strong>
+                </div>
+                <div className="info-item">
+                  <span>Incluye</span>
+                  <strong>Dominio .cl por 1 año</strong>
                 </div>
               </div>
               {program.price && (
