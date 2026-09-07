@@ -2,8 +2,8 @@ import SecureBadgeHeader from "@/components/SecureBadgeHeader";
 import { siteContent } from "@/lib/site-content";
 
 export const metadata = {
-  title: "Gracias por tu compra | MAILE",
-  description: "Tu compra fue realizada. Únete al grupo de WhatsApp para recibir toda la información de tu experiencia MAILE.",
+  title: "Gracias por tu compra | Maile",
+  description: "Tu compra fue realizada. Únete al grupo de WhatsApp para recibir toda la información de tu experiencia Maile.",
   robots: "noindex,nofollow"
 };
 
@@ -13,11 +13,11 @@ export default function GraciasPorTuCompraPage() {
   const hasGroupLink = /^https:\/\/chat\.whatsapp\.com\//i.test(groupLink || "");
   const whatsappHref = hasGroupLink
     ? groupLink
-    : `${brand.links.whatsapp}?text=${encodeURIComponent("Hola MAILE, realicé mi compra y quiero acceder al grupo de WhatsApp.")}`;
+    : `${brand.links.whatsapp}?text=${encodeURIComponent("Hola Maile, realicé mi compra y quiero acceder al grupo de WhatsApp.")}`;
   const whatsappLabel = hasGroupLink ? "Unirme al grupo de WhatsApp" : "Escribir por WhatsApp";
   const whatsappDescription = hasGroupLink
     ? "Ahí compartiremos avisos, materiales, enlaces y todo lo que necesitas antes de comenzar."
-    : "Escríbenos y te compartiremos el acceso al grupo de WhatsApp de tu experiencia MAILE.";
+    : "Escríbenos y te compartiremos el acceso al grupo de WhatsApp de tu experiencia Maile.";
   const whatsappNote = hasGroupLink ? "El enlace se abrirá en WhatsApp." : "Te responderemos por WhatsApp a la brevedad.";
 
   return (
@@ -69,7 +69,7 @@ export default function GraciasPorTuCompraPage() {
       </main>
 
       <footer className="confirmation-footer">
-        <span>© {new Date().getFullYear()} MAILE</span>
+        <span>© {new Date().getFullYear()} Maile</span>
         <a href="/">Volver al sitio</a>
       </footer>
     </div>

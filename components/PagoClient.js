@@ -94,7 +94,7 @@ export default function PagoClient({ program, initialCode }) {
             <p>Puedes escribirnos para sumarte a la lista de espera o conocer la próxima edición.</p>
             <a
               className="btn btn-primary btn-block"
-              href="https://wa.me/56990195787?text=Hola%20MAILE%2C%20quiero%20reservar%20mi%20cupo%20en%20el%20bootcamp%20online."
+              href="https://wa.me/56990195787?text=Hola%20Maile%2C%20quiero%20reservar%20mi%20cupo%20en%20el%20bootcamp%20online."
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -107,7 +107,7 @@ export default function PagoClient({ program, initialCode }) {
             <p>Mientras terminamos la configuración, escríbenos y te ayudaremos a reservar tu cupo.</p>
             <a
               className="btn btn-primary btn-block"
-              href="https://wa.me/56990195787?text=Hola%20MAILE%2C%20quiero%20reservar%20mi%20cupo%20en%20el%20bootcamp%20online."
+              href="https://wa.me/56990195787?text=Hola%20Maile%2C%20quiero%20reservar%20mi%20cupo%20en%20el%20bootcamp%20online."
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -196,7 +196,7 @@ export default function PagoClient({ program, initialCode }) {
           )}
         </button>
         <p className="checkout-provider">
-          El cobro se completa en <span>{payment.providerName || "la plataforma de pago"}</span>. MAILE no recibe ni almacena los
+          El cobro se completa en <span>{payment.providerName || "la plataforma de pago"}</span>. Maile no recibe ni almacena los
           datos de tu tarjeta.
         </p>
         <p className="checkout-legal">

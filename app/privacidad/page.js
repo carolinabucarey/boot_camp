@@ -1,8 +1,8 @@
 import Wordmark from "@/components/Wordmark";
 
 export const metadata = {
-  title: "Política de privacidad | MAILE",
-  description: "Información sobre el tratamiento de datos personales en MAILE.",
+  title: "Política de privacidad | Maile",
+  description: "Información sobre el tratamiento de datos personales en Maile.",
   robots: "noindex,follow"
 };
 
@@ -68,7 +68,7 @@ export default function PrivacidadPage() {
       <footer className="site-footer">
         <div className="container">
           <div className="footer-bottom" style={{ marginTop: 0 }}>
-            <span>© {new Date().getFullYear()} MAILE.</span>
+            <span>© {new Date().getFullYear()} Maile.</span>
             <a href="/terminos">Ver términos</a>
           </div>
         </div>

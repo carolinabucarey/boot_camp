@@ -19,19 +19,19 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "es_CL",
-    siteName: "MAILE",
+    siteName: "Maile",
     title: "Programas de inteligencia artificial para mujeres | Maile",
     description: "Experiencias prácticas para convertir objetivos reales en soluciones creadas con inteligencia artificial.",
     url: "https://www.maile.cl/",
     images: [
-      { url: "https://www.maile.cl/assets/og-social.png", width: 1200, height: 630, alt: "MAILE, mujeres creando futuro con tecnología" }
+      { url: "https://www.maile.cl/assets/og-social.png", width: 1200, height: 630, alt: "Maile, mujeres creando futuro con tecnología" }
     ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Programas de inteligencia artificial para mujeres | Maile",
     description: "Experiencias prácticas para convertir objetivos reales en soluciones creadas con inteligencia artificial.",
-    images: [{ url: "https://www.maile.cl/assets/og-social.png", alt: "MAILE, mujeres creando futuro con tecnología" }]
+    images: [{ url: "https://www.maile.cl/assets/og-social.png", alt: "Maile, mujeres creando futuro con tecnología" }]
   }
 };
 
@@ -41,7 +41,7 @@ const STRUCTURED_DATA = {
     {
       "@type": "Organization",
       "@id": "https://www.maile.cl/#organization",
-      name: "MAILE",
+      name: "Maile",
       url: "https://www.maile.cl/",
       telephone: "+56990195787",
       logo: { "@type": "ImageObject", url: "https://www.maile.cl/assets/brand/favicon-512.png", width: 512, height: 512 },
@@ -56,7 +56,7 @@ const STRUCTURED_DATA = {
       "@type": "WebSite",
       "@id": "https://www.maile.cl/#website",
       url: "https://www.maile.cl/",
-      name: "MAILE",
+      name: "Maile",
       description: "Programas de inteligencia artificial para que mujeres conviertan objetivos reales en soluciones propias.",
       publisher: { "@id": "https://www.maile.cl/#organization" },
       inLanguage: "es-CL"
@@ -96,7 +96,7 @@ export default async function HomePage({ searchParams }) {
                     Conoce los próximos programas
                   </a>
                   <a className="btn btn-secondary" href={brand.links.organizations}>
-                    Quiero llevar MAILE a mi organización
+                    Quiero llevar Maile a mi organización
                   </a>
                 </div>
                 <p className="hero-note">No necesitas experiencia técnica previa.</p>
@@ -143,10 +143,10 @@ export default async function HomePage({ searchParams }) {
         <section className="section" id="proposito">
           <div className="container purpose-grid">
             <div className="purpose-intro">
-              <p className="eyebrow">La experiencia MAILE</p>
+              <p className="eyebrow">La experiencia Maile</p>
               <h2>Llegas con un objetivo. Sales con algo creado por ti.</h2>
               <p className="lead">
-                En cada experiencia MAILE partes desde algo que quieres resolver. Aprendes utilizando la tecnología en tu propio caso,
+                En cada experiencia Maile partes desde algo que quieres resolver. Aprendes utilizando la tecnología en tu propio caso,
                 construyes una primera solución y recibes acompañamiento para probarla y seguir desarrollándola.
               </p>
             </div>
@@ -178,7 +178,7 @@ export default async function HomePage({ searchParams }) {
         <section className="section section-plum" id="como-aprendemos" aria-labelledby="como-funciona">
           <div className="container">
             <div className="section-header center">
-              <p className="eyebrow">Método MAILE</p>
+              <p className="eyebrow">Método Maile</p>
               <h2 id="como-funciona">De una necesidad a una solución propia</h2>
               <p className="lead">No enseñamos tecnología en abstracto. La utilizamos para avanzar sobre un objetivo real.</p>
             </div>
@@ -239,7 +239,7 @@ export default async function HomePage({ searchParams }) {
                 observamos la creación, la prueba y la continuidad de cada resultado.
               </p>
             </div>
-            <div className="measure-grid" aria-label="Indicadores que MAILE observará">
+            <div className="measure-grid" aria-label="Indicadores que Maile observará">
               <article>
                 <span>01</span>
                 <p>Participantes que terminan con una solución creada</p>
@@ -271,7 +271,7 @@ export default async function HomePage({ searchParams }) {
                 01
               </div>
               <div>
-                <h3>Así se aprende en MAILE</h3>
+                <h3>Así se aprende en Maile</h3>
                 <p>
                   En nuestro primer bootcamp, cada participante trabajó sobre su propio proyecto y creó una página web con
                   inteligencia artificial. La experiencia nos permitió probar una metodología cercana, práctica y centrada en avanzar
@@ -304,7 +304,7 @@ export default async function HomePage({ searchParams }) {
               <p className="eyebrow">Comunidad</p>
               <h2>El encuentro termina. El aprendizaje continúa.</h2>
               <p className="lead">
-                La comunidad MAILE es un espacio para seguir practicando, resolver nuevas dudas, compartir lo creado y acceder a
+                La comunidad Maile es un espacio para seguir practicando, resolver nuevas dudas, compartir lo creado y acceder a
                 experiencias, conocimientos y oportunidades de colaboración.
               </p>
               <p className="community-note">
@@ -323,7 +323,7 @@ export default async function HomePage({ searchParams }) {
           <div className="container">
             <div className="section-header">
               <p className="eyebrow">Nuestra experiencia</p>
-              <h2>Así se aprende en MAILE</h2>
+              <h2>Así se aprende en Maile</h2>
               <p className="lead">
                 En nuestro primer bootcamp, cada participante trabajó sobre su propio proyecto y creó una página web con
                 inteligencia artificial. La experiencia nos permitió probar una metodología cercana, práctica y centrada en avanzar

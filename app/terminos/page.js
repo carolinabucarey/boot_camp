@@ -1,8 +1,8 @@
 import Wordmark from "@/components/Wordmark";
 
 export const metadata = {
-  title: "Términos | MAILE",
-  description: "Términos generales de participación y uso del sitio de MAILE.",
+  title: "Términos | Maile",
+  description: "Términos generales de participación y uso del sitio de Maile.",
   robots: "noindex,follow"
 };
 
@@ -64,7 +64,7 @@ export default function TerminosPage() {
       <footer className="site-footer">
         <div className="container">
           <div className="footer-bottom" style={{ marginTop: 0 }}>
-            <span>© {new Date().getFullYear()} MAILE.</span>
+            <span>© {new Date().getFullYear()} Maile.</span>
             <a href="/privacidad">Ver política de privacidad</a>
           </div>
         </div>

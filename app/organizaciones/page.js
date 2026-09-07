@@ -13,7 +13,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "es_CL",
-    siteName: "MAILE",
+    siteName: "Maile",
     title: "Programas de IA para mujeres y organizaciones | Maile",
     description: "Cohortes y laboratorios para convertir desafíos reales en soluciones creadas con tecnología e inteligencia artificial.",
     url: "https://www.maile.cl/organizaciones",
@@ -22,7 +22,7 @@ export const metadata = {
         url: "https://www.maile.cl/assets/og-social.png",
         width: 1200,
         height: 630,
-        alt: "MAILE, programas de adopción tecnológica para mujeres"
+        alt: "Maile, programas de adopción tecnológica para mujeres"
       }
     ]
   },
@@ -90,7 +90,7 @@ export default function OrganizacionesPage() {
             </div>
             <p className="lead">
               Muchas mujeres enfrentan barreras de entrada, falta de tiempo, formación poco conectada con su realidad o escasas
-              oportunidades para practicar. MAILE transforma la capacitación en una experiencia aplicada: cada participante trabaja
+              oportunidades para practicar. Maile transforma la capacitación en una experiencia aplicada: cada participante trabaja
               sobre un desafío propio y crea un resultado que puede probar.
             </p>
           </div>
@@ -175,7 +175,7 @@ export default function OrganizacionesPage() {
               </article>
               <article>
                 <h3>Laboratorio dentro de otro programa</h3>
-                <p>Un módulo MAILE para una iniciativa de empleabilidad, emprendimiento, innovación o desarrollo territorial.</p>
+                <p>Un módulo Maile para una iniciativa de empleabilidad, emprendimiento, innovación o desarrollo territorial.</p>
               </article>
               <article>
                 <h3>Cohorte patrocinada</h3>
@@ -219,10 +219,10 @@ export default function OrganizacionesPage() {
         <section className="section section-plum" id="colabora">
           <div className="container">
             <div className="section-header">
-              <p className="eyebrow">Colabora con MAILE</p>
+              <p className="eyebrow">Colabora con Maile</p>
               <h2>Construyamos más oportunidades de acceso y acción con tecnología</h2>
               <p className="lead">
-                Colaboramos con organizaciones que aportan convocatoria, conocimiento, espacios, financiamiento o continuidad. MAILE
+                Colaboramos con organizaciones que aportan convocatoria, conocimiento, espacios, financiamiento o continuidad. Maile
                 aporta diseño de experiencias, facilitación cercana y una metodología centrada en resultados propios.
               </p>
             </div>
@@ -239,7 +239,7 @@ export default function OrganizacionesPage() {
                 </ul>
               </article>
               <article>
-                <h3>Qué aporta MAILE</h3>
+                <h3>Qué aporta Maile</h3>
                 <ul className="check-list light-list">
                   <li>Diseño de experiencias aplicadas</li>
                   <li>Metodología accesible para personas no técnicas</li>
@@ -282,7 +282,7 @@ export default function OrganizacionesPage() {
               { label: "Cómo trabajamos", href: "#propuesta" },
               { label: "Formatos", href: "#formatos" },
               { label: "Medición", href: "#medicion" },
-              { label: "Colabora con MAILE", href: "#colabora" },
+              { label: "Colabora con Maile", href: "#colabora" },
               { label: "Conversemos", href: "#form-organizaciones" }
             ]
           },
