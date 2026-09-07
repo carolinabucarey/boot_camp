@@ -16,11 +16,11 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "es_CL",
-    siteName: "MAILE",
+    siteName: "Maile",
     title: "Crea tu primer agente con IA | Maile",
     description: "Parte de un objetivo real y crea una primera versión de tu agente de IA, probada e iterable.",
     url: "https://www.maile.cl/programas/crea-tu-primer-agente-con-ia",
-    images: [{ url: "https://www.maile.cl/assets/og-social.png", width: 1200, height: 630, alt: "Programa Crea tu primer agente con IA de MAILE" }]
+    images: [{ url: "https://www.maile.cl/assets/og-social.png", width: 1200, height: 630, alt: "Programa Crea tu primer agente con IA de Maile" }]
   },
   twitter: {
     card: "summary_large_image",
@@ -45,7 +45,7 @@ const STRUCTURED_DATA = {
       "@type": "Course",
       name: "Crea tu primer agente con IA",
       description: "Programa práctico para convertir un objetivo real en una primera versión de un agente de IA creada, probada e iterable.",
-      provider: { "@type": "Organization", name: "MAILE", sameAs: "https://www.maile.cl/" },
+      provider: { "@type": "Organization", name: "Maile", sameAs: "https://www.maile.cl/" },
       coursePrerequisites: "No se requiere experiencia técnica ni conocimientos de programación.",
       educationalLevel: "Inicial"
     },

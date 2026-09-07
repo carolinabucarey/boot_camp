@@ -10,26 +10,26 @@ import { CROSS_PAGE_NAV_ITEMS, programFooterColumns } from "@/lib/nav";
 const program = getProgramBySlug("crea-tu-primer-agente-con-ia-online");
 
 export const metadata = {
-  title: "Crea tu primer agente con IA — Edición online | MAILE",
+  title: "Crea tu primer agente con IA — Edición online | Maile",
   description: "Crea una primera versión de tu propio agente de IA en dos sesiones online en vivo, el 1 y 2 de octubre de 2026. Nivel inicial, sin programación.",
   robots: "index,follow,max-image-preview:large",
   alternates: { canonical: "/programas/crea-tu-primer-agente-con-ia-online" },
   openGraph: {
     type: "website",
     locale: "es_CL",
-    siteName: "MAILE",
-    title: "Crea tu primer agente con IA — Edición online | MAILE",
+    siteName: "Maile",
+    title: "Crea tu primer agente con IA — Edición online | Maile",
     description: "Dos sesiones online en vivo para convertir un objetivo real en un agente de IA creado por ti.",
     url: "https://www.maile.cl/programas/crea-tu-primer-agente-con-ia-online",
     images: [
-      { url: "https://www.maile.cl/assets/og-social.png", width: 1200, height: 630, alt: "Programa Crea tu primer agente con IA — Edición online de MAILE" }
+      { url: "https://www.maile.cl/assets/og-social.png", width: 1200, height: 630, alt: "Programa Crea tu primer agente con IA — Edición online de Maile" }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Crea tu primer agente con IA — Edición online | MAILE",
+    title: "Crea tu primer agente con IA — Edición online | Maile",
     description: "1 y 2 de octubre de 2026 · Online en vivo · Nivel inicial · $70.000 CLP.",
-    images: [{ url: "https://www.maile.cl/assets/og-social.png", alt: "Programa Crea tu primer agente con IA — Edición online de MAILE" }]
+    images: [{ url: "https://www.maile.cl/assets/og-social.png", alt: "Programa Crea tu primer agente con IA — Edición online de Maile" }]
   }
 };
 
@@ -53,7 +53,7 @@ const STRUCTURED_DATA = {
       "@type": "Course",
       name: "Crea tu primer agente con IA — Edición online",
       description: "Programa práctico de nivel inicial para convertir un objetivo real en una primera versión de un agente de IA creada y probada por cada participante.",
-      provider: { "@type": "Organization", name: "MAILE", sameAs: "https://www.maile.cl/" },
+      provider: { "@type": "Organization", name: "Maile", sameAs: "https://www.maile.cl/" },
       coursePrerequisites: "No se requiere experiencia técnica ni conocimientos de programación.",
       educationalLevel: "Inicial",
       hasCourseInstance: {
@@ -79,7 +79,7 @@ const STRUCTURED_DATA = {
       eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
       eventStatus: "https://schema.org/EventScheduled",
       location: { "@type": "VirtualLocation", url: "https://www.maile.cl/programas/crea-tu-primer-agente-con-ia-online" },
-      organizer: { "@type": "Organization", name: "MAILE", url: "https://www.maile.cl/" },
+      organizer: { "@type": "Organization", name: "Maile", url: "https://www.maile.cl/" },
       offers: {
         "@type": "Offer",
         price: "70000",

@@ -3,7 +3,7 @@ import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 export const metadata = {
   metadataBase: new URL("https://www.maile.cl"),
-  title: "MAILE · Mujeres creando futuro con tecnología",
+  title: "Maile · Mujeres creando futuro con tecnología",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -17,7 +17,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#351b38"
+  themeColor: "#2f1b34"
 };
 
 export default function RootLayout({ children }) {
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,400&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@500&display=swap"
           rel="stylesheet"
         />
         <AnalyticsTracker />

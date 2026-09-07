@@ -4,8 +4,8 @@ import PagoClient from "@/components/PagoClient";
 import { getProgramBySlug } from "@/lib/site-content";
 
 export const metadata = {
-  title: "Reserva tu cupo | MAILE",
-  description: "Revisa tu inscripción, aplica un código de descuento y continúa al pago seguro de tu experiencia MAILE.",
+  title: "Reserva tu cupo | Maile",
+  description: "Revisa tu inscripción, aplica un código de descuento y continúa al pago seguro de tu experiencia Maile.",
   robots: "noindex,follow"
 };
 
@@ -47,7 +47,7 @@ export default async function PagoPage({ searchParams }) {
       </main>
 
       <footer className="confirmation-footer">
-        <span>© {new Date().getFullYear()} MAILE</span>
+        <span>© {new Date().getFullYear()} Maile</span>
         <span>
           ¿Tienes dudas?{" "}
           <a href="https://wa.me/56990195787" target="_blank" rel="noopener noreferrer">

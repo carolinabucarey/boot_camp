@@ -15,7 +15,7 @@ const ORGANIZATION_TYPES = [
 const PARTNERSHIP_TYPES = [
   "Capacitar a un equipo",
   "Financiar una cohorte para una comunidad",
-  "Incorporar un módulo MAILE a un programa",
+  "Incorporar un módulo Maile a un programa",
   "Desarrollar una alianza",
   "Explorar una actividad conjunta"
 ];

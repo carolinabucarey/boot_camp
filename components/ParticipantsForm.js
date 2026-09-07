@@ -111,7 +111,7 @@ export default function ParticipantsForm({ preselectedSlug }) {
         <div className="field full consent-field">
           <label>
             <input name="consent" type="checkbox" value="Sí" required aria-invalid={errors.consent ? "true" : undefined} /> Acepto
-            recibir información sobre programas y actividades de MAILE.
+            recibir información sobre programas y actividades de Maile.
           </label>
           {errors.consent && <span className="error-text">{errors.consent}</span>}
         </div>
