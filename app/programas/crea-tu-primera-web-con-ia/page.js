@@ -10,24 +10,24 @@ import { CROSS_PAGE_NAV_ITEMS, programFooterColumns } from "@/lib/nav";
 const program = getProgramBySlug("crea-tu-primera-web-con-ia");
 
 export const metadata = {
-  title: "Crea y publica tu proyecto web con IA | MAILE",
+  title: "Crea y publica tu proyecto web con IA | Maile",
   description: "Programa online en vivo el 7 y 8 de octubre de 2026 para crear una solución web con ChatGPT y Claude, guardarla en GitHub y publicarla en Vercel.",
   robots: "index,follow,max-image-preview:large",
   alternates: { canonical: "/programas/crea-tu-primera-web-con-ia" },
   openGraph: {
     type: "website",
     locale: "es_CL",
-    siteName: "MAILE",
-    title: "Crea y publica tu proyecto web con IA | MAILE",
+    siteName: "Maile",
+    title: "Crea y publica tu proyecto web con IA | Maile",
     description: "7 y 8 de octubre de 2026 · Dos jornadas online en vivo · 10 cupos · Resultado: una primera solución web publicada.",
     url: "https://www.maile.cl/programas/crea-tu-primera-web-con-ia",
-    images: [{ url: "https://www.maile.cl/assets/og-social.png", width: 1200, height: 630, alt: "Crea y publica tu proyecto web con IA, programa de MAILE" }]
+    images: [{ url: "https://www.maile.cl/assets/og-social.png", width: 1200, height: 630, alt: "Crea y publica tu proyecto web con IA, programa de Maile" }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Crea y publica tu proyecto web con IA | MAILE",
+    title: "Crea y publica tu proyecto web con IA | Maile",
     description: "Convierte una idea clara en una primera solución web creada y publicada por ti.",
-    images: [{ url: "https://www.maile.cl/assets/og-social.png", alt: "Crea y publica tu proyecto web con IA, programa de MAILE" }]
+    images: [{ url: "https://www.maile.cl/assets/og-social.png", alt: "Crea y publica tu proyecto web con IA, programa de Maile" }]
   }
 };
 
@@ -46,7 +46,7 @@ const STRUCTURED_DATA = {
       "@type": "Course",
       name: "Crea y publica tu proyecto web con IA",
       description: "Programa online en vivo para convertir una idea clara en una primera solución web utilizando ChatGPT y Claude, guardarla en GitHub y publicarla en Vercel.",
-      provider: { "@type": "Organization", name: "MAILE", sameAs: "https://www.maile.cl/" },
+      provider: { "@type": "Organization", name: "Maile", sameAs: "https://www.maile.cl/" },
       offers: {
         "@type": "Offer",
         price: "74990",
@@ -64,7 +64,7 @@ const STRUCTURED_DATA = {
       eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
       eventStatus: "https://schema.org/EventScheduled",
       location: { "@type": "VirtualLocation", url: "https://www.maile.cl/programas/crea-tu-primera-web-con-ia" },
-      organizer: { "@type": "Organization", name: "MAILE", url: "https://www.maile.cl/" },
+      organizer: { "@type": "Organization", name: "Maile", url: "https://www.maile.cl/" },
       maximumAttendeeCapacity: 10,
       offers: {
         "@type": "Offer",
@@ -109,7 +109,7 @@ const STRUCTURED_DATA = {
           name: "¿El dominio quedará a mi nombre?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sí. MAILE realizará la compra y configuración inicial. Después deberás crear una cuenta en NIC Chile para transferir la titularidad y administración del dominio."
+            text: "Sí. Maile realizará la compra y configuración inicial. Después deberás crear una cuenta en NIC Chile para transferir la titularidad y administración del dominio."
           }
         }
       ]
@@ -138,7 +138,7 @@ export default function ProgramaWebIaPage() {
             <p className="eyebrow">Inscripciones abiertas · Edición online</p>
             <h1>{program.name}</h1>
             <p className="lead">{program.promise}</p>
-            <p className="hero-support">7 y 8 de octubre de 2026 · 18:30 a 20:30 horas · 10 cupos · $74.990 CLP</p>
+            <p className="hero-support">7 y 8 de octubre de 2026 · 18:30 a 20:30 horas · 10 cupos · $74.990 CLP · incluye dominio .cl por 1 año</p>
             <div className="button-row">
               <a className="btn btn-light btn-arrow" href={cta.href}>
                 {cta.label || "Reservar mi cupo"}
@@ -259,9 +259,9 @@ export default function ProgramaWebIaPage() {
                   <li>Repositorio individual preparado en GitHub.</li>
                   <li>Publicación inicial del proyecto en Vercel.</li>
                   <li>Dominio .cl por 12 meses, sujeto a disponibilidad.</li>
-                  <li>Inscripción, configuración inicial y conexión del dominio realizada por MAILE.</li>
+                  <li>Inscripción, configuración inicial y conexión del dominio realizada por Maile.</li>
                   <li>Transferencia posterior del dominio a la participante.</li>
-                  <li>Acceso a la comunidad MAILE para compartir avances, recursos y oportunidades.</li>
+                  <li>Acceso a la comunidad Maile para compartir avances, recursos y oportunidades.</li>
                 </ul>
               </section>
 
@@ -280,7 +280,7 @@ export default function ProgramaWebIaPage() {
                 <p className="eyebrow">Dominio y publicación</p>
                 <h2>Tu proyecto quedará bajo tu control</h2>
                 <p>
-                  MAILE realizará la inscripción y configuración inicial del dominio `.cl`. Después de publicar el proyecto, deberás
+                  Maile realizará la inscripción y configuración inicial del dominio `.cl`. Después de publicar el proyecto, deberás
                   crear una cuenta en NIC Chile para que podamos transferirte la titularidad y la administración. La renovación
                   posterior a los primeros 12 meses será tu responsabilidad.
                 </p>
@@ -331,6 +331,10 @@ export default function ProgramaWebIaPage() {
                 <div className="info-item">
                   <span>Horario</span>
                   <strong>18:30 a 20:30 horas</strong>
+                </div>
+                <div className="info-item">
+                  <span>Incluye</span>
+                  <strong>Dominio .cl por 1 año</strong>
                 </div>
               </div>
               {program.price && (
