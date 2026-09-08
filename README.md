@@ -190,7 +190,7 @@ El nombre está escrito en los metadatos de cada página (`title`, `openGraph`,
 `twitter`) —porque los rastreadores de Google y de las redes sociales leen el
 HTML servido sin depender de que React se hidrate— y también en `brand.name`
 de `lib/site-content.js`, de donde salen el logotipo (`components/Wordmark.js`),
-el descriptor y, cuando se confirme, el correo.
+el descriptor y el correo de consultas.
 
 **Si cambia el nombre o el dominio, hay que cambiarlo en los dos lados**: en los
 metadatos de cada página (`app/**/page.js`) y en `lib/site-content.js`.

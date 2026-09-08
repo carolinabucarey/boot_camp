@@ -19,6 +19,7 @@ import {
   LIMITE_TOKENS,
   RAIZ_POR_DEFECTO
 } from "../lib/asistente/contexto.js";
+import { siteContent } from "../lib/site-content.js";
 
 test("lee todos los archivos de /content con su frontmatter", () => {
   const documentos = leerDocumentos();
@@ -80,10 +81,17 @@ test("las fechas y precios salen del sitio, no de los markdown", () => {
   assert.ok(!crudos.includes("$74.990"), "un precio quedó duplicado en /content y va a caducar");
 });
 
-test("sin correo publicado, deriva a los canales vigentes en vez de inventar uno", () => {
+test("publica el correo del sitio y no inventa ninguna otra dirección", () => {
   const bloque = bloqueDatosVigentes();
+  const { email } = siteContent.brand;
+
   assert.ok(bloque.includes("wa.me") || bloque.includes("Correo:"), "no dejó ningún canal de contacto");
-  assert.ok(!/[\w.-]+@maile\.cl/.test(bloque), "inventó un correo de marcador");
+  if (email) assert.ok(bloque.includes(`Correo: ${email}`), "no publicó el correo configurado en el sitio");
+  const correos = bloque.match(/[\w.-]+@maile\.cl/g) ?? [];
+  assert.ok(
+    correos.every((correo) => correo === email),
+    "apareció un correo que no es el publicado en el sitio"
+  );
 });
 
 test("lee de una raíz alternativa, como el paquete desplegado en Lambda", () => {
