@@ -35,14 +35,16 @@ export default function PrivacidadPage() {
           </p>
           <h2>Datos que solicitamos</h2>
           <p>
-            Los formularios pueden solicitar nombre, correo, teléfono, ciudad, intereses y, en consultas institucionales,
+            Los formularios pueden solicitar nombre, correo, teléfono, ciudad, intereses y, en postulaciones a la red de mentoras,
+            antecedentes sobre experiencia, trayectoria y disponibilidad. En consultas institucionales también pueden solicitarse
             antecedentes de la organización. Solo pedimos información necesaria para responder solicitudes y comunicar próximas
             actividades.
           </p>
           <h2>Uso de la información</h2>
           <p>
-            Utilizaremos los datos para responder consultas, gestionar listas de interés, informar convocatorias y diseñar
-            programas acordes a las necesidades expresadas. No venderemos datos personales.
+            Utilizaremos los datos para responder consultas, gestionar listas de interés, evaluar incorporaciones a la red de
+            mentoras, informar convocatorias y diseñar programas acordes a las necesidades expresadas. No venderemos datos
+            personales.
           </p>
           <h2>El asistente del taller</h2>
           <p>

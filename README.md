@@ -139,7 +139,7 @@ discreta desde el menú, el pie y la sección de contacto.
 
 ## Formularios → Google Sheets
 
-Los formularios (`components/ParticipantsForm.js` y
+Los formularios (`components/ParticipantsForm.js`, `components/MentorsForm.js` y
 `components/OrganizationsForm.js`) envían sus datos a una planilla mediante una
 aplicación web de Google Apps Script. Mientras `forms.endpoint` esté vacío en
 `lib/site-content.js`, los formularios validan y agradecen, pero **no guardan
@@ -153,7 +153,7 @@ Para conectarlos, una sola vez:
    *Ejecutar como: yo* y *Quién tiene acceso: cualquier persona*.
 4. Copia la URL que termina en `/exec` y pégala en `forms.endpoint` en `lib/site-content.js`.
 
-Cada formulario escribe en su propia hoja (`Participantes` y `Organizaciones`),
+Cada formulario escribe en su propia hoja (`Participantes`, `Mentoras` y `Organizaciones`),
 que se crea sola la primera vez, igual que sus columnas: si mañana un formulario
 suma un campo, aparece una columna nueva sin tocar el script.
 

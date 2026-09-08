@@ -6,6 +6,7 @@ import TestimonialSection from "@/components/TestimonialSection";
 import ImpactGrid from "@/components/ImpactGrid";
 import PeopleGrid from "@/components/PeopleGrid";
 import ParticipantsForm from "@/components/ParticipantsForm";
+import MentorsForm from "@/components/MentorsForm";
 import StructuredData from "@/components/StructuredData";
 import { siteContent } from "@/lib/site-content";
 import { HOME_NAV_ITEMS, EXPLORA_FOOTER_LINKS_HOME, infoFooterLinks } from "@/lib/nav";
@@ -379,9 +380,24 @@ export default async function HomePage({ searchParams }) {
             <PeopleGrid people={people} />
             <div className="network-cta">
               <p>¿Tienes experiencia que pueda abrir nuevas posibilidades para otras mujeres?</p>
-              <a className="btn btn-light" href="#contacto">
+              <a className="btn btn-light" href="#mentoras">
                 Quiero sumarme como profesora o mentora
               </a>
+            </div>
+            <div className="mentor-form-layout" id="mentoras">
+              <div className="mentor-form-intro">
+                <p className="eyebrow">Súmate a la red</p>
+                <h3>Queremos conocer tu experiencia</h3>
+                <p>
+                  Buscamos mujeres que quieran compartir lo que saben y acompañar a otras a crear nuevas posibilidades con
+                  tecnología. Cuéntanos sobre tu trayectoria y cómo te gustaría aportar.
+                </p>
+                <p className="fine-print">
+                  Enviar este formulario manifiesta tu interés; conversaremos contigo cuando exista una oportunidad que conecte con
+                  tu experiencia y disponibilidad.
+                </p>
+              </div>
+              <MentorsForm />
             </div>
           </div>
         </section>

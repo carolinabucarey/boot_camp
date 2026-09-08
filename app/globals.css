@@ -294,6 +294,10 @@ p { margin: 0; }
 .person-links a { color: var(--rose-700); font-size: .8rem; font-weight: 700; }
 .network-cta { display: flex; align-items: center; justify-content: space-between; gap: 25px; margin-top: 32px; padding: 26px 30px; border-radius: 24px; color: var(--white); background: var(--plum-900); }
 .network-cta p { max-width: 650px; color: rgba(255,255,255,.72); }
+.mentor-form-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 5vw, 70px); align-items: start; margin-top: 48px; padding: clamp(28px, 5vw, 58px); border-radius: 32px; background: var(--lav-100); scroll-margin-top: 100px; }
+.mentor-form-intro { position: sticky; top: 110px; }
+.mentor-form-intro h3 { margin: 8px 0 18px; font-size: clamp(2rem, 4vw, 3.2rem); }
+.mentor-form-intro .fine-print { margin-top: 20px; }
 
 .contact-layout { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
 .contact-layout .contact-intro { margin-bottom: 0; }
@@ -553,6 +557,8 @@ p { margin: 0; }
   .people-grid { grid-template-columns: 1fr; }
   .contact-layout { grid-template-columns: 1fr; }
   .contact-layout .contact-intro { margin-bottom: 8px; }
+  .mentor-form-layout { grid-template-columns: 1fr; }
+  .mentor-form-intro { position: static; }
   .forms-grid { grid-template-columns: 1fr; }
   .form-card.institutional { margin-top: 12px; }
   .info-panel { position: static; }
