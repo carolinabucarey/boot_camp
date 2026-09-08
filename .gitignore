@@ -4,3 +4,9 @@ node_modules
 out
 dist
 *.log
+
+# Variables locales
+.env.local
+
+# Preferencias locales de Claude Code (launch.json sí se comparte)
+.claude/settings.local.json
