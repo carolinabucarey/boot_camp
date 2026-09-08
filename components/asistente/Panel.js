@@ -48,7 +48,7 @@ export default function Panel({
         />
         <div>
           <p className="asistente-titulo">Asistente de Maile</p>
-          <p className="asistente-estado">Material del taller {TALLER}</p>
+          <p className="asistente-estado">{TALLER}</p>
         </div>
         <button type="button" className="asistente-cerrar" onClick={onCerrar} aria-label="Cerrar el asistente">
           <span aria-hidden="true">×</span>
