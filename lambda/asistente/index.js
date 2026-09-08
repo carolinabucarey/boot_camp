@@ -108,6 +108,20 @@ export const handler = awslambda.streamifyResponse(async (evento, stream) => {
     const resultado = validarCodigo(codigo, { codigos: leerCodigos(secretos.codigos) });
 
     if (!resultado.valido) {
+      /* Se registra el intento fallido para poder responder «no puedo entrar»
+       * mirando los logs. No se guarda el código completo —es una credencial—
+       * sino lo justo para distinguir un tipeo de un código que no existe. */
+      const intento = String(codigo ?? "").trim().toUpperCase();
+      console.log(
+        JSON.stringify({
+          acceso: "rechazado",
+          motivo: resultado.motivo,
+          largo: intento.length,
+          prefijo: intento.slice(0, 6),
+          codigosConfigurados: Object.keys(leerCodigos(secretos.codigos)).length
+        })
+      );
+
       /* Estado de invitación: se explica qué es el asistente y quién accede.
        * No se llama al modelo. */
       return json(stream, 403, {
@@ -119,6 +133,7 @@ export const handler = awslambda.streamifyResponse(async (evento, stream) => {
       });
     }
 
+    console.log(JSON.stringify({ acceso: "concedido", codigo: resultado.codigo }));
     return json(stream, 200, {
       token: emitirToken({ ...resultado, secreto: secretos.tokenSecreto }),
       expira: resultado.expira
