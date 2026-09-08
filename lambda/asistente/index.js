@@ -25,13 +25,14 @@ import {
 import { armarInforme } from "./lib/asistente/informe.js";
 import { timingSafeEqual } from "node:crypto";
 
-const ORIGEN = process.env.ORIGEN_PERMITIDO ?? "https://www.maile.cl";
-
-const CABECERAS = {
-  "access-control-allow-origin": ORIGEN,
-  "access-control-allow-credentials": "true",
-  "cache-control": "no-store"
-};
+/*
+ * Acá NO van cabeceras CORS. Las pone la configuración Cors de la URL de
+ * función, y si además las escribe el handler el navegador recibe
+ * access-control-allow-origin dos veces y rechaza la respuesta entera:
+ * «contains multiple values, but only one is allowed». El origen permitido se
+ * cambia en la plantilla, no en este archivo.
+ */
+const CABECERAS = { "cache-control": "no-store" };
 
 function abrir(stream, estado, tipo) {
   return awslambda.HttpResponseStream.from(stream, {
@@ -87,7 +88,7 @@ export const handler = awslambda.streamifyResponse(async (evento, stream) => {
   const ruta = evento.requestContext?.http?.path ?? "/";
   const metodo = evento.requestContext?.http?.method ?? "GET";
 
-  if (metodo === "OPTIONS") return json(stream, 204, {});
+  /* El preflight lo responde la propia URL de función; nunca llega acá. */
 
   if (ruta === "/salud") {
     return json(stream, 200, {
