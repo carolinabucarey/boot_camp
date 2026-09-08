@@ -41,10 +41,30 @@ export default function PrivacidadPage() {
             Utilizaremos los datos para responder consultas, gestionar listas de interés, informar convocatorias y diseñar
             programas acordes a las necesidades expresadas. No venderemos datos personales.
           </p>
+          <h2>El asistente del taller</h2>
+          <p>
+            Quienes participaron en un taller acceden, con un código de cohorte, a un asistente conversacional dentro del sitio.
+            Ese asistente no solicita nombre, correo ni teléfono, y el acceso no identifica a cada participante: el código es de
+            la cohorte completa.
+          </p>
+          <p>
+            Guardamos las preguntas y las respuestas de esas conversaciones, junto con la valoración que cada persona deje sobre
+            si la respuesta le sirvió. Lo hacemos para mejorar el material del taller con lo que realmente se pregunta. Como el
+            texto lo escribe quien consulta, puede contener información de su proyecto: te pedimos no escribir ahí datos
+            personales, de terceros ni información confidencial.
+          </p>
+          <p>
+            Estos registros se conservan un máximo de 180 días y luego se eliminan automáticamente. Solo accede a ellos el equipo
+            que prepara los talleres.
+          </p>
           <h2>Dónde se guardan</h2>
           <p>
             Los datos enviados desde los formularios se almacenan en una planilla de Google Sheets administrada por el equipo de la
             iniciativa, a la que solo accede quien gestiona las convocatorias. El envío se realiza mediante Google Apps Script.
+          </p>
+          <p>
+            Las conversaciones del asistente se almacenan en una base de datos de Amazon Web Services alojada en Estados Unidos, y
+            las respuestas las genera Claude, de Anthropic, a través de Amazon Bedrock.
           </p>
           <h2>Conservación y derechos</h2>
           <p>
