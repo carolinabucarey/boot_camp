@@ -1021,3 +1021,23 @@ p { margin: 0; }
 .admin-pregunta { margin: 0; color: var(--ink); font-size: .92rem; line-height: 1.5; }
 .admin-comentario { margin: 6px 0 0; color: var(--rose-700); font-size: .86rem; font-style: italic; }
 .admin-fecha { margin: 6px 0 0; color: var(--ink-soft); font-family: var(--mono); font-size: .66rem; }
+
+/* Markdown dentro de la burbuja: listas de pasos, código en línea y enlaces.
+   El asistente no devuelve bloques de código —la instrucción se lo prohíbe—,
+   así que acá solo hay estilos para lo que de verdad aparece. */
+.asistente-burbuja ul,
+.asistente-burbuja ol {
+  margin: .6em 0 0;
+  padding-left: 1.15em;
+}
+.asistente-burbuja li { margin-top: .25em; }
+.asistente-burbuja li::marker { color: var(--rose-600); font-size: .9em; }
+.asistente-burbuja strong { font-weight: 700; }
+.asistente-burbuja code {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: var(--white);
+  font-family: var(--mono);
+  font-size: .85em;
+}
+.asistente-burbuja a { color: var(--rose-700); text-decoration: underline; overflow-wrap: anywhere; }

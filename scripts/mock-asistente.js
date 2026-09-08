@@ -12,13 +12,16 @@ import { createServer } from "node:http";
 
 const PUERTO = Number(process.env.PUERTO_MOCK ?? 3100);
 
-const RESPUESTA = `Revisa en este orden.
+/* Con markdown a propósito: es lo que devuelve el modelo de verdad. */
+const RESPUESTA = `Revisa en **este orden**:
 
-Primero, si el cambio llegó a la rama de producción: publicar no es guardar el archivo, es que el cambio llegue a main.
+1. ¿El cambio llegó a la rama de producción? Publicar no es guardar el archivo: es que el cambio llegue a \`main\`.
+2. ¿Estás mirando la dirección correcta? Cada rama recibe su propia dirección temporal.
+3. ¿Terminó el despliegue?
 
-Después, si estás mirando la dirección correcta. Cada rama que no es la de producción recibe su propia dirección temporal.
+Si nada de eso calza, escríbeles por https://wa.me/56990195787 y te ayudamos.
 
-¿En cuál de las dos te quedaste?`;
+¿En cuál de las tres te quedaste?`;
 
 createServer(async (peticion, respuesta) => {
   const cabeceras = {

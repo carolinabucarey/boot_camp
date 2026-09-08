@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Markdown from "./Markdown";
 import { AVATARES } from "./constantes";
 
 /*
@@ -46,9 +47,7 @@ export default function Mensaje({ rol, texto, primero, turno, onFeedback }) {
       <div className="asistente-columna">
         {primero && <p className="asistente-firma">Asistente de Maile</p>}
         <div className="asistente-burbuja asistente-burbuja--asistente">
-          {texto.split("\n\n").map((parrafo, i) => (
-            <p key={i}>{parrafo}</p>
-          ))}
+          <Markdown texto={texto} />
         </div>
 
         {onFeedback && texto && (
