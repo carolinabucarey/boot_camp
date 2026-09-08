@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import SecureBadgeHeader from "@/components/SecureBadgeHeader";
 import PagoClient from "@/components/PagoClient";
-import { getProgramBySlug } from "@/lib/site-content";
+import { getProgramBySlug, siteContent } from "@/lib/site-content";
 
 export const metadata = {
   title: "Reserva tu cupo | Maile",
@@ -13,6 +13,7 @@ export default async function PagoPage({ searchParams }) {
   const params = await searchParams;
   const program = getProgramBySlug(params?.programa);
   if (!program) redirect("/#programas");
+  const { email } = siteContent.brand;
 
   return (
     <div className="payment-page">
@@ -51,8 +52,13 @@ export default async function PagoPage({ searchParams }) {
         <span>
           ¿Tienes dudas?{" "}
           <a href="https://wa.me/56990195787" target="_blank" rel="noopener noreferrer">
-            Escríbenos
+            Escríbenos por WhatsApp
           </a>
+          {email ? (
+            <>
+              {" "}o a <a href={`mailto:${email}`}>{email}</a>
+            </>
+          ) : null}
         </span>
       </footer>
     </div>

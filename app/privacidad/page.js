@@ -1,4 +1,5 @@
 import Wordmark from "@/components/Wordmark";
+import { siteContent } from "@/lib/site-content";
 
 export const metadata = {
   title: "Política de privacidad | Maile",
@@ -7,6 +8,8 @@ export const metadata = {
 };
 
 export default function PrivacidadPage() {
+  const { email } = siteContent.brand;
+
   return (
     <>
       <a className="skip-link" href="#contenido">
@@ -73,7 +76,13 @@ export default function PrivacidadPage() {
           </p>
           <h2>Contacto</h2>
           <p>
-            Para consultas sobre privacidad, contáctanos por{" "}
+            {email ? (
+              <>
+                Para consultas sobre privacidad, escríbenos a <a href={`mailto:${email}`}>{email}</a> o contáctanos por{" "}
+              </>
+            ) : (
+              "Para consultas sobre privacidad, contáctanos por "
+            )}
             <a href="https://wa.me/56990195787" target="_blank" rel="noopener noreferrer">
               WhatsApp
             </a>{" "}

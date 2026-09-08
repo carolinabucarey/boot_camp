@@ -1,4 +1,5 @@
 import Wordmark from "@/components/Wordmark";
+import { siteContent } from "@/lib/site-content";
 
 export const metadata = {
   title: "Términos | Maile",
@@ -7,6 +8,8 @@ export const metadata = {
 };
 
 export default function TerminosPage() {
+  const { email } = siteContent.brand;
+
   return (
     <>
       <a className="skip-link" href="#contenido">
@@ -49,7 +52,13 @@ export default function TerminosPage() {
           </p>
           <h2>Contacto</h2>
           <p>
-            Para consultas, contáctanos por{" "}
+            {email ? (
+              <>
+                Para consultas, escríbenos a <a href={`mailto:${email}`}>{email}</a> o contáctanos por{" "}
+              </>
+            ) : (
+              "Para consultas, contáctanos por "
+            )}
             <a href="https://wa.me/56990195787" target="_blank" rel="noopener noreferrer">
               WhatsApp
             </a>{" "}
