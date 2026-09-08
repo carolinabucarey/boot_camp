@@ -926,3 +926,96 @@ p { margin: 0; }
   font-size: .78rem;
 }
 
+/* ── Vista de administración del asistente ───────────────────────────────── */
+
+.admin { padding: 48px 0 80px; }
+.admin h1 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.admin-cohorte {
+  margin: 4px 0 28px;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: .72rem;
+  letter-spacing: .04em;
+}
+.admin-aviso { color: var(--rose-700); }
+.admin-vacio { color: var(--ink-soft); font-size: .9rem; }
+.admin-ayuda { max-width: 60ch; margin: 0 0 14px; color: var(--ink-soft); font-size: .88rem; }
+.admin code {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: var(--lav-100);
+  font-family: var(--mono);
+  font-size: .85em;
+}
+
+.admin-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.admin-tarjeta {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+}
+.admin-tarjeta-valor {
+  margin: 0;
+  color: var(--plum-900);
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1;
+}
+.admin-tarjeta-etiqueta {
+  margin: 6px 0 0;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: .68rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.admin-tarjeta-nota { margin: 6px 0 0; color: var(--ink-soft); font-size: .74rem; line-height: 1.4; }
+
+.admin-seccion { margin-bottom: 44px; }
+.admin-seccion h2 { margin: 0 0 6px; font-size: 1.15rem; }
+
+.admin-tabla { width: 100%; max-width: 460px; border-collapse: collapse; font-size: .9rem; }
+.admin-tabla th, .admin-tabla td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+.admin-tabla th {
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: .66rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.admin-tabla td:not(:first-child), .admin-tabla th:not(:first-child) { text-align: right; }
+
+.admin-temas { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.admin-temas li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1px solid var(--lav-300);
+  border-radius: 999px;
+  background: var(--lav-100);
+  color: var(--plum-700);
+  font-size: .84rem;
+}
+.admin-temas-veces { color: var(--ink-soft); font-family: var(--mono); font-size: .7rem; }
+
+.admin-preguntas { display: flex; flex-direction: column; gap: 12px; padding: 0; margin: 0; list-style: none; }
+.admin-preguntas li {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+}
+.admin-pregunta { margin: 0; color: var(--ink); font-size: .92rem; line-height: 1.5; }
+.admin-comentario { margin: 6px 0 0; color: var(--rose-700); font-size: .86rem; font-style: italic; }
+.admin-fecha { margin: 6px 0 0; color: var(--ink-soft); font-family: var(--mono); font-size: .66rem; }
