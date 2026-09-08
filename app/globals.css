@@ -653,8 +653,10 @@ p { margin: 0; }
   z-index: 60;
   display: grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  /* El §8 pedía 56 px. Se subió a 64 a pedido: en la portada, con la foto de
+     Carolina dentro, 56 se veía chico contra el resto de la página. */
+  width: 64px;
+  height: 64px;
   padding: 0;
   border: 0;
   border-radius: 50%;
