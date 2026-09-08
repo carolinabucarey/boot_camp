@@ -1,0 +1,182 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Asistente post curso de Maile. Pila propia y aislada: todo lo que crea se
+  llama maile-asistente-* y lleva las etiquetas Project=maile y
+  Component=asistente. No lee, escribe ni referencia ningún recurso existente
+  de la cuenta.
+
+Parameters:
+  OrigenPermitido:
+    Type: String
+    Default: https://www.maile.cl
+    Description: Origen del sitio que puede llamar a la función.
+  RetencionLogsDias:
+    Type: Number
+    Default: 30
+  DiasRetencionConversacion:
+    Type: Number
+    Default: 180
+    Description: Informativo. El TTL lo escribe la función en cada registro.
+
+Resources:
+  # Registro de conversaciones y contadores de uso. Sin datos personales.
+  # El TTL borra solo los registros vencidos; no hay proceso de limpieza.
+  TablaRegistro:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: maile-asistente-registro
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      TimeToLiveSpecification:
+        AttributeName: expira
+        Enabled: true
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: false
+      Tags:
+        - Key: Project
+          Value: maile
+        - Key: Component
+          Value: asistente
+
+  GrupoLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/lambda/maile-asistente
+      RetentionInDays: !Ref RetencionLogsDias
+      Tags:
+        - Key: Project
+          Value: maile
+        - Key: Component
+          Value: asistente
+
+  RolAsistente:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: maile-asistente-ejecucion
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: maile-asistente-permisos
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !GetAtt GrupoLogs.Arn
+              - Effect: Allow
+                Action:
+                  - dynamodb:GetItem
+                  - dynamodb:PutItem
+                  - dynamodb:UpdateItem
+                  - dynamodb:Query
+                Resource: !GetAtt TablaRegistro.Arn
+              # El modelo se consume por Bedrock: el gasto pasa por AWS y la
+              # función se autentica con este rol, sin clave de API que guardar.
+              # Se invoca por perfil de inferencia, que enruta a varias
+              # regiones: hace falta permiso sobre el perfil y sobre los
+              # modelos base de destino.
+              - Effect: Allow
+                Action:
+                  - bedrock:InvokeModel
+                  - bedrock:InvokeModelWithResponseStream
+                Resource:
+                  - !Sub arn:aws:bedrock:*::foundation-model/anthropic.claude-haiku-4-5*
+                  - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/us.anthropic.claude-haiku-4-5*
+              # Los códigos de cohorte y el secreto de firma viven acá,
+              # cifrados, y se leen en tiempo de ejecución. Nunca en una
+              # variable de entorno de la función ni en el repositorio.
+              - Effect: Allow
+                Action:
+                  - ssm:GetParameter
+                  - ssm:GetParameters
+                Resource: !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/maile/asistente/*
+              - Effect: Allow
+                Action: kms:Decrypt
+                Resource: !Sub arn:aws:kms:${AWS::Region}:${AWS::AccountId}:key/*
+                Condition:
+                  StringEquals:
+                    kms:ViaService: !Sub ssm.${AWS::Region}.amazonaws.com
+      Tags:
+        - Key: Project
+          Value: maile
+        - Key: Component
+          Value: asistente
+
+  FuncionAsistente:
+    Type: AWS::Lambda::Function
+    DependsOn: GrupoLogs
+    Properties:
+      FunctionName: maile-asistente
+      Runtime: nodejs22.x
+      Handler: index.handler
+      Role: !GetAtt RolAsistente.Arn
+      # El código se sube empaquetado con desplegar.sh; /content viaja dentro
+      # del paquete y se lee con fs desde /var/task.
+      Code:
+        S3Bucket: !Sub maile-asistente-artefactos-${AWS::AccountId}
+        S3Key: asistente.zip
+      MemorySize: 512
+      Timeout: 60
+      LoggingConfig:
+        LogGroup: !Ref GrupoLogs
+      Environment:
+        Variables:
+          TABLA_REGISTRO: !Ref TablaRegistro
+          ORIGEN_PERMITIDO: !Ref OrigenPermitido
+          DIAS_RETENCION_CONVERSACION: !Ref DiasRetencionConversacion
+      Tags:
+        - Key: Project
+          Value: maile
+        - Key: Component
+          Value: asistente
+
+  # RESPONSE_STREAM es lo que permite que la alumna vea el texto aparecer.
+  # API Gateway no transmite en streaming; la URL de función sí.
+  # NONE: el widget la llama desde el navegador de cada alumna. La protección
+  # no está en la red sino en la aplicación —código de cohorte, límites de uso
+  # y de tasa—. Los dos permisos que esto necesita los pone desplegar.sh:
+  # desde octubre de 2025 las URLs de función exigen lambda:InvokeFunctionUrl
+  # Y lambda:InvokeFunction, y la condición del segundo
+  # (lambda:InvokedViaFunctionUrl) no se puede expresar en AWS::Lambda::Permission.
+  UrlAsistente:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt FuncionAsistente.Arn
+      AuthType: NONE
+      InvokeMode: RESPONSE_STREAM
+      Cors:
+        AllowOrigins:
+          - !Ref OrigenPermitido
+        AllowMethods:
+          - POST
+          - GET
+        AllowHeaders:
+          - content-type
+          - authorization
+        AllowCredentials: true
+        MaxAge: 3600
+
+Outputs:
+  UrlDelAsistente:
+    Description: Dirección que consume el widget desde maile.cl
+    Value: !GetAtt UrlAsistente.FunctionUrl
+  NombreTabla:
+    Value: !Ref TablaRegistro
+  NombreFuncion:
+    Value: !Ref FuncionAsistente

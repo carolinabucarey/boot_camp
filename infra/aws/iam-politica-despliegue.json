@@ -1,0 +1,111 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Recursos",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:*",
+        "dynamodb:*",
+        "logs:*",
+        "ssm:*",
+        "s3:*",
+        "cloudformation:*"
+      ],
+      "Resource": [
+        "arn:aws:lambda:us-east-1:*:function:maile-asistente*",
+        "arn:aws:dynamodb:us-east-1:*:table/maile-asistente*",
+        "arn:aws:logs:us-east-1:*:log-group:/aws/lambda/maile-asistente*",
+        "arn:aws:logs:us-east-1:*:log-group:/aws/lambda/maile-asistente*:*",
+        "arn:aws:ssm:us-east-1:*:parameter/maile/asistente/*",
+        "arn:aws:s3:::maile-asistente-*",
+        "arn:aws:s3:::maile-asistente-*/*",
+        "arn:aws:cloudformation:us-east-1:*:stack/maile-asistente/*"
+      ]
+    },
+    {
+      "Sid": "RolEjecucion",
+      "Effect": "Allow",
+      "Action": [
+        "iam:*Role*",
+        "iam:PassRole"
+      ],
+      "Resource": "arn:aws:iam::*:role/maile-asistente-*"
+    },
+    {
+      "Sid": "DescifrarParametros",
+      "Effect": "Allow",
+      "Action": "kms:Decrypt",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "ssm.us-east-1.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "SinRecurso",
+      "Effect": "Allow",
+      "Action": [
+        "sts:GetCallerIdentity",
+        "cloudformation:ValidateTemplate",
+        "cloudformation:GetTemplateSummary",
+        "logs:DescribeLogGroups",
+        "ssm:DescribeParameters",
+        "s3:ListAllMyBuckets",
+        "cloudtrail:LookupEvents",
+        "bedrock:ListFoundationModels",
+        "bedrock:ListInferenceProfiles"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CrearYLeerCF",
+      "Effect": "Allow",
+      "Action": [
+        "cloudfront:Create*",
+        "cloudfront:Get*",
+        "cloudfront:List*",
+        "cloudfront:TagResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ModificarSoloMaile",
+      "Effect": "Allow",
+      "Action": [
+        "cloudfront:Update*",
+        "cloudfront:Delete*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/Project": "maile"
+        }
+      }
+    },
+    {
+      "Sid": "LecturaOrgYCostos",
+      "Effect": "Allow",
+      "Action": [
+        "organizations:Describe*",
+        "organizations:List*",
+        "ce:ListCostAllocationTags",
+        "ce:UpdateCostAllocationTagsStatus"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "InvocarModelo",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:InvokeModel",
+        "bedrock:InvokeModelWithResponseStream"
+      ],
+      "Resource": [
+        "arn:aws:bedrock:*::foundation-model/anthropic.claude-haiku-4-5*",
+        "arn:aws:bedrock:us-east-1:*:inference-profile/us.anthropic.claude-haiku-4-5*"
+      ]
+    }
+  ]
+}
