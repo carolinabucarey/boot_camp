@@ -1,5 +1,6 @@
 import "./globals.css";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
+import Asistente from "@/components/asistente/Asistente";
 
 export const metadata = {
   metadataBase: new URL("https://www.maile.cl"),
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         />
         <AnalyticsTracker />
         {children}
+        <Asistente />
       </body>
     </html>
   );
