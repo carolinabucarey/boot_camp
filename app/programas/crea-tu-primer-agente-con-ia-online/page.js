@@ -11,7 +11,7 @@ const program = getProgramBySlug("crea-tu-primer-agente-con-ia-online");
 
 export const metadata = {
   title: "Crea tu primer agente con IA — Edición online | Maile",
-  description: "Crea una primera versión de tu propio agente de IA en dos sesiones online en vivo, el 1 y 2 de octubre de 2026. Nivel inicial, sin programación.",
+  description: "Crea una primera versión de tu propio agente de IA en dos sesiones online en vivo, el 5 y 6 de octubre de 2026. Nivel inicial, sin programación.",
   robots: "index,follow,max-image-preview:large",
   alternates: { canonical: "/programas/crea-tu-primer-agente-con-ia-online" },
   openGraph: {
@@ -28,7 +28,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Crea tu primer agente con IA — Edición online | Maile",
-    description: "1 y 2 de octubre de 2026 · Online en vivo · Nivel inicial · $70.000 CLP.",
+    description: "5 y 6 de octubre de 2026 · Online en vivo · Nivel inicial · $70.000 CLP.",
     images: [{ url: "https://www.maile.cl/assets/og-social.png", alt: "Programa Crea tu primer agente con IA — Edición online de Maile" }]
   }
 };
@@ -59,8 +59,8 @@ const STRUCTURED_DATA = {
       hasCourseInstance: {
         "@type": "CourseInstance",
         courseMode: "Online",
-        startDate: "2026-10-01T19:00:00-03:00",
-        endDate: "2026-10-02T21:00:00-03:00",
+        startDate: "2026-10-05T18:45:00-03:00",
+        endDate: "2026-10-06T20:45:00-03:00",
         offers: {
           "@type": "Offer",
           price: "70000",
@@ -74,8 +74,8 @@ const STRUCTURED_DATA = {
       "@type": "Event",
       name: "Crea tu primer agente con IA — Edición online",
       description: "Dos sesiones online en vivo para crear y probar una primera versión de un agente de IA propio.",
-      startDate: "2026-10-01T19:00:00-03:00",
-      endDate: "2026-10-02T21:00:00-03:00",
+      startDate: "2026-10-05T18:45:00-03:00",
+      endDate: "2026-10-06T20:45:00-03:00",
       eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
       eventStatus: "https://schema.org/EventScheduled",
       location: { "@type": "VirtualLocation", url: "https://www.maile.cl/programas/crea-tu-primer-agente-con-ia-online" },
@@ -129,7 +129,7 @@ export default function ProgramaAgenteIaOnlinePage() {
             <p className="eyebrow">Inscripciones abiertas · Edición online</p>
             <h1>{program.name}</h1>
             <p className="lead">{program.promise}</p>
-            <p className="hero-support">Jueves 1 y viernes 2 de octubre de 2026 · 19:00 a 21:00 horas, horario de Chile · $70.000 CLP</p>
+            <p className="hero-support">Lunes 5 y martes 6 de octubre de 2026 · 18:45 a 20:45 horas, horario de Chile · $70.000 CLP</p>
             <div className="button-row">
               <a className="btn btn-light btn-arrow" href={cta.href}>
                 {cta.label || "Reservar mi cupo"}
@@ -173,7 +173,7 @@ export default function ProgramaAgenteIaOnlinePage() {
                         <p className="eyebrow">Día 1</p>
                         <h3>Descubrimiento y fundamentos</h3>
                       </div>
-                      <span className="session-date">Jueves 1 · 19:00–21:00</span>
+                      <span className="session-date">Lunes 5 · 18:45–20:45</span>
                     </header>
                     <p>De una necesidad real a una idea de solución.</p>
                     <ul className="check-list">
@@ -196,7 +196,7 @@ export default function ProgramaAgenteIaOnlinePage() {
                         <p className="eyebrow">Día 2</p>
                         <h3>Manos a la obra</h3>
                       </div>
-                      <span className="session-date">Viernes 2 · 19:00–21:00</span>
+                      <span className="session-date">Martes 6 · 18:45–20:45</span>
                     </header>
                     <p>De la idea a una primera versión creada por ti.</p>
                     <ul className="check-list">
@@ -320,7 +320,7 @@ export default function ProgramaAgenteIaOnlinePage() {
           <div className="container section-header center">
             <p className="eyebrow">Da el primer paso</p>
             <h2>Trabaja sobre un objetivo real y crea una solución que puedas utilizar</h2>
-            <p className="lead">Dos sesiones online en vivo · 1 y 2 de octubre · $70.000 CLP</p>
+            <p className="lead">Dos sesiones online en vivo · 5 y 6 de octubre · $70.000 CLP</p>
             <div className="button-row center-buttons">
               <a className="btn btn-light btn-arrow" href={cta.href}>
                 {cta.label || "Reservar mi cupo"}
