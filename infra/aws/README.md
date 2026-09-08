@@ -28,11 +28,16 @@ clave de API que guardar ni rotar.
 Quedan dos secretos, en Parameter Store cifrados, nunca en el repositorio.
 **Estos comandos los corres tú**: no pasan por la conversación.
 
+El código de cohorte es el que reciben las alumnas, así que **no lo escribas en
+la línea de comandos**: queda en el historial del shell. Este comando te lo pide
+oculto:
+
 ```bash
-# Códigos de cohorte y su vencimiento, en JSON.
+# Códigos de cohorte y su vencimiento. El código se escribe oculto.
+read -s -p "Código de la cohorte: " C && echo && read -p "Vence (AAAA-MM-DD): " V && \
 aws ssm put-parameter --profile maile --region us-east-1 \
-  --name /maile/asistente/codigos --type SecureString \
-  --value '{"MAILE-AG26":"2026-11-07"}'
+  --name /maile/asistente/codigos --type SecureString --overwrite \
+  --value "{\"$C\":\"$V\"}"
 
 # Secreto para firmar los tokens de sesión. Que lo genere el sistema:
 aws ssm put-parameter --profile maile --region us-east-1 \
@@ -53,7 +58,7 @@ El sitio necesita tres variables de entorno:
 |---|---|
 | `NEXT_PUBLIC_ASISTENTE_URL` | La dirección que devuelve el despliegue |
 | `ASISTENTE_ADMIN_CLAVE` | Protege `/admin/asistente` y autentica contra el endpoint. Debe coincidir con el parámetro del mismo nombre |
-| `ASISTENTE_COHORTE_ACTUAL` | Qué cohorte muestra `/admin` por defecto |
+| `ASISTENTE_COHORTE_ACTUAL` | Qué cohorte muestra `/admin` por defecto. Tiene que coincidir **exactamente** con una clave del JSON de `codigos`; si no coincide, la página no da error, muestra el informe vacío |
 
 `/admin/asistente` pide usuario `maile` y esa clave.
 
@@ -85,7 +90,7 @@ El link se manda al grupo de WhatsApp que ya existe. Lleva el código de la
 cohorte y el widget lo canjea solo:
 
 ```
-https://www.maile.cl/?asistente=MAILE-AG26
+https://www.maile.cl/?asistente=EL-CODIGO-DE-LA-COHORTE
 ```
 
 Al abrirlo, el panel se despliega, el código se canjea por un token de sesión y
@@ -113,3 +118,36 @@ guarda como huella con HMAC, nunca en claro. Si la tabla falla, se deja pasar:
 preferimos una conversación de más a dejar a la cohorte sin asistente.
 
 El día se corta en horario de Chile, no a medianoche UTC.
+
+## Comprobar que el código cargado es el que estás repartiendo
+
+Un código mal cargado no da ningún síntoma para quien ya entró: el token
+guardado en el navegador sigue funcionando, así que quien lo configuró puede
+entrar mientras nadie más puede. Antes de repartirlo, compruébalo contra el
+endpoint real:
+
+```bash
+read -s -p "Pega el código que repartes: " C && echo && \
+curl -s -o /dev/null -w "%{http_code}\n" -X POST \
+  https://soskrfwyhr3jxink7yyjujo7ei0pqxhv.lambda-url.us-east-1.on.aws/acceso \
+  -H 'content-type: application/json' -d "{\"codigo\":\"$C\"}" \
+  | sed 's/200/SIRVE/; s/403/NO SIRVE/'
+```
+
+Y para ver por qué falla un intento concreto:
+
+```bash
+aws logs tail /aws/lambda/maile-asistente --since 15m --profile maile \
+  --region us-east-1 --filter-pattern acceso
+```
+
+`motivo: desconocido` es un código que no está cargado; `motivo: vencido` es uno
+que existe pero pasó su fecha. Si no aparece ninguna línea, la petición no llegó
+y el problema está en el navegador de quien intenta, no en el asistente.
+
+## Cambiar un código no corta las sesiones abiertas
+
+El token se verifica por su firma y su vencimiento, no contra la lista de
+códigos. Quien ya entró sigue dentro aunque su código se reemplace. Para cortar
+acceso de verdad hay que rotar `/maile/asistente/token-secreto`, lo que invalida
+todas las sesiones a la vez.
