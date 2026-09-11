@@ -4,7 +4,8 @@ import { siteContent } from "@/lib/site-content";
 export const metadata = {
   title: "Términos | Maile",
   description: "Términos generales de participación y uso del sitio de Maile.",
-  robots: "noindex,follow"
+  robots: "noindex,follow",
+  alternates: { canonical: "/terminos" }
 };
 
 export default function TerminosPage() {

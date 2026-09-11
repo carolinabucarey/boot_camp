@@ -4,7 +4,8 @@ import { siteContent } from "@/lib/site-content";
 export const metadata = {
   title: "Gracias por tu compra | Maile",
   description: "Tu compra fue realizada. Únete al grupo de WhatsApp para recibir toda la información de tu experiencia Maile.",
-  robots: "noindex,nofollow"
+  robots: "noindex,nofollow",
+  alternates: { canonical: "/gracias-por-tu-compra" }
 };
 
 export default function GraciasPorTuCompraPage() {

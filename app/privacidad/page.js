@@ -4,7 +4,8 @@ import { siteContent } from "@/lib/site-content";
 export const metadata = {
   title: "Política de privacidad | Maile",
   description: "Información sobre el tratamiento de datos personales en Maile.",
-  robots: "noindex,follow"
+  robots: "noindex,follow",
+  alternates: { canonical: "/privacidad" }
 };
 
 export default function PrivacidadPage() {

@@ -7,7 +7,7 @@ export default function PeopleGrid({ people }) {
             <div className="person-header">
               <div className="person-visual">
                 {person.image ? (
-                  <img src={person.image} alt={person.imageAlt} loading="lazy" />
+                  <img src={person.image} alt={person.imageAlt} width={600} height={800} loading="lazy" />
                 ) : (
                   <span aria-label={`Perfil de ${person.name}`}>{person.initials}</span>
                 )}
